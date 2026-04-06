@@ -610,9 +610,34 @@
 
     <!-- Champs russe -->
     <div class="lang-fields" id="fields_ru">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Genre</label>
+          <select id="f_ru_genre">
+            <option value="">—</option>
+            <option value="masculin">Masculin</option>
+            <option value="féminin">Féminin</option>
+            <option value="neutre">Neutre</option>
+          </select>
+        </div>
+      </div>
       <div class="form-group">
         <label>Déclinaisons (optionnel)</label>
-        <textarea id="f_ru_decl" placeholder='{"Nominatif": "говорить", "Génitif": "говорения"}'></textarea>
+        <textarea id="f_ru_decl" placeholder='{"Nominatif": "работа", "Génitif": "работы"}'></textarea>
+      </div>
+    </div>
+
+    <!-- Champs portugais -->
+    <div class="lang-fields" id="fields_pt">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Genre</label>
+          <select id="f_pt_genre">
+            <option value="">—</option>
+            <option value="masculin">Masculin</option>
+            <option value="féminin">Féminin</option>
+          </select>
+        </div>
       </div>
     </div>
 
@@ -831,6 +856,15 @@ const INITIAL_DATA = [
     phrase_fr: "Je ne comprends pas le russe.",
     audio_word: "", audio_phrase: "", notes: ""
   },
+    {
+    id: "ru_007", lang: "ru", niveau: "Nouveau",
+    word: "песчаная буря", roman: "peschanaya burya",
+    translation: "Tempête de sable", category: "Nom", genre: "féminin",
+    phrase: "Я не понимаю по-русски.",
+    phrase_roman: "Ya ne ponimayu po-russki.",
+    phrase_fr: "Une tempête de sable s'est abattue.",
+    audio_word: "", audio_phrase: "", notes: ""
+  },
   // POLONAIS
   {
     id: "pl_001", lang: "pl", niveau: "Nouveau",
@@ -998,7 +1032,7 @@ function renderCard(w) {
   if (w.lang === 'ja' && w.subcat) {
     extraBadge = `<span class="ton-badge">${w.subcat}</span>`;
   }
-  if (w.lang === 'pl' && w.genre) {
+  if ((w.lang === 'pl' || w.lang === 'ru' || w.lang === 'pt') && w.genre) {
     extraBadge = `<span class="ton-badge">${w.genre}</span>`;
   }
 
@@ -1179,6 +1213,12 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   }
   if (lang === 'pl') {
     entry.genre = document.getElementById('f_pl_genre').value;
+  }
+  if (lang === 'ru') {
+    entry.genre = document.getElementById('f_ru_genre').value;
+  }
+  if (lang === 'pt') {
+    entry.genre = document.getElementById('f_pt_genre').value;
   }
 
   words.unshift(entry);
