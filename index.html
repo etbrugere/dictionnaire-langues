@@ -740,6 +740,16 @@ const INITIAL_DATA = [
     phrase_fr: "Demain, je vais à Tokyo.",
     audio_word: "", audio_phrase: "", notes: ""
   },
+    {
+    id: "ja_006", lang: "ja", niveau: "Nouveau",
+    word: "山脈", reading: "さんみゃく", roman: "sanmyaku",
+    translation: "Chaîne de montagnes", category: "Nom", 
+    phrase: "世界最大の山脈は、実は大西洋のど真ん中にある。",
+    phrase_reading: "せかいさいだいのさんみゃくは、じつはたいせいようのどまんなかにある。",
+    phrase_roman: "Sekai saidai no sanmyaku wa, jitsu wa Taiseiyō no do-mannaka ni aru.",
+    phrase_fr: "La plus grande chaîne de montagnes du monde se trouve en fait en plein milieu de l'océan Atlantique.",
+    audio_word: "audio/ja/sanmyaku.mp3", audio_phrase: "audio/ja/sanmyaku_phrase.mp3", notes: ""
+  },
   // MANDARIN
   {
     id: "zh_001", lang: "zh", niveau: "Nouveau",
@@ -1134,11 +1144,37 @@ function toggleCard(el) {
   el.classList.toggle('open');
 }
 
+let currentAudio = null;
+let currentBtn = null;
+
 function playAudio(btn, path) {
-  const audio = new Audio(path);
+  // Si on reclique sur le même bouton en cours de lecture → pause
+  if (currentBtn === btn && currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    btn.classList.remove('playing');
+    return;
+  }
+  // Si on reclique sur le même bouton en pause → reprise
+  if (currentBtn === btn && currentAudio && currentAudio.paused) {
+    currentAudio.play().catch(() => {});
+    btn.classList.add('playing');
+    return;
+  }
+  // Sinon : stop l'audio précédent, lance le nouveau
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentBtn) currentBtn.classList.remove('playing');
+  }
+  currentAudio = new Audio(path);
+  currentBtn = btn;
   btn.classList.add('playing');
-  audio.play().catch(() => {});
-  audio.onended = () => btn.classList.remove('playing');
+  currentAudio.play().catch(() => {});
+  currentAudio.onended = () => {
+    btn.classList.remove('playing');
+    currentAudio = null;
+    currentBtn = null;
+  };
 }
 
 function playAudioDemo(btn, label) {
