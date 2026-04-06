@@ -903,7 +903,7 @@ const INITIAL_DATA = [
     phrase: "Você consegue fazer isso!",
     phrase_roman: "",
     phrase_fr: "Tu peux y arriver !",
-    audio_word: "conseguir.mp3", audio_phrase: "conseguir_phrase.mp3", notes: ""
+   audio_word: "audio/pt/conseguir.mp3", audio_phrase: "audio/pt/conseguir_phrase.mp3", notes: ""
   },
   {
     id: "pt_003", lang: "pt", niveau: "Maîtrisé",
@@ -978,10 +978,10 @@ function catClass(cat) {
 }
 
 function renderAudioBtn(path, label) {
-  if (!path) return `<button class="audio-btn" onclick="playAudioDemo(this, '${label}')" title="Pas d'audio disponible">
+  if (!path) return `<button class="audio-btn" onclick="event.stopPropagation(); playAudioDemo(this, '${label}')" title="Pas d'audio disponible">
     <svg viewBox="0 0 10 10"><polygon points="1,1 9,5 1,9"/></svg>${label}
   </button>`;
-  return `<button class="audio-btn" onclick="playAudio(this, '${path}')">
+  return `<button class="audio-btn" onclick="event.stopPropagation(); playAudio(this, '${path}')">
     <svg viewBox="0 0 10 10"><polygon points="1,1 9,5 1,9"/></svg>${label}
   </button>`;
 }
