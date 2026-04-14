@@ -402,6 +402,170 @@
     .word-main { font-size: 1.5rem; }
   }
 
+  /* ─── RÉFÉRENCE ─────────────────────────────────────────────────────────── */
+  .ref-section {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.2rem;
+    padding-top: 1rem;
+  }
+
+  .ref-fiche {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .ref-fiche summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--surface);
+    transition: color 0.15s, background 0.15s;
+  }
+  .ref-fiche summary::-webkit-details-marker { display: none; }
+  .ref-fiche summary:hover { color: var(--text); background: var(--surface2); }
+  .ref-fiche[open] summary { color: var(--text); border-bottom: 1px solid var(--border); }
+
+  .ref-fiche[data-lang="ja"] summary { border-left: 3px solid var(--accent-ja); }
+  .ref-fiche[data-lang="zh"] summary { border-left: 3px solid var(--accent-zh); }
+  .ref-fiche[data-lang="ru"] summary { border-left: 3px solid var(--accent-ru); }
+  .ref-fiche[data-lang="pl"] summary { border-left: 3px solid var(--accent-pl); }
+
+  .ref-fiche-body {
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ref-fiche-title {
+    font-family: 'Spectral', serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .ref-chevron {
+    margin-left: auto;
+    transition: transform 0.2s;
+    font-size: 0.65rem;
+  }
+  .ref-fiche[open] .ref-chevron { transform: rotate(180deg); }
+
+  /* Tables de référence */
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+  }
+  .ref-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.3rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    font-weight: 400;
+  }
+  .ref-table td {
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid var(--border)55;
+    color: var(--text);
+    vertical-align: middle;
+  }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:hover td { background: var(--surface2); }
+
+  .ref-table .cell-hanzi {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+  .ref-table .cell-symbol {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-zh);
+  }
+  .ref-table .cell-cyrillic {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .ref-table .cell-son {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-ru);
+  }
+  .ref-table .cell-diac {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    color: var(--accent-pl);
+  }
+
+  .ref-tone-curve {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-zh);
+    min-width: 1.4rem;
+    text-align: center;
+  }
+
+  /* Image de référence (dépliable) */
+  .ref-img-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .ref-img-toggle details summary {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    cursor: pointer;
+    list-style: none;
+    text-transform: uppercase;
+    padding: 0.3rem 0;
+    border: none;
+    background: none;
+    border-left: none;
+  }
+  .ref-img-toggle details summary::-webkit-details-marker { display: none; }
+  .ref-img-toggle details summary:hover { color: var(--text); }
+  .ref-img-toggle details[open] summary { color: var(--text); }
+  .ref-img-toggle img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    border: 1px solid var(--border);
+  }
+
+  .ref-grid-ru {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  @media (max-width: 600px) {
+    .ref-section { padding-left: 1rem; padding-right: 1rem; }
+    .ref-grid-ru { grid-template-columns: repeat(2, 1fr); }
+  }
+
   /* ADD BUTTON */
   .fab {
     position: fixed;
@@ -514,6 +678,194 @@
     </div>
   </div>
 </header>
+
+<!-- ─── SECTION RÉFÉRENCE ──────────────────────────────────────────────────── -->
+<section class="ref-section" id="refSection">
+
+  <!-- 🇨🇳 Mandarin — Tons -->
+  <details class="ref-fiche" data-lang="zh" id="fiche-zh">
+    <summary>
+      <span>🇨🇳</span>
+      <span>Mandarin — Les 5 tons</span>
+      <span class="ref-chevron">▼</span>
+    </summary>
+    <div class="ref-fiche-body">
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>Ton</th><th>Symbole</th><th>Courbe</th><th>Description</th><th>Hanzi</th><th>Pinyin</th><th>Sens</th><th>Écoute</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ton 1</td>
+            <td class="cell-symbol">ā (¯)</td>
+            <td><span class="ref-tone-curve">—</span></td>
+            <td>Haut et stable</td>
+            <td class="cell-hanzi">妈</td>
+            <td><span class="word-roman">mā</span></td>
+            <td>Maman</td>
+            <td><button class="audio-btn" onclick="event.stopPropagation(); playAudio(this, 'pronunciation_zh_妈.mp3')"><svg viewBox="0 0 10 10"><polygon points="1,1 9,5 1,9"/></svg>écouter</button></td>
+          </tr>
+          <tr>
+            <td>Ton 2</td>
+            <td class="cell-symbol">á (/)</td>
+            <td><span class="ref-tone-curve">↗</span></td>
+            <td>Montant (interrogatif)</td>
+            <td class="cell-hanzi">麻</td>
+            <td><span class="word-roman">má</span></td>
+            <td>Chanvre</td>
+            <td><button class="audio-btn" onclick="event.stopPropagation(); playAudio(this, 'pronunciation_zh_麻.mp3')"><svg viewBox="0 0 10 10"><polygon points="1,1 9,5 1,9"/></svg>écouter</button></td>
+          </tr>
+          <tr>
+            <td>Ton 3</td>
+            <td class="cell-symbol">ǎ (∨)</td>
+            <td><span class="ref-tone-curve">↘↗</span></td>
+            <td>Descendant puis montant</td>
+            <td class="cell-hanzi">马</td>
+            <td><span class="word-roman">mǎ</span></td>
+            <td>Cheval</td>
+            <td><button class="audio-btn" onclick="event.stopPropagation(); playAudio(this, 'pronunciation_zh_马.mp3')"><svg viewBox="0 0 10 10"><polygon points="1,1 9,5 1,9"/></svg>écouter</button></td>
+          </tr>
+          <tr>
+            <td>Ton 4</td>
+            <td class="cell-symbol">à (＼)</td>
+            <td><span class="ref-tone-curve">↘</span></td>
+            <td>Sec et autoritaire</td>
+            <td class="cell-hanzi">骂</td>
+            <td><span class="word-roman">mà</span></td>
+            <td>Gronder</td>
+            <td><button class="audio-btn" onclick="event.stopPropagation(); playAudio(this, 'pronunciation_zh_骂.mp3')"><svg viewBox="0 0 10 10"><polygon points="1,1 9,5 1,9"/></svg>écouter</button></td>
+          </tr>
+          <tr>
+            <td>Ton 0</td>
+            <td class="cell-symbol">a (·)</td>
+            <td><span class="ref-tone-curve">·</span></td>
+            <td>Neutre, très court</td>
+            <td class="cell-hanzi">吗</td>
+            <td><span class="word-roman">ma</span></td>
+            <td>Particule ? </td>
+            <td><button class="audio-btn" onclick="event.stopPropagation(); playAudio(this, 'pronunciation_zh_吗.mp3')"><svg viewBox="0 0 10 10"><polygon points="1,1 9,5 1,9"/></svg>écouter</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <!-- 🇷🇺 Russe — Alphabet cyrillique -->
+  <details class="ref-fiche" data-lang="ru" id="fiche-ru">
+    <summary>
+      <span>🇷🇺</span>
+      <span>Russe — Alphabet cyrillique</span>
+      <span class="ref-chevron">▼</span>
+    </summary>
+    <div class="ref-fiche-body">
+      <table class="ref-table ref-grid-cyrillic">
+        <thead>
+          <tr><th>Lettre</th><th>Son</th><th>Lettre</th><th>Son</th><th>Lettre</th><th>Son</th><th>Lettre</th><th>Son</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="cell-cyrillic">А а</td><td class="cell-son">a</td><td class="cell-cyrillic">З з</td><td class="cell-son">z</td><td class="cell-cyrillic">П п</td><td class="cell-son">p</td><td class="cell-cyrillic">Ц ц</td><td class="cell-son">ts</td></tr>
+          <tr><td class="cell-cyrillic">Б б</td><td class="cell-son">b</td><td class="cell-cyrillic">И и</td><td class="cell-son">i</td><td class="cell-cyrillic">Р р</td><td class="cell-son">r roulé</td><td class="cell-cyrillic">Ч ч</td><td class="cell-son">tch</td></tr>
+          <tr><td class="cell-cyrillic">В в</td><td class="cell-son">v</td><td class="cell-cyrillic">К к</td><td class="cell-son">k</td><td class="cell-cyrillic">С с</td><td class="cell-son">s</td><td class="cell-cyrillic">Ш ш</td><td class="cell-son">ch</td></tr>
+          <tr><td class="cell-cyrillic">Г г</td><td class="cell-son">g</td><td class="cell-cyrillic">Л л</td><td class="cell-son">l</td><td class="cell-cyrillic">Т т</td><td class="cell-son">t</td><td class="cell-cyrillic">Щ щ</td><td class="cell-son">chtch</td></tr>
+          <tr><td class="cell-cyrillic">Д д</td><td class="cell-son">d</td><td class="cell-cyrillic">М м</td><td class="cell-son">m</td><td class="cell-cyrillic">У у</td><td class="cell-son">ou</td><td class="cell-cyrillic">Ы ы</td><td class="cell-son">i guttural</td></tr>
+          <tr><td class="cell-cyrillic">Е е</td><td class="cell-son">yé</td><td class="cell-cyrillic">Н н</td><td class="cell-son">n</td><td class="cell-cyrillic">Ф ф</td><td class="cell-son">f</td><td class="cell-cyrillic">Э э</td><td class="cell-son">é</td></tr>
+          <tr><td class="cell-cyrillic">Ж ж</td><td class="cell-son">j (jeu)</td><td class="cell-cyrillic">О о</td><td class="cell-son">o</td><td class="cell-cyrillic">Х х</td><td class="cell-son">kh</td><td class="cell-cyrillic">Ю ю</td><td class="cell-son">you</td></tr>
+          <tr><td class="cell-cyrillic">Й й</td><td class="cell-son">y (yeux)</td><td class="cell-cyrillic">Ë ë</td><td class="cell-son">yo</td><td class="cell-cyrillic">ъ / ь</td><td class="cell-son">signes</td><td class="cell-cyrillic">Я я</td><td class="cell-son">ya</td></tr>
+        </tbody>
+      </table>
+      <div class="ref-img-toggle">
+        <details>
+          <summary>▸ Voir le tableau mnémotechnique complet</summary>
+          <img src="ru-alphabet.webp" alt="Alphabet cyrillique russe — tableau complet">
+        </details>
+      </div>
+    </div>
+  </details>
+
+  <!-- 🇯🇵 Japonais — Hiragana & Katakana -->
+  <details class="ref-fiche" data-lang="ja" id="fiche-ja">
+    <summary>
+      <span>🇯🇵</span>
+      <span>Japonais — Hiragana · Katakana</span>
+      <span class="ref-chevron">▼</span>
+    </summary>
+    <div class="ref-fiche-body">
+      <p class="ref-fiche-title">Les 3 systèmes d'écriture</p>
+      <table class="ref-table">
+        <thead>
+          <tr><th>Système</th><th>Rôle</th><th>Nb</th><th>Exemple</th><th>Priorité</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hiragana</strong> <span style="color:var(--muted);font-size:0.85em">ひらがな</span></td>
+            <td>Mots natifs, conjugaisons, particules</td>
+            <td>46</td>
+            <td class="cell-hanzi" style="font-size:1rem">たべる</td>
+            <td style="color:var(--accent-ja)">En priorité</td>
+          </tr>
+          <tr>
+            <td><strong>Katakana</strong> <span style="color:var(--muted);font-size:0.85em">カタカナ</span></td>
+            <td>Mots étrangers, onomatopées</td>
+            <td>46</td>
+            <td class="cell-hanzi" style="font-size:1rem">コーヒー</td>
+            <td style="color:var(--muted)">Après hiragana</td>
+          </tr>
+          <tr>
+            <td><strong>Kanji</strong> <span style="color:var(--muted);font-size:0.85em">漢字</span></td>
+            <td>Caractères sino-japonais</td>
+            <td>2000+</td>
+            <td class="cell-hanzi" style="font-size:1rem">食べる</td>
+            <td style="color:var(--muted)">Progressivement</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ref-img-toggle">
+        <details>
+          <summary>▸ Tableau mnémotechnique — Hiragana (Tofugu)</summary>
+          <img src="hiragana-mnemonic-chart-by-tofugu.jpg" alt="Hiragana — tableau mnémotechnique Tofugu">
+        </details>
+        <details>
+          <summary>▸ Tableau mnémotechnique — Katakana (Tofugu)</summary>
+          <img src="tofugu-katakana-mnemonic-chart.jpg" alt="Katakana — tableau mnémotechnique Tofugu">
+        </details>
+      </div>
+    </div>
+  </details>
+
+  <!-- 🇵🇱 Polonais — Diacritiques -->
+  <details class="ref-fiche" data-lang="pl" id="fiche-pl">
+    <summary>
+      <span>🇵🇱</span>
+      <span>Polonais — Diacritiques</span>
+      <span class="ref-chevron">▼</span>
+    </summary>
+    <div class="ref-fiche-body">
+      <p class="ref-fiche-title">Alphabet latin avec diacritiques spécifiques · 7 cas grammaticaux</p>
+      <table class="ref-table">
+        <thead>
+          <tr><th>Lettre</th><th>Prononciation</th><th>Astuce</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="cell-diac">ą</td><td>« on » nasal</td><td style="color:var(--muted)">comme dans « bon »</td></tr>
+          <tr><td class="cell-diac">ę</td><td>« en » nasal</td><td style="color:var(--muted)">comme dans « bien »</td></tr>
+          <tr><td class="cell-diac">ó</td><td>« ou »</td><td style="color:var(--muted)">identique à « u »</td></tr>
+          <tr><td class="cell-diac">ł</td><td>« w » anglais</td><td style="color:var(--muted)">comme dans « water »</td></tr>
+          <tr><td class="cell-diac">ś / si</td><td>« ch » très doux</td><td></td></tr>
+          <tr><td class="cell-diac">ć / ci</td><td>« tch » très doux</td><td></td></tr>
+          <tr><td class="cell-diac">ź / zi</td><td>« j » très doux</td><td></td></tr>
+          <tr><td class="cell-diac">ż / rz</td><td>« j » de « jeu »</td><td></td></tr>
+          <tr><td class="cell-diac">ń / ni</td><td>« gn » espagnol</td><td style="color:var(--muted)">comme « señor »</td></tr>
+          <tr><td class="cell-diac">sz</td><td>« ch » de « chat »</td><td></td></tr>
+          <tr><td class="cell-diac">cz</td><td>« tch » de « tchin »</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+</section>
+<!-- ──────────────────────────────────────────────────────────────────────────── -->
 
 <main id="wordList"></main>
 
@@ -753,7 +1105,7 @@ const INITIAL_DATA = [
    {
     id: "ja_007", lang: "ja", niveau: "Nouveau",
     word: "夜", reading: "よる", roman: "yoru",
-    translation: "Chaîne de montagnes", category: "Nom", 
+    translation: "Nuit", category: "Nom", 
     phrase: "もう夜です。",
     phrase_reading: "もうよるです。",
     phrase_roman: "Mō yoru desu.",
@@ -779,6 +1131,16 @@ const INITIAL_DATA = [
     phrase_roman: "Nezumi ga budō o tabete iru.",
     phrase_fr: "Une souris est en train de manger du raisin.",
     audio_word: "audio/ja/nezumi.mp3", audio_phrase: "audio/ja/nezumi_phrase.mp3", notes: ""
+  },
+     {
+    id: "ja_010", lang: "ja", niveau: "Nouveau",
+    word: "パン", reading: "ねずみ", roman: "pan",
+    translation: "Pain", category: "Nom", 
+    phrase: "私は、湖でアヒルに古くなったパンをやる。",
+    phrase_reading: "わたしは、みずうみでアヒルにふるくなったパンをやる。",
+    phrase_roman: "Watashi wa, mizūmi de ahiru ni furuku natta pan o yaru.",
+    phrase_fr: "Je donne du pain rassis aux canards au bord du lac.",
+    audio_word: "audio/ja/pan.mp3", audio_phrase: "audio/ja/pan_phrase.mp3", notes: ""
   },
   // MANDARIN
   {
@@ -1219,6 +1581,14 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.classList.add('active');
     filterLang = btn.dataset.lang;
     render();
+    // Ouvre la fiche de référence de la langue filtrée
+    document.querySelectorAll('.ref-fiche').forEach(f => {
+      if (filterLang === 'all') {
+        f.removeAttribute('open');
+      } else {
+        f.dataset.lang === filterLang ? f.setAttribute('open', '') : f.removeAttribute('open');
+      }
+    });
   });
 });
 
