@@ -468,6 +468,11 @@
   .ref-fiche[open] .ref-chevron { transform: rotate(180deg); }
 
   /* Tables de référence */
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -0.1rem;
+  }
   .ref-table {
     width: 100%;
     border-collapse: collapse;
@@ -690,7 +695,7 @@
       <span class="ref-chevron">▼</span>
     </summary>
     <div class="ref-fiche-body">
-      <table class="ref-table">
+      <div class="table-scroll"><table class="ref-table">
         <thead>
           <tr>
             <th>Ton</th><th>Symbole</th><th>Courbe</th><th>Description</th><th>Hanzi</th><th>Pinyin</th><th>Sens</th><th>Écoute</th>
@@ -748,7 +753,7 @@
             <td><button class="audio-btn" onclick="event.stopPropagation(); playAudio(this, 'pronunciation_zh_吗.mp3')"><svg viewBox="0 0 10 10"><polygon points="1,1 9,5 1,9"/></svg>écouter</button></td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
   </details>
 
@@ -760,7 +765,7 @@
       <span class="ref-chevron">▼</span>
     </summary>
     <div class="ref-fiche-body">
-      <table class="ref-table ref-grid-cyrillic">
+      <div class="table-scroll"><table class="ref-table ref-grid-cyrillic">
         <thead>
           <tr><th>Lettre</th><th>Son</th><th>Lettre</th><th>Son</th><th>Lettre</th><th>Son</th><th>Lettre</th><th>Son</th></tr>
         </thead>
@@ -774,7 +779,7 @@
           <tr><td class="cell-cyrillic">Ж ж</td><td class="cell-son">j (jeu)</td><td class="cell-cyrillic">О о</td><td class="cell-son">o</td><td class="cell-cyrillic">Х х</td><td class="cell-son">kh</td><td class="cell-cyrillic">Ю ю</td><td class="cell-son">you</td></tr>
           <tr><td class="cell-cyrillic">Й й</td><td class="cell-son">y (yeux)</td><td class="cell-cyrillic">Ë ë</td><td class="cell-son">yo</td><td class="cell-cyrillic">ъ / ь</td><td class="cell-son">signes</td><td class="cell-cyrillic">Я я</td><td class="cell-son">ya</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="ref-img-toggle">
         <details>
           <summary>▸ Voir le tableau mnémotechnique complet</summary>
@@ -793,7 +798,7 @@
     </summary>
     <div class="ref-fiche-body">
       <p class="ref-fiche-title">Les 3 systèmes d'écriture</p>
-      <table class="ref-table">
+      <div class="table-scroll"><table class="ref-table">
         <thead>
           <tr><th>Système</th><th>Rôle</th><th>Nb</th><th>Exemple</th><th>Priorité</th></tr>
         </thead>
@@ -820,7 +825,7 @@
             <td style="color:var(--muted)">Progressivement</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="ref-img-toggle">
         <details>
           <summary>▸ Tableau mnémotechnique — Hiragana (Tofugu)</summary>
@@ -843,7 +848,7 @@
     </summary>
     <div class="ref-fiche-body">
       <p class="ref-fiche-title">Alphabet latin avec diacritiques spécifiques · 7 cas grammaticaux</p>
-      <table class="ref-table">
+      <div class="table-scroll"><table class="ref-table">
         <thead>
           <tr><th>Lettre</th><th>Prononciation</th><th>Astuce</th></tr>
         </thead>
@@ -860,7 +865,7 @@
           <tr><td class="cell-diac">sz</td><td>« ch » de « chat »</td><td></td></tr>
           <tr><td class="cell-diac">cz</td><td>« tch » de « tchin »</td><td></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
   </details>
 
