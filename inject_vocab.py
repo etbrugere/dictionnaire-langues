@@ -39,7 +39,7 @@ LANG_COMMENTS = {
     "ja": "// JAPONAIS",
     "zh": "// MANDARIN",
     "pl": "// POLONAIS",
-    "pt": "// PORTUGAIS",
+    "pt": "// PORTUGAIS BR",
 }
 
 
