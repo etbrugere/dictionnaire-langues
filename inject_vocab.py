@@ -75,7 +75,7 @@ def get_existing_ids(html_content):
 
 
 def esc(s):
-    return str(s).replace("\\", "\\\\").replace('"', '\\"')
+    return str(s).replace("\\", "\\\\").replace('"', '\\"').replace('\r', '').replace('\n', ' ').strip()
 
 
 # ─── FORMATAGE ────────────────────────────────────────────────────────────────
