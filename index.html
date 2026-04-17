@@ -2226,7 +2226,9 @@ function updateCategorySelect(lang) {
 function loadData() {
   try {
     const saved = localStorage.getItem('langdict_v1');
-    return saved ? JSON.parse(saved) : [...INITIAL_DATA];
+    if (!saved) return [...INITIAL_DATA];
+    const parsed = JSON.parse(saved);
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed : [...INITIAL_DATA];
   } catch { return [...INITIAL_DATA]; }
 }
 
