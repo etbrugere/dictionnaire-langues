@@ -1,0 +1,98 @@
+[
+  {
+    "id": "pl_silny",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "silny",
+    "translation": "strong",
+    "category": "adjectif",
+    "audio_word": "audio/pl/silny.mp3",
+    "notes": "",
+    "phrases": [
+      {
+        "text": "Dziecko jest silne.",
+        "translation": "The baby is strong.",
+        "audio": "audio/pl/silny_phrase_1.mp3"
+      },
+      {
+        "text": "silny tajfun",
+        "translation": "strong typhoon",
+        "audio": "audio/pl/silny_phrase_2.mp3"
+      },
+      {
+        "text": "silne dziecko",
+        "translation": "strong baby",
+        "audio": "audio/pl/silny_phrase_3.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_danie_głowne",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "danie główne",
+    "translation": "main course",
+    "category": "expression",
+    "audio_word": "audio/pl/danie_głowne.mp3",
+    "notes": "",
+    "genre": "neutre",
+    "phrases": [
+      {
+        "text": "Danie główne to wołowina z warzywami.",
+        "translation": "The main course is beef and vegetables.",
+        "audio": "audio/pl/danie_głowne_phrase_1.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_komedia",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "komedia",
+    "translation": "comedy",
+    "category": "nom",
+    "audio_word": "audio/pl/komedia.mp3",
+    "notes": "",
+    "genre": "féminin",
+    "phrases": [
+      {
+        "text": "Oglądają komedię i śmieją się.",
+        "translation": "They are watching a comedy and laughing.",
+        "audio": "audio/pl/komedia_phrase_1.mp3"
+      },
+      {
+        "text": "oglądać komedię",
+        "translation": "watch a comedy",
+        "audio": "audio/pl/komedia_phrase_2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_sekretarka",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "sekretarka",
+    "translation": "secretary",
+    "category": "nom",
+    "audio_word": "audio/pl/sekretarka.mp3",
+    "notes": "",
+    "genre": "féminin",
+    "phrases": [
+      {
+        "text": "Sekretarka rozmawia przez telefon.",
+        "translation": "The secretary is on the phone.",
+        "audio": "audio/pl/sekretarka_phrase_1.mp3"
+      },
+      {
+        "text": "Moja sekretarka jest zorganizowana i drobiazgowa.",
+        "translation": "My secretary is organized and detailed.",
+        "audio": "audio/pl/sekretarka_phrase_2.mp3"
+      },
+      {
+        "text": "zajęta sekretarka",
+        "translation": "busy secretary",
+        "audio": "audio/pl/sekretarka_phrase_3.mp3"
+      }
+    ]
+  }
+]

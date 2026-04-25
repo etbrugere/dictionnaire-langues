@@ -1,0 +1,118 @@
+[
+  {
+    "id": "ru_grudnaya_kletka",
+    "lang": "ru",
+    "niveau": "Nouveau",
+    "word": "грудная клетка",
+    "translation": "chest",
+    "category": "nom",
+    "audio_word": "audio/ru/grudnaya_kletka.mp3",
+    "notes": "",
+    "roman": "grudnaya kletka",
+    "genre": "féminin",
+    "phrases": [
+      {
+        "text": "Врач и медсестра делают рентгеновский снимок грудной клетки пациента.",
+        "translation": "The doctor and nurse are taking an X-ray of the patient's chest.",
+        "audio": "audio/ru/grudnaya_kletka_phrase_1.mp3",
+        "roman": "Vrach i medsestra delayut rentgenovskiy snimok grudnoy kletki patsiyenta."
+      },
+      {
+        "text": "рентгеновский снимок грудной клетки",
+        "translation": "X-ray of a chest",
+        "audio": "audio/ru/grudnaya_kletka_phrase_2.mp3",
+        "roman": "\nrentgenovskiy snimok grudnoy kletki"
+      }
+    ]
+  },
+  {
+    "id": "ru_pisatel",
+    "lang": "ru",
+    "niveau": "Nouveau",
+    "word": "писатель",
+    "translation": "writer",
+    "category": "nom",
+    "audio_word": "audio/ru/pisatel.mp3",
+    "notes": "",
+    "roman": "pisatel'",
+    "genre": "masculin",
+    "phrases": [
+      {
+        "text": "Писатель пишет главную сюжетную линию на бумаге.",
+        "translation": "The writer is outlining a story on paper.",
+        "audio": "audio/ru/pisatel_phrase_1.mp3",
+        "roman": "Pisatel' pishet glavnuyu syuzhetnuyu liniyu na bumage."
+      },
+      {
+        "text": "Я работаю стоматологом, но я очень хочу быть писателем.",
+        "translation": "I work as a dentist, but I really want to be a writer.",
+        "audio": "audio/ru/pisatel_phrase_2.mp3",
+        "roman": "Ya rabotayu stomatologom, no ya ochen' khochu byt' pisatelem."
+      },
+      {
+        "text": "известный писатель",
+        "translation": "famous writer",
+        "audio": "audio/ru/pisatel_phrase_3.mp3",
+        "roman": "izvestnyy pisatel'"
+      }
+    ]
+  },
+  {
+    "id": "ru_kofeinya",
+    "lang": "ru",
+    "niveau": "Nouveau",
+    "word": "кофейня",
+    "translation": "coffee shop",
+    "category": "nom",
+    "audio_word": "audio/ru/kofeinya.mp3",
+    "notes": "",
+    "roman": "kofeinya",
+    "genre": "féminin",
+    "phrases": [
+      {
+        "text": "Друзья тусуются в кофейне.",
+        "translation": "The friends are hanging out at a coffee shop.",
+        "audio": "audio/ru/kofeinya_phrase_1.mp3",
+        "roman": "Druz'ya tusuyutsya v kofeyne."
+      },
+      {
+        "text": "встретиться в кафе",
+        "translation": "meet at a coffee shop",
+        "audio": "audio/ru/kofeinya_phrase_2.mp3",
+        "roman": "vstretit'sya v kafe"
+      }
+    ]
+  },
+  {
+    "id": "ru_marker",
+    "lang": "ru",
+    "niveau": "Nouveau",
+    "word": "маркер",
+    "translation": "marker",
+    "category": "nom",
+    "audio_word": "audio/ru/marker.mp3",
+    "notes": "",
+    "roman": "marker",
+    "genre": "masculin",
+    "phrases": [
+      {
+        "text": "Мужчина держит несмываемый маркер.",
+        "translation": "The man is holding a permanent marker.",
+        "audio": "audio/ru/marker_phrase_1.mp3",
+        "roman": "Muzhchina derzhit nesmyvayemyy marker."
+      },
+      {
+        "text": "чёрный маркер",
+        "translation": "black marker",
+        "audio": "audio/ru/marker_phrase_2.mp3",
+        "roman": "chornyy marker"
+      },
+      {
+        "text": "чёрный несмываемый маркер",
+        "translation": "black permanent marker",
+        "audio": "audio/ru/marker_phrase_3.mp3",
+        "roman": "chornyy nesmyvayemyy marker"
+      }
+    ]
+  }
+]
