@@ -33,6 +33,7 @@ LANG_CONFIG = {
     "zh": {"audio_dir": BASE_DIR / "audio" / "zh", "json_file": BASE_DIR / "zh_import.json"},
     "pl": {"audio_dir": BASE_DIR / "audio" / "pl", "json_file": BASE_DIR / "pl_import.json"},
     "pt": {"audio_dir": BASE_DIR / "audio" / "pt", "json_file": BASE_DIR / "pt_import.json"},
+    "de": {"audio_dir": BASE_DIR / "audio" / "de", "json_file": BASE_DIR / "de_import.json"},
 }
 
 # Mapping accents → numéro de ton chinois
@@ -184,7 +185,7 @@ def build_entry(data, lang, audio_dir):
         entry["ton"] = ton_label
         entry["ton_symbol"] = ton_symbol
 
-    elif lang in ("pl", "pt"):
+    elif lang in ("pl", "pt", "de"):
         genre_raw = data.get("gender", "")
         if genre_raw:
             entry["genre"] = GENRE_MAP.get(genre_raw.lower(), genre_raw)
@@ -222,7 +223,7 @@ def build_entry(data, lang, audio_dir):
 
 def main():
     parser = argparse.ArgumentParser(description="Extraction vocabulaire *Pod101")
-    parser.add_argument("--lang", required=True, choices=["ru","ja","zh","pl","pt"])
+    parser.add_argument("--lang", required=True, choices=["ru","ja","zh","pl","pt","de"])
     parser.add_argument("--files", nargs="+", required=True,
                         help="Fichiers HTML à traiter")
     args = parser.parse_args()

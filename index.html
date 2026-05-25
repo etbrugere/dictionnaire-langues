@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0d0d0f">
-<title>辞書 • Słownik • Словарь • 词典 • Dicionário</title>
+<title>辞書 • Słownik • Словарь • 词典 • Dicionário • Wörterbuch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -20,6 +20,7 @@
     --accent-ru: #7b9fd4;
     --accent-pl: #6bbf8e;
     --accent-pt: #e8a045;
+    --accent-de: #9988cc;
     --niveau-new: #4a8fc1;
     --niveau-progress: #c9883a;
     --niveau-done: #5aad7a;
@@ -146,6 +147,7 @@
   .filter-btn[data-lang="ru"].active { background: var(--accent-ru); }
   .filter-btn[data-lang="pl"].active { background: var(--accent-pl); }
   .filter-btn[data-lang="pt"].active { background: var(--accent-pt); }
+  .filter-btn[data-lang="de"].active { background: var(--accent-de); }
   .filter-btn[data-lang="all"].active { background: var(--muted); }
 
   /* NIVEAU FILTERS */
@@ -207,6 +209,7 @@
   .lang-dot.ru { background: var(--accent-ru); }
   .lang-dot.pl { background: var(--accent-pl); }
   .lang-dot.pt { background: var(--accent-pt); }
+  .lang-dot.de { background: var(--accent-de); }
 
   .card-content { display: flex; flex-direction: column; gap: 0.5rem; }
 
@@ -443,6 +446,7 @@
   .ref-fiche[data-lang="zh"] summary { border-left: 3px solid var(--accent-zh); }
   .ref-fiche[data-lang="ru"] summary { border-left: 3px solid var(--accent-ru); }
   .ref-fiche[data-lang="pl"] summary { border-left: 3px solid var(--accent-pl); }
+  .ref-fiche[data-lang="de"] summary { border-left: 3px solid var(--accent-de); }
 
   .ref-fiche-body {
     padding: 1rem 1.2rem;
@@ -658,8 +662,8 @@
 <header>
   <div class="header-top">
     <h1>
-      辞書 · Słownik · Словарь · 词典 · Dicionário
-      <span>dictionnaire personnel · 5 langues</span>
+      辞書 · Słownik · Словарь · 词典 · Dicionário · Wörterbuch
+      <span>dictionnaire personnel · 6 langues</span>
     </h1>
     <div class="entry-count" id="entryCount">— entrées</div>
   </div>
@@ -674,6 +678,7 @@
       <button class="filter-btn" data-lang="ru">Рус</button>
       <button class="filter-btn" data-lang="pl">PL</button>
       <button class="filter-btn" data-lang="pt">PT</button>
+      <button class="filter-btn" data-lang="de">DE</button>
     </div>
     <div class="niveau-filters">
       <button class="niv-btn active" data-niv="all">Tous</button>
@@ -869,6 +874,53 @@
     </div>
   </details>
 
+  <!-- 🇩🇪 Allemand — Umlauts · Articles · Cas -->
+  <details class="ref-fiche" data-lang="de" id="fiche-de">
+    <summary>
+      <span>🇩🇪</span>
+      <span>Allemand — Umlauts · Articles · Cas</span>
+      <span class="ref-chevron">▼</span>
+    </summary>
+    <div class="ref-fiche-body">
+      <p class="ref-fiche-title">Umlauts et caractères spéciaux</p>
+      <div class="table-scroll"><table class="ref-table">
+        <thead>
+          <tr><th>Caractère</th><th>Prononciation</th><th>Exemple</th><th>Sens</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-size:1.1rem;font-family:'Noto Serif JP',serif">ä / Ä</td><td class="cell-son">é (long)</td><td>Mädchen</td><td>Fille</td></tr>
+          <tr><td style="font-size:1.1rem;font-family:'Noto Serif JP',serif">ö / Ö</td><td class="cell-son">eu (français)</td><td>schön</td><td>Beau</td></tr>
+          <tr><td style="font-size:1.1rem;font-family:'Noto Serif JP',serif">ü / Ü</td><td class="cell-son">u (français)</td><td>über</td><td>Sur / Au-dessus</td></tr>
+          <tr><td style="font-size:1.1rem;font-family:'Noto Serif JP',serif">ß</td><td class="cell-son">ss (long)</td><td>Straße</td><td>Rue</td></tr>
+        </tbody>
+      </table></div>
+      <p class="ref-fiche-title" style="margin-top:0.6rem">Articles définis (cas nominatif)</p>
+      <div class="table-scroll"><table class="ref-table">
+        <thead>
+          <tr><th>Genre</th><th>Article</th><th>Exemple</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Masculin</td><td style="color:var(--accent-de);font-family:'JetBrains Mono',monospace">der</td><td>der Mann (l'homme)</td></tr>
+          <tr><td>Féminin</td><td style="color:var(--accent-de);font-family:'JetBrains Mono',monospace">die</td><td>die Frau (la femme)</td></tr>
+          <tr><td>Neutre</td><td style="color:var(--accent-de);font-family:'JetBrains Mono',monospace">das</td><td>das Kind (l'enfant)</td></tr>
+          <tr><td>Pluriel</td><td style="color:var(--accent-de);font-family:'JetBrains Mono',monospace">die</td><td>die Kinder (les enfants)</td></tr>
+        </tbody>
+      </table></div>
+      <p class="ref-fiche-title" style="margin-top:0.6rem">Les 4 cas (Kasus) — article défini</p>
+      <div class="table-scroll"><table class="ref-table">
+        <thead>
+          <tr><th>Cas</th><th>Rôle</th><th>Masc.</th><th>Fém.</th><th>Neutre</th><th>Pluriel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nominatif</td><td>Sujet</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
+          <tr><td>Accusatif</td><td>COD</td><td>den</td><td>die</td><td>das</td><td>die</td></tr>
+          <tr><td>Datif</td><td>COI</td><td>dem</td><td>der</td><td>dem</td><td>den</td></tr>
+          <tr><td>Génitif</td><td>Possession</td><td>des</td><td>der</td><td>des</td><td>der</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </details>
+
 </section>
 <!-- ──────────────────────────────────────────────────────────────────────────── -->
 
@@ -890,6 +942,7 @@
           <option value="ru">Russe</option>
           <option value="pl">Polonais</option>
           <option value="pt">Portugais (BR)</option>
+          <option value="de">Allemand</option>
         </select>
       </div>
       <div class="form-group">
@@ -981,6 +1034,21 @@
       <div class="form-group">
         <label>Déclinaisons (optionnel)</label>
         <textarea id="f_ru_decl" placeholder='{"Nominatif": "работа", "Génitif": "работы"}'></textarea>
+      </div>
+    </div>
+
+    <!-- Champs allemand -->
+    <div class="lang-fields" id="fields_de">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Genre</label>
+          <select id="f_de_genre">
+            <option value="">—</option>
+            <option value="masculin (der)">Masculin (der)</option>
+            <option value="féminin (die)">Féminin (die)</option>
+            <option value="neutre (das)">Neutre (das)</option>
+          </select>
+        </div>
       </div>
     </div>
 
@@ -2851,6 +2919,48 @@ const INITIAL_DATA = [
     phrase_roman: "",
     phrase_fr: "Je me lève tôt tous les jours.",
     audio_word: "", audio_phrase: "", notes: ""
+  },
+  // ALLEMAND
+  {
+    id: "de_001", lang: "de", niveau: "Nouveau",
+    word: "lernen",
+    roman: "lernen",
+    translation: "apprendre", category: "Verbe",
+    phrase: "Ich lerne jeden Tag Deutsch.",
+    phrase_roman: "",
+    phrase_fr: "J'apprends l'allemand tous les jours.",
+    audio_word: "", audio_phrase: "", notes: "lernen = apprendre (transitif) · ichiban lerne → ich lerne"
+  },
+  {
+    id: "de_002", lang: "de", niveau: "Nouveau",
+    word: "sprechen",
+    roman: "sprechen",
+    translation: "parler", category: "Verbe",
+    phrase: "Sprechen Sie Deutsch?",
+    phrase_roman: "",
+    phrase_fr: "Parlez-vous allemand ?",
+    audio_word: "", audio_phrase: "", notes: "sprechen (irrégulier) : ich spreche, du sprichst, er spricht"
+  },
+  {
+    id: "de_003", lang: "de", niveau: "Nouveau",
+    word: "Wörterbuch",
+    roman: "Wörterbuch",
+    translation: "dictionnaire", category: "Nom",
+    genre: "neutre (das)",
+    phrase: "Ich benutze ein Wörterbuch.",
+    phrase_roman: "",
+    phrase_fr: "J'utilise un dictionnaire.",
+    audio_word: "", audio_phrase: "", notes: "das Wörterbuch · pluriel : die Wörterbücher"
+  },
+  {
+    id: "de_004", lang: "de", niveau: "Nouveau",
+    word: "schön",
+    roman: "schön",
+    translation: "beau / belle", category: "Adjectif",
+    phrase: "Das Wetter ist heute schön.",
+    phrase_roman: "",
+    phrase_fr: "Le temps est beau aujourd'hui.",
+    audio_word: "", audio_phrase: "", notes: "ö = eu français · comparatif : schöner · superlatif : am schönsten"
   }
 ];
 
@@ -2861,6 +2971,7 @@ const CATEGORIES = {
   ru: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
   pl: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
   pt: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
+  de: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
 };
 
 function updateCategorySelect(lang) {
@@ -2888,7 +2999,7 @@ let filterNiv = 'all';
 let searchQuery = '';
 
 // ─── RENDER ───────────────────────────────────────────────────────────────────
-const LANG_NAMES = { ja: '日本語', zh: '中文', ru: 'Русский', pl: 'Polski', pt: 'Português BR' };
+const LANG_NAMES = { ja: '日本語', zh: '中文', ru: 'Русский', pl: 'Polski', pt: 'Português BR', de: 'Deutsch' };
 
 function catClass(cat) {
   const c = (cat||'').toLowerCase();
@@ -2927,7 +3038,7 @@ function renderCard(w) {
   if (w.lang === 'ja' && w.subcat) {
     extraBadge = `<span class="ton-badge">${w.subcat}</span>`;
   }
-  if ((w.lang === 'pl' || w.lang === 'ru' || w.lang === 'pt') && w.genre) {
+  if ((w.lang === 'pl' || w.lang === 'ru' || w.lang === 'pt' || w.lang === 'de') && w.genre) {
     extraBadge = `<span class="ton-badge">${w.genre}</span>`;
   }
 
@@ -3005,7 +3116,7 @@ function render() {
   const groups = {};
   list.forEach(w => { if (!groups[w.lang]) groups[w.lang] = []; groups[w.lang].push(w); });
 
-  const langOrder = filterLang === 'all' ? ['ja','zh','ru','pl','pt'] : [filterLang];
+  const langOrder = filterLang === 'all' ? ['ja','zh','ru','pl','pt','de'] : [filterLang];
   container.innerHTML = langOrder
     .filter(l => groups[l])
     .map(l => groups[l].map(renderCard).join(''))
@@ -3148,6 +3259,9 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   }
   if (lang === 'pt') {
     entry.genre = document.getElementById('f_pt_genre').value;
+  }
+  if (lang === 'de') {
+    entry.genre = document.getElementById('f_de_genre').value;
   }
 
   words.unshift(entry);
