@@ -1,0 +1,86 @@
+[
+  {
+    "id": "pt_nojento",
+    "lang": "pt",
+    "niveau": "Nouveau",
+    "word": "nojento",
+    "translation": "disgusting",
+    "category": "adjectif",
+    "audio_word": "audio/pt/nojento.mp3",
+    "notes": "",
+    "phrases": [
+      {
+        "text": "O homem está comendo um lanche nojento.",
+        "translation": "The man is eating a disgusting snack.",
+        "audio": "audio/pt/nojento_phrase_1.mp3"
+      },
+      {
+        "text": "O bebê está sendo alimentado com uma comida nojenta, e ele não está feliz.",
+        "translation": "The baby is being fed disgusting food, and he is not happy.",
+        "audio": "audio/pt/nojento_phrase_2.mp3"
+      },
+      {
+        "text": "gosto nojento",
+        "translation": "disgusting taste",
+        "audio": "audio/pt/nojento_phrase_3.mp3"
+      },
+      {
+        "text": "comida nojenta",
+        "translation": "disgusting food",
+        "audio": "audio/pt/nojento_phrase_4.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pt_assistir",
+    "lang": "pt",
+    "niveau": "Nouveau",
+    "word": "assistir",
+    "translation": "watch",
+    "category": "verbe",
+    "audio_word": "audio/pt/assistir.mp3",
+    "notes": "",
+    "phrases": [
+      {
+        "text": "A família assiste televisão.",
+        "translation": "The family watches television.",
+        "audio": "audio/pt/assistir_phrase_1.mp3"
+      },
+      {
+        "text": "A família assistiu televisão.",
+        "translation": "The family watched television.",
+        "audio": "audio/pt/assistir_phrase_2.mp3"
+      },
+      {
+        "text": "A família está assistindo televisão.",
+        "translation": "The family is watching television.",
+        "audio": "audio/pt/assistir_phrase_3.mp3"
+      },
+      {
+        "text": "Os fãs estão assistindo a um jogo.",
+        "translation": "The fans are watching a game.",
+        "audio": "audio/pt/assistir_phrase_4.mp3"
+      },
+      {
+        "text": "assistir televisão",
+        "translation": "watch television",
+        "audio": "audio/pt/assistir_phrase_5.mp3"
+      },
+      {
+        "text": "assistir um filme em uma TV tela grande",
+        "translation": "watch a movie on a big screen TV",
+        "audio": "audio/pt/assistir_phrase_6.mp3"
+      },
+      {
+        "text": "assistir um jogo",
+        "translation": "watch a game",
+        "audio": "audio/pt/assistir_phrase_7.mp3"
+      },
+      {
+        "text": "assistir um filme",
+        "translation": "watch a movie",
+        "audio": "audio/pt/assistir_phrase_8.mp3"
+      }
+    ]
+  }
+]

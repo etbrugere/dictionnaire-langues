@@ -20,12 +20,16 @@ C:\Users\brugere\Documents\Workspace\dictionnaire-langues\
 ├── zh_import.json           ← données extraites chinois
 ├── pl_import.json           ← données extraites polonais
 ├── pt_import.json           ← données extraites portugais
+├── de_import.json           ← données extraites allemand
+├── es_import.json           ← données extraites espagnol
 └── audio/
     ├── ru/                  ← fichiers MP3 russes
     ├── ja/                  ← fichiers MP3 japonais
     ├── zh/                  ← fichiers MP3 chinois
     ├── pl/                  ← fichiers MP3 polonais
-    └── pt/                  ← fichiers MP3 portugais
+    ├── pt/                  ← fichiers MP3 portugais
+    ├── de/                  ← fichiers MP3 allemands
+    └── es/                  ← fichiers MP3 espagnols
 ```
 
 ---
@@ -52,6 +56,8 @@ Va sur les sites *Pod101 et ouvre autant d'onglets que tu veux :
 | Russe | https://www.russianpod101.com/russian-phrases/ |
 | Polonais | https://www.polishpod101.com/polish-phrases/ |
 | Portugais | https://www.portuguesepod101.com/portuguese-phrases/ |
+| Allemand | https://www.germanpod101.com/german-phrases/ |
+| Espagnol | https://www.spanishpod101.com/spanish-phrases/ |
 
 > Pour naviguer dans le temps : utilise les flèches `‹ ›` en haut de chaque page pour aller aux jours précédents.
 
@@ -97,12 +103,16 @@ Remplace `ru` par la langue voulue :
 | Chinois | `zh` |
 | Polonais | `pl` |
 | Portugais | `pt` |
+| Allemand | `de` |
+| Espagnol | `es` |
 
 **Si tu as des fichiers de plusieurs langues dans le même dossier**, lance une commande par langue en précisant les fichiers :
 ```cmd
 python C:\...\extract_vocab.py --lang ru --files "Russian Word of the Day.html" "Russian Word of the Day (2).html"
 python C:\...\extract_vocab.py --lang ja --files "Japanese Word of the Day.html"
 python C:\...\extract_vocab.py --lang zh --files "Chinese Word of the Day.html" "Chinese Word of the Day (2).html"
+python C:\...\extract_vocab.py --lang de --files "German Word of the Day.html"
+python C:\...\extract_vocab.py --lang es --files "Spanish Word of the Day.html"
 ```
 
 **Ce que fait le script :**

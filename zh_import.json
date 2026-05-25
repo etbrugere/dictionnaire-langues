@@ -1,0 +1,315 @@
+[
+  {
+    "id": "zh_shisi",
+    "lang": "zh",
+    "niveau": "Nouveau",
+    "word": "十四",
+    "translation": "fourteen",
+    "category": "numeral",
+    "audio_word": "audio/zh/shisi.mp3",
+    "notes": "",
+    "trad": "十四",
+    "roman": "shísì",
+    "ton": "Ton 2",
+    "ton_symbol": "/",
+    "phrases": [
+      {
+        "text": "十四封信",
+        "translation": "fourteen letters",
+        "audio": "audio/zh/shisi_phrase_1.mp3",
+        "roman": "shísì fēng xìn",
+        "trad": "十四封信"
+      },
+      {
+        "text": "十四号球有绿色条纹。",
+        "translation": "The fourteen ball has a green stripe.",
+        "audio": "audio/zh/shisi_phrase_2.mp3",
+        "roman": "Shísì hào qiú yǒu lǜsè tiáowén.",
+        "trad": "十四號球有綠色條紋。"
+      },
+      {
+        "text": "十四",
+        "translation": "14",
+        "audio": "audio/zh/shisi_phrase_3.mp3",
+        "roman": "shísì",
+        "trad": "十四"
+      },
+      {
+        "text": "十四号",
+        "translation": "number fourteen",
+        "audio": "audio/zh/shisi_phrase_4.mp3",
+        "roman": "shísì hào ",
+        "trad": "十四號"
+      }
+    ]
+  },
+  {
+    "id": "zh_jiejie",
+    "lang": "zh",
+    "niveau": "Nouveau",
+    "word": "姐姐",
+    "translation": "older sister",
+    "category": "nom",
+    "audio_word": "audio/zh/jiejie.mp3",
+    "notes": "",
+    "trad": "姐姐",
+    "roman": "jiějie",
+    "ton": "Ton 3",
+    "ton_symbol": "v",
+    "phrases": [
+      {
+        "text": "姐姐正抱着妹妹。",
+        "translation": "The older sister is holding her younger sister.",
+        "audio": "audio/zh/jiejie_phrase_1.mp3",
+        "roman": "Jiějie zhèng bàozhe mèimei.",
+        "trad": "姐姐正抱著妹妹。"
+      },
+      {
+        "text": "爸妈都出去的时候，姐姐照看我们。",
+        "translation": "Our older sister babysits when our parents are out.",
+        "audio": "audio/zh/jiejie_phrase_2.mp3",
+        "roman": "Bàmā dōu chūqù de shíhou, jiějie zhàokàn wǒmen.",
+        "trad": "爸媽都出去的時候，姐姐照看我們。"
+      },
+      {
+        "text": "有一个姐姐",
+        "translation": "have an older sister",
+        "audio": "audio/zh/jiejie_phrase_3.mp3",
+        "roman": "yǒu yí gè jiějie",
+        "trad": "有一個姐姐"
+      }
+    ]
+  },
+  {
+    "id": "zh_gongji",
+    "lang": "zh",
+    "niveau": "Nouveau",
+    "word": "公鸡",
+    "translation": "rooster",
+    "category": "nom",
+    "audio_word": "audio/zh/gongji.mp3",
+    "notes": "",
+    "trad": "公雞",
+    "roman": "gōngjī",
+    "ton": "Ton 1",
+    "ton_symbol": "—",
+    "phrases": [
+      {
+        "text": "公鸡在叫。",
+        "translation": "The rooster is crowing.",
+        "audio": "audio/zh/gongji_phrase_1.mp3",
+        "roman": "Gōngjī zài jiào.",
+        "trad": "公雞在叫。"
+      },
+      {
+        "text": "公鸡叫的时候，我会醒来。",
+        "translation": "When the rooster crows, I will wake up.",
+        "audio": "audio/zh/gongji_phrase_2.mp3",
+        "roman": "Gōngjī jiào de shíhou, wǒ huì xǐnglái.",
+        "trad": "公雞叫的時候，我會醒來。"
+      },
+      {
+        "text": "公鸡边叫边四处张望。",
+        "translation": "The rooster crows while it glances around.",
+        "audio": "audio/zh/gongji_phrase_3.mp3",
+        "roman": "Gōngjī biān jiào biān sìchù zhāngwàng.",
+        "trad": "公雞邊叫邊四處張望。"
+      },
+      {
+        "text": "每天早上我都被这只老公鸡叫醒。",
+        "translation": "I was woken every morning by the old rooster.",
+        "audio": "audio/zh/gongji_phrase_4.mp3",
+        "roman": "Měitiān zǎoshang wǒ dōu bèi zhè zhī lǎogōngjī jiào xǐng.",
+        "trad": "每天早上我都被這只老公雞叫醒。"
+      },
+      {
+        "text": "打鸣的公鸡",
+        "translation": "crowing rooster",
+        "audio": "audio/zh/gongji_phrase_5.mp3",
+        "roman": "dǎ míng de gōngjī",
+        "trad": "打鳴的公雞"
+      },
+      {
+        "text": "公鸡报晓",
+        "translation": "good morning rooster",
+        "audio": "audio/zh/gongji_phrase_6.mp3",
+        "roman": "gōngjī bàoxiǎo",
+        "trad": "公雞報曉"
+      }
+    ]
+  },
+  {
+    "id": "zh_shaozi",
+    "lang": "zh",
+    "niveau": "Nouveau",
+    "word": "勺子",
+    "translation": "spoon",
+    "category": "nom",
+    "audio_word": "audio/zh/shaozi.mp3",
+    "notes": "",
+    "trad": "勺子",
+    "roman": "sháozi",
+    "ton": "Ton 2",
+    "ton_symbol": "/",
+    "phrases": [
+      {
+        "text": "叉子、勺子和餐刀都是餐具。",
+        "translation": "Forks, spoons, and knives are eating utensils.",
+        "audio": "audio/zh/shaozi_phrase_1.mp3",
+        "roman": "Chāzi , sháozi hé cān dāo dōu shì cānjù .\n",
+        "trad": "叉子、勺子和餐刀都是餐具。\n"
+      },
+      {
+        "text": "汤匙比餐勺大多了。",
+        "translation": "The soup spoon is much larger than the dinner spoon.",
+        "audio": "audio/zh/shaozi_phrase_2.mp3",
+        "roman": "Tāngchí bǐ cānsháo dà duō le.",
+        "trad": "湯匙比餐勺大多了。"
+      },
+      {
+        "text": "喝汤的时候要用调羹。",
+        "translation": "It is necessary to use a spoon when eating soup.",
+        "audio": "audio/zh/shaozi_phrase_3.mp3",
+        "roman": "Hē tāng de shíhou yào yòng tiáogēng.",
+        "trad": "喝湯的時候要用調羹。"
+      },
+      {
+        "text": "冲剂，汤匙和一个小塑料杯",
+        "translation": "liquid medicine, a spoon and a small plastic cup",
+        "audio": "audio/zh/shaozi_phrase_4.mp3",
+        "roman": "chōngjì, tāngchí hé yī gè xiǎo sùliào bēi",
+        "trad": "沖劑，湯匙和一個小塑料杯"
+      },
+      {
+        "text": "银匙",
+        "translation": "silver spoon",
+        "audio": "audio/zh/shaozi_phrase_5.mp3",
+        "roman": "yínchí",
+        "trad": "銀匙"
+      },
+      {
+        "text": "汤匙",
+        "translation": "soup spoon",
+        "audio": "audio/zh/shaozi_phrase_6.mp3",
+        "roman": "tāngchí",
+        "trad": "湯匙"
+      }
+    ]
+  },
+  {
+    "id": "zh_xuexi",
+    "lang": "zh",
+    "niveau": "Nouveau",
+    "word": "学习",
+    "translation": "study",
+    "category": "verbe",
+    "audio_word": "audio/zh/xuexi.mp3",
+    "notes": "",
+    "trad": "學習",
+    "roman": "xuéxí",
+    "ton": "Ton 2",
+    "ton_symbol": "/",
+    "phrases": [
+      {
+        "text": "高中生在图书馆学习。",
+        "translation": "The high school students study at the library.",
+        "audio": "audio/zh/xuexi_phrase_1.mp3",
+        "roman": "Gāozhōngshēng zài túshūguǎn xuéxí.",
+        "trad": "高中生在圖書館學習。"
+      },
+      {
+        "text": "高中生正在图书馆学习。",
+        "translation": "The high school students are studying at the library.",
+        "audio": "audio/zh/xuexi_phrase_2.mp3",
+        "roman": "Gāozhōngshēng zhèngzài túshūguǎn xuéxí.",
+        "trad": "高中生正在圖書館學習。"
+      },
+      {
+        "text": "高中生们在图书馆学习过了。",
+        "translation": "The high school students studied in the library.",
+        "audio": "audio/zh/xuexi_phrase_3.mp3",
+        "roman": "Gāozhōngshēng men zài túshūguǎn xuéxí guò le .\n",
+        "trad": "高中生們在圖書館學習過了。\n"
+      },
+      {
+        "text": "我每天在学校学习，然后晚上再学三个小时。",
+        "translation": "I study every day at school, and for three hours each night.",
+        "audio": "audio/zh/xuexi_phrase_4.mp3",
+        "roman": "Wǒ měitiān zài xuéxiào xuéxí, ránhòu wǎnshàng zài xué sān gè xiǎoshí.",
+        "trad": "我每天在學校學習，然後晚上再學三個小時。"
+      },
+      {
+        "text": "在图书馆学习",
+        "translation": "study at a library",
+        "audio": "audio/zh/xuexi_phrase_5.mp3",
+        "roman": "zài túshūguǎn xuéxí",
+        "trad": "在圖書館學習"
+      },
+      {
+        "text": "学习法律",
+        "translation": "study law",
+        "audio": "audio/zh/xuexi_phrase_6.mp3",
+        "roman": "xuéxí fǎlǜ",
+        "trad": "學習法律"
+      },
+      {
+        "text": "一起学习",
+        "translation": "study together",
+        "audio": "audio/zh/xuexi_phrase_7.mp3",
+        "roman": "yìqǐ xuéxí",
+        "trad": "一起學習"
+      }
+    ]
+  },
+  {
+    "id": "zh_laoshi",
+    "lang": "zh",
+    "niveau": "Nouveau",
+    "word": "老师",
+    "translation": "teacher",
+    "category": "nom",
+    "audio_word": "audio/zh/laoshi.mp3",
+    "notes": "",
+    "trad": "老師",
+    "roman": "lǎoshī",
+    "ton": "Ton 3",
+    "ton_symbol": "v",
+    "phrases": [
+      {
+        "text": "我们的法语老师在家说法语。",
+        "translation": "Our French teacher speaks the language at home.",
+        "audio": "audio/zh/laoshi_phrase_1.mp3",
+        "roman": "Wǒmen de Fǎyǔ lǎoshī zài jiā shuō Fǎyǔ.",
+        "trad": "我們的法語老師在家說法語。"
+      },
+      {
+        "text": "史密斯先生是我高中最喜欢的老师。",
+        "translation": "Mr. Smith was my favorite high school teacher.",
+        "audio": "audio/zh/laoshi_phrase_2.mp3",
+        "roman": "Shǐmìsī xiānsheng shì wǒ gāozhōng zuì xǐhuān de lǎoshī.",
+        "trad": "史密斯先生是我高中最喜歡的老師。"
+      },
+      {
+        "text": "这名老师正在教室里教孩子们。",
+        "translation": "The teacher is teaching the kids in the classroom.",
+        "audio": "audio/zh/laoshi_phrase_3.mp3",
+        "roman": "Zhè míng lǎoshī zhèngzài jiàoshì lǐ jiāo háizimen.",
+        "trad": "這名老師正在教室裏教孩子們。"
+      },
+      {
+        "text": "英语老师",
+        "translation": "English teacher",
+        "audio": "audio/zh/laoshi_phrase_4.mp3",
+        "roman": "Yīngyǔ lǎoshī",
+        "trad": "英語老師"
+      },
+      {
+        "text": "最喜欢的老师",
+        "translation": "favorite teacher",
+        "audio": "audio/zh/laoshi_phrase_5.mp3",
+        "roman": "zuì xǐhuān de lǎoshī",
+        "trad": "最喜歡的老師"
+      }
+    ]
+  }
+]

@@ -1,0 +1,392 @@
+[
+  {
+    "id": "pl_pietnascie",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "piętnaście",
+    "translation": "fifteen",
+    "category": "numeral",
+    "audio_word": "audio/pl/pietnascie.mp3",
+    "notes": "",
+    "phrases": [
+      {
+        "text": "Dojazd do pracy zajmuje (mi) piętnaście minut.",
+        "translation": "It takes fifteen minutes to drive to work.",
+        "audio": "audio/pl/pietnascie_phrase_1.mp3"
+      },
+      {
+        "text": "liczba piętnaście",
+        "translation": "number fifteen",
+        "audio": "audio/pl/pietnascie_phrase_2.mp3"
+      },
+      {
+        "text": "piętnaście",
+        "translation": "15",
+        "audio": "audio/pl/pietnascie_phrase_3.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_łazienka",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "łazienka",
+    "translation": "bathroom",
+    "category": "nom",
+    "audio_word": "audio/pl/łazienka.mp3",
+    "notes": "",
+    "genre": "féminin",
+    "phrases": [
+      {
+        "text": "Łazienka jest na końcu korytarza.",
+        "translation": "The bathroom is at the end of the hallway.",
+        "audio": "audio/pl/łazienka_phrase_1.mp3"
+      },
+      {
+        "text": "łazienka z prysznicem i wanną",
+        "translation": "bathroom with a shower and a bathtub",
+        "audio": "audio/pl/łazienka_phrase_2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_kura",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "kura",
+    "translation": "chicken",
+    "category": "nom",
+    "audio_word": "audio/pl/kura.mp3",
+    "notes": "",
+    "genre": "féminin",
+    "phrases": [
+      {
+        "text": "Kura i kurczaki dziobią swój pokarm.",
+        "translation": "The chicken and chicks are pecking at their food.",
+        "audio": "audio/pl/kura_phrase_1.mp3"
+      },
+      {
+        "text": "biała kura",
+        "translation": "white chicken",
+        "audio": "audio/pl/kura_phrase_2.mp3"
+      },
+      {
+        "text": "brązowa kura",
+        "translation": "brown chicken",
+        "audio": "audio/pl/kura_phrase_3.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_słon",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "słoń",
+    "translation": "elephant",
+    "category": "nom",
+    "audio_word": "audio/pl/słon.mp3",
+    "notes": "",
+    "genre": "masculin",
+    "phrases": [
+      {
+        "text": "Słoń jest szary.",
+        "translation": "The elephant is gray.",
+        "audio": "audio/pl/słon_phrase_1.mp3"
+      },
+      {
+        "text": "Widziałam słonia w zoo.",
+        "translation": "I saw an elephant at the zoo.",
+        "audio": "audio/pl/słon_phrase_2.mp3"
+      },
+      {
+        "text": "szary słoń",
+        "translation": "gray elephant",
+        "audio": "audio/pl/słon_phrase_3.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_ryba",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "ryba",
+    "translation": "fish",
+    "category": "nom",
+    "audio_word": "audio/pl/ryba.mp3",
+    "notes": "",
+    "genre": "féminin",
+    "phrases": [
+      {
+        "text": "Ryba pływa w wodzie.",
+        "translation": "The fish is swimming in the water.",
+        "audio": "audio/pl/ryba_phrase_1.mp3"
+      },
+      {
+        "text": "Ryba obserwuje przynętę.",
+        "translation": "The fish is looking at the bait.",
+        "audio": "audio/pl/ryba_phrase_2.mp3"
+      },
+      {
+        "text": "ryba morska",
+        "translation": "saltwater fish",
+        "audio": "audio/pl/ryba_phrase_3.mp3"
+      },
+      {
+        "text": "ryba słodkowodna",
+        "translation": "freshwater fish",
+        "audio": "audio/pl/ryba_phrase_4.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_meble",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "meble",
+    "translation": "furniture",
+    "category": "nom",
+    "audio_word": "audio/pl/meble.mp3",
+    "notes": "",
+    "phrases": [
+      {
+        "text": "Po pożarze musieliśmy wymienić wszystkie meble.",
+        "translation": "We had to replace all of our furniture after the fire.",
+        "audio": "audio/pl/meble_phrase_1.mp3"
+      },
+      {
+        "text": "umeblowany gabinet w domu",
+        "translation": "home study with furniture",
+        "audio": "audio/pl/meble_phrase_2.mp3"
+      },
+      {
+        "text": "meble salonowe",
+        "translation": "living room furniture",
+        "audio": "audio/pl/meble_phrase_3.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_włosy",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "włosy",
+    "translation": "hair",
+    "category": "nom",
+    "audio_word": "audio/pl/włosy.mp3",
+    "notes": "",
+    "phrases": [
+      {
+        "text": "Ta kobieta ma blond włosy.",
+        "translation": "The woman has blonde hair.",
+        "audio": "audio/pl/włosy_phrase_1.mp3"
+      },
+      {
+        "text": "Kobieta myje włosy.",
+        "translation": "The woman is shampooing her hair.",
+        "audio": "audio/pl/włosy_phrase_2.mp3"
+      },
+      {
+        "text": "Ta kobieta ma czarne włosy.",
+        "translation": "The woman has black hair.",
+        "audio": "audio/pl/włosy_phrase_3.mp3"
+      },
+      {
+        "text": "krótkie włosy",
+        "translation": "short hair",
+        "audio": "audio/pl/włosy_phrase_4.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_list",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "list",
+    "translation": "letter",
+    "category": "nom",
+    "audio_word": "audio/pl/list.mp3",
+    "notes": "",
+    "genre": "masculin",
+    "phrases": [
+      {
+        "text": "Ktoś wysyła list.",
+        "translation": "The person is mailing a letter.",
+        "audio": "audio/pl/list_phrase_1.mp3"
+      },
+      {
+        "text": "wysyłać list",
+        "translation": "mail a letter",
+        "audio": "audio/pl/list_phrase_2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_listonosz",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "listonosz",
+    "translation": "mailman",
+    "category": "nom",
+    "audio_word": "audio/pl/listonosz.mp3",
+    "notes": "",
+    "genre": "masculin",
+    "phrases": [
+      {
+        "text": "Listonosz dostarcza pocztę.",
+        "translation": "The mailman is delivering the mail.",
+        "audio": "audio/pl/listonosz_phrase_1.mp3"
+      },
+      {
+        "text": "listonosz w mundurze",
+        "translation": "mailman in uniform",
+        "audio": "audio/pl/listonosz_phrase_2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_kuchenka_mikrofalowa",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "kuchenka mikrofalowa",
+    "translation": "microwave",
+    "category": "expression",
+    "audio_word": "audio/pl/kuchenka_mikrofalowa.mp3",
+    "notes": "",
+    "genre": "féminin",
+    "phrases": [
+      {
+        "text": "Najwygodniejszym sprzętem kuchennym jest kuchenka mikrofalowa.",
+        "translation": "The most convenient kitchen appliance is the microwave oven.",
+        "audio": "audio/pl/kuchenka_mikrofalowa_phrase_1.mp3"
+      },
+      {
+        "text": "kuchenka mikrofalowa ze stali nierdzewnej",
+        "translation": "stainless steel microwave oven",
+        "audio": "audio/pl/kuchenka_mikrofalowa_phrase_2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_komar",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "komar",
+    "translation": "mosquito",
+    "category": "nom",
+    "audio_word": "audio/pl/komar.mp3",
+    "notes": "",
+    "genre": "masculin",
+    "phrases": [
+      {
+        "text": "Ważki zjadają komary.",
+        "translation": "Dragonflies eat mosquitos.",
+        "audio": "audio/pl/komar_phrase_1.mp3"
+      },
+      {
+        "text": "Ten wredny mały komar ugryzł mnie w rękę.",
+        "translation": "That nasty little mosquito bit me on my arm.",
+        "audio": "audio/pl/komar_phrase_2.mp3"
+      },
+      {
+        "text": "komar krwiopijca",
+        "translation": "blood sucking mosquito",
+        "audio": "audio/pl/komar_phrase_3.mp3"
+      },
+      {
+        "text": "ugryzienie komara",
+        "translation": "mosquito bite",
+        "audio": "audio/pl/komar_phrase_4.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_czytac",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "czytać",
+    "translation": "read",
+    "category": "verbe",
+    "audio_word": "audio/pl/czytac.mp3",
+    "notes": "",
+    "phrases": [
+      {
+        "text": "Matka czyta książkę swojej córce.",
+        "translation": "The mother is reading a book to her daughter.",
+        "audio": "audio/pl/czytac_phrase_1.mp3"
+      },
+      {
+        "text": "Matka czytała swojej córce.",
+        "translation": "The mother read to her daughter.",
+        "audio": "audio/pl/czytac_phrase_2.mp3"
+      },
+      {
+        "text": "Matka czytała książkę swojej córce.",
+        "translation": "The mother read a book to her daughter.",
+        "audio": "audio/pl/czytac_phrase_3.mp3"
+      },
+      {
+        "text": "Matka czyta swojej córce.",
+        "translation": "The mother is reading to her daughter.",
+        "audio": "audio/pl/czytac_phrase_4.mp3"
+      },
+      {
+        "text": "Kobieta czyta magazyn.",
+        "translation": "The woman is reading a magazine.",
+        "audio": "audio/pl/czytac_phrase_5.mp3"
+      },
+      {
+        "text": "Chłopiec czyta książkę w parku.",
+        "translation": "The boy is reading a book in the park.",
+        "audio": "audio/pl/czytac_phrase_6.mp3"
+      },
+      {
+        "text": "Wyłącz telewizor i poczytaj książkę.",
+        "translation": "Turn off the television, and read a book.",
+        "audio": "audio/pl/czytac_phrase_7.mp3"
+      },
+      {
+        "text": "czytać książkę swojej córce",
+        "translation": "read a book to one's daughter",
+        "audio": "audio/pl/czytac_phrase_8.mp3"
+      },
+      {
+        "text": "czytać swojej córce",
+        "translation": "read to one's daughter",
+        "audio": "audio/pl/czytac_phrase_9.mp3"
+      },
+      {
+        "text": "czytać magazyn",
+        "translation": "read a magazine",
+        "audio": "audio/pl/czytac_phrase_10.mp3"
+      },
+      {
+        "text": "czytać gazetę",
+        "translation": "read the newspaper",
+        "audio": "audio/pl/czytac_phrase_11.mp3"
+      }
+    ]
+  },
+  {
+    "id": "pl_komedia_romantyczna",
+    "lang": "pl",
+    "niveau": "Nouveau",
+    "word": "komedia romantyczna",
+    "translation": "romantic comedy",
+    "category": "nom",
+    "audio_word": "audio/pl/komedia_romantyczna.mp3",
+    "notes": "",
+    "genre": "féminin",
+    "phrases": [
+      {
+        "text": "Kobieta dobrze się bawi oglądając komedię romantyczną, a mężczyzna śpi.",
+        "translation": "The woman is enjoying the romantic comedy, and the man is sleeping.",
+        "audio": "audio/pl/komedia_romantyczna_phrase_1.mp3"
+      },
+      {
+        "text": "dobra komedia romantyczna",
+        "translation": "good romantic comedy",
+        "audio": "audio/pl/komedia_romantyczna_phrase_2.mp3"
+      }
+    ]
+  }
+]

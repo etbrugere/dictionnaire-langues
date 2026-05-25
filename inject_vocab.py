@@ -33,6 +33,7 @@ LANG_CONFIG = {
     "pl": BASE_DIR / "pl_import.json",
     "pt": BASE_DIR / "pt_import.json",
     "de": BASE_DIR / "de_import.json",
+    "es": BASE_DIR / "es_import.json",
 }
 
 LANG_COMMENTS = {
@@ -42,6 +43,7 @@ LANG_COMMENTS = {
     "pl": "// POLONAIS",
     "pt": "// PORTUGAIS BR",
     "de": "// ALLEMAND",
+    "es": "// ESPAGNOL",
 }
 
 
@@ -129,7 +131,7 @@ def entry_to_js(entry):
         lines.append(f'    roman: "{esc(entry.get("roman",""))}",')
         if entry.get("genre"):
             lines.append(f'    genre: "{esc(entry.get("genre",""))}",')
-    elif lang in ("pl", "pt", "de"):
+    elif lang in ("pl", "pt", "de", "es"):
         if entry.get("genre"):
             lines.append(f'    genre: "{esc(entry.get("genre",""))}",')
 
@@ -205,7 +207,7 @@ def process_lang(lang, html_content):
 
 def main():
     parser = argparse.ArgumentParser(description="Injection vocabulaire dans index.html")
-    parser.add_argument("--lang", choices=["ru","ja","zh","pl","pt","de"])
+    parser.add_argument("--lang", choices=["ru","ja","zh","pl","pt","de","es"])
     parser.add_argument("--all", action="store_true")
     args = parser.parse_args()
 

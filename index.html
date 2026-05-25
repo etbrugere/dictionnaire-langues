@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0d0d0f">
-<title>辞書 • Słownik • Словарь • 词典 • Dicionário • Wörterbuch</title>
+<title>辞書 • Słownik • Словарь • 词典 • Dicionário • Wörterbuch • Diccionario</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -21,6 +21,7 @@
     --accent-pl: #6bbf8e;
     --accent-pt: #e8a045;
     --accent-de: #9988cc;
+    --accent-es: #c8a820;
     --niveau-new: #4a8fc1;
     --niveau-progress: #c9883a;
     --niveau-done: #5aad7a;
@@ -148,6 +149,7 @@
   .filter-btn[data-lang="pl"].active { background: var(--accent-pl); }
   .filter-btn[data-lang="pt"].active { background: var(--accent-pt); }
   .filter-btn[data-lang="de"].active { background: var(--accent-de); }
+  .filter-btn[data-lang="es"].active { background: var(--accent-es); }
   .filter-btn[data-lang="all"].active { background: var(--muted); }
 
   /* NIVEAU FILTERS */
@@ -210,6 +212,7 @@
   .lang-dot.pl { background: var(--accent-pl); }
   .lang-dot.pt { background: var(--accent-pt); }
   .lang-dot.de { background: var(--accent-de); }
+  .lang-dot.es { background: var(--accent-es); }
 
   .card-content { display: flex; flex-direction: column; gap: 0.5rem; }
 
@@ -447,6 +450,7 @@
   .ref-fiche[data-lang="ru"] summary { border-left: 3px solid var(--accent-ru); }
   .ref-fiche[data-lang="pl"] summary { border-left: 3px solid var(--accent-pl); }
   .ref-fiche[data-lang="de"] summary { border-left: 3px solid var(--accent-de); }
+  .ref-fiche[data-lang="es"] summary { border-left: 3px solid var(--accent-es); }
 
   .ref-fiche-body {
     padding: 1rem 1.2rem;
@@ -662,8 +666,8 @@
 <header>
   <div class="header-top">
     <h1>
-      辞書 · Słownik · Словарь · 词典 · Dicionário · Wörterbuch
-      <span>dictionnaire personnel · 6 langues</span>
+      辞書 · Słownik · Словарь · 词典 · Dicionário · Wörterbuch · Diccionario
+      <span>dictionnaire personnel · 7 langues</span>
     </h1>
     <div class="entry-count" id="entryCount">— entrées</div>
   </div>
@@ -679,6 +683,7 @@
       <button class="filter-btn" data-lang="pl">PL</button>
       <button class="filter-btn" data-lang="pt">PT</button>
       <button class="filter-btn" data-lang="de">DE</button>
+      <button class="filter-btn" data-lang="es">ES</button>
     </div>
     <div class="niveau-filters">
       <button class="niv-btn active" data-niv="all">Tous</button>
@@ -921,6 +926,40 @@
     </div>
   </details>
 
+  <!-- 🇪🇸 Espagnol — Accents · Ponctuation · Genre -->
+  <details class="ref-fiche" data-lang="es" id="fiche-es">
+    <summary>
+      <span>🇪🇸</span>
+      <span>Espagnol — Accents · ñ · Ponctuation</span>
+      <span class="ref-chevron">▼</span>
+    </summary>
+    <div class="ref-fiche-body">
+      <p class="ref-fiche-title">Caractères spéciaux et prononciation</p>
+      <div class="table-scroll"><table class="ref-table">
+        <thead>
+          <tr><th>Caractère</th><th>Prononciation</th><th>Exemple</th><th>Sens</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-size:1.1rem;font-family:'Noto Serif JP',serif">á é í ó ú</td><td class="cell-son">voyelle accentuée (accent tonique)</td><td>café, fácil</td><td>—</td></tr>
+          <tr><td style="font-size:1.1rem;font-family:'Noto Serif JP',serif">ñ</td><td class="cell-son">« gn » (comme « agneau »)</td><td>mañana</td><td>Demain</td></tr>
+          <tr><td style="font-size:1.1rem;font-family:'Noto Serif JP',serif">ü</td><td class="cell-son">« u » prononcé (après g)</td><td>pingüino</td><td>Pingouin</td></tr>
+          <tr><td style="font-size:1.1rem;font-family:'Noto Serif JP',serif">¿ … ?</td><td class="cell-son">question (ouvrant + fermant)</td><td>¿Cómo estás?</td><td>Comment vas-tu ?</td></tr>
+          <tr><td style="font-size:1.1rem;font-family:'Noto Serif JP',serif">¡ … !</td><td class="cell-son">exclamation (ouvrant + fermant)</td><td>¡Hola!</td><td>Bonjour !</td></tr>
+        </tbody>
+      </table></div>
+      <p class="ref-fiche-title" style="margin-top:0.6rem">Articles définis</p>
+      <div class="table-scroll"><table class="ref-table">
+        <thead>
+          <tr><th>Genre</th><th>Singulier</th><th>Pluriel</th><th>Exemple</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Masculin</td><td style="color:var(--accent-es);font-family:'JetBrains Mono',monospace">el</td><td style="color:var(--accent-es);font-family:'JetBrains Mono',monospace">los</td><td>el libro (le livre)</td></tr>
+          <tr><td>Féminin</td><td style="color:var(--accent-es);font-family:'JetBrains Mono',monospace">la</td><td style="color:var(--accent-es);font-family:'JetBrains Mono',monospace">las</td><td>la mesa (la table)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </details>
+
 </section>
 <!-- ──────────────────────────────────────────────────────────────────────────── -->
 
@@ -943,6 +982,7 @@
           <option value="pl">Polonais</option>
           <option value="pt">Portugais (BR)</option>
           <option value="de">Allemand</option>
+          <option value="es">Espagnol</option>
         </select>
       </div>
       <div class="form-group">
@@ -1052,6 +1092,20 @@
       </div>
     </div>
 
+    <!-- Champs espagnol -->
+    <div class="lang-fields" id="fields_es">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Genre</label>
+          <select id="f_es_genre">
+            <option value="">—</option>
+            <option value="masculin">Masculin</option>
+            <option value="féminin">Féminin</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
     <!-- Champs portugais -->
     <div class="lang-fields" id="fields_pt">
       <div class="form-row">
@@ -1105,6 +1159,228 @@
 // ─── DONNÉES INITIALES (issues de tes captures Notion) ───────────────────────
 const INITIAL_DATA = [
   // JAPONAIS
+  {
+    id: "ja_kami", lang: "ja", niveau: "Nouveau",
+    word: "紙",
+    reading: "かみ",
+    roman: "kami",
+    translation: "paper", category: "nom",
+    phrase: "ノリを紙につけなさい。",
+    phrase_reading: "ノリをかみにつけなさい。",
+    phrase_roman: "Nori o kami ni tsukenasai.",
+    phrase_fr: "Apply glue to the paper.",
+    audio_word: "audio/ja/kami.mp3", audio_phrase: "audio/ja/kami_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '紙':
+  // phrase_2: "ノートの紙を使って、テストを受けなさい。" | reading: "ノートのかみをつかって、テストをうけなさい。" | roman: "Nōto no kami o tsukatte, tesuto o ukenasai." | transl: "Use notebook paper to take the test." | audio: "audio/ja/kami_phrase_2.mp3"
+  // phrase_3: "一枚の紙" | reading: "いちまいのかみ" | roman: "ichi-mai no kami" | transl: "piece of paper" | audio: "audio/ja/kami_phrase_3.mp3"
+  // phrase_4: "紙と鉛筆" | reading: "かみとえんぴつ" | roman: "kami to enpitsu" | transl: "paper and pencil" | audio: "audio/ja/kami_phrase_4.mp3"
+  // phrase_5: "ノートの紙" | reading: "ノートのかみ" | roman: "nōto no kami" | transl: "notebook paper" | audio: "audio/ja/kami_phrase_5.mp3"
+  {
+    id: "ja_haku", lang: "ja", niveau: "Nouveau",
+    word: "掃く",
+    reading: "はく",
+    roman: "haku",
+    translation: "sweep", category: "verbe",
+    phrase: "女の人が外を掃く。",
+    phrase_reading: "おんなのひとがそとをはく。",
+    phrase_roman: "Onna no hito ga soto o haku.",
+    phrase_fr: "The woman sweeps outside.",
+    audio_word: "audio/ja/haku.mp3", audio_phrase: "audio/ja/haku_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '掃く':
+  // phrase_2: "女の人が外を掃いた。" | reading: "おんなのひとがそとをはいた。" | roman: "Onna no hito ga soto o haita." | transl: "The woman swept outside." | audio: "audio/ja/haku_phrase_2.mp3"
+  // phrase_3: "女の人が外を掃いている。" | reading: "おんなのひとがそとをはらいている。" | roman: "Onna no hito ga soto o haite iru." | transl: "The woman is sweeping outside." | audio: "audio/ja/haku_phrase_3.mp3"
+  // phrase_4: "小さい女の子が床を掃いています。" | reading: "ちいさいおんなのこがゆかをはいています。" | roman: "Chiisai onna no ko ga yuka o haite imasu." | transl: "The little girl is sweeping the floor." | audio: "audio/ja/haku_phrase_4.mp3"
+  // phrase_5: "外を掃く" | reading: "そとをはく" | roman: "soto o haku" | transl: "sweep outside" | audio: "audio/ja/haku_phrase_5.mp3"
+  // phrase_6: "床を掃く" | reading: "ゆかをはく" | roman: "yuka o haku" | transl: "sweep the floor" | audio: "audio/ja/haku_phrase_6.mp3"
+  {
+    id: "ja_jisho", lang: "ja", niveau: "Nouveau",
+    word: "辞書",
+    reading: "じしょ",
+    roman: "jisho",
+    translation: "dictionary", category: "nom",
+    phrase: "英仏辞書を持っています。",
+    phrase_reading: "えいふつじしょをもっています。",
+    phrase_roman: "Eifutsu jisho o motte imasu.",
+    phrase_fr: "I have an English-French dictionary.",
+    audio_word: "audio/ja/jisho.mp3", audio_phrase: "audio/ja/jisho_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '辞書':
+  // phrase_2: "本と辞書がテーブルの上にある。" | reading: "ほんとじしょがテーブルのうえにある。" | roman: "Hon to jisho ga tēburu no ue ni aru." | transl: "The book and the dictionary are on the table." | audio: "audio/ja/jisho_phrase_2.mp3"
+  // phrase_3: "英語の辞書" | reading: "えいごのじしょ" | roman: "eigo no jisho" | transl: "English dictionary" | audio: "audio/ja/jisho_phrase_3.mp3"
+  // phrase_4: "独英の電子辞書" | reading: "どくえいのでんしじしょ" | roman: "dokuei no denshi jisho" | transl: "German-English electronic dictionary" | audio: "audio/ja/jisho_phrase_4.mp3"
+  {
+    id: "ja_usetsu", lang: "ja", niveau: "Nouveau",
+    word: "右折",
+    reading: "うせつ",
+    roman: "usetsu",
+    translation: "right turn", category: "nom",
+    phrase: "その角に行ったら、右折してください。",
+    phrase_reading: "そのかどにいったら、うせつしてください。",
+    phrase_roman: "Sono kado ni ittara, usetsu shite kudasai.",
+    phrase_fr: "When you get to the corner, make a right turn.",
+    audio_word: "audio/ja/usetsu.mp3", audio_phrase: "audio/ja/usetsu_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '右折':
+  // phrase_2: "急な右折" | reading: "きゅうなうせつ" | roman: "kyū na usetsu" | transl: "sharp right turn" | audio: "audio/ja/usetsu_phrase_2.mp3"
+  // phrase_3: "右折" | reading: "うせつ" | roman: "usetsu" | transl: "right turn" | audio: "audio/ja/usetsu_phrase_3.mp3"
+  {
+    id: "ja_otoko_no_ko", lang: "ja", niveau: "Nouveau",
+    word: "男の子",
+    reading: "おとこのこ",
+    roman: "otoko no ko",
+    translation: "boy", category: "nom",
+    phrase: "男の子が、ホットドッグを食べている。",
+    phrase_reading: "おとこのこが、ホットドッグをたべている。",
+    phrase_roman: "Otoko no ko ga, hotto doggu o tabete iru.",
+    phrase_fr: "The boy is eating a hot dog.",
+    audio_word: "audio/ja/otoko_no_ko.mp3", audio_phrase: "audio/ja/otoko_no_ko_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '男の子':
+  // phrase_2: "男の子は女の子より背が高い。" | reading: "おとこのこはおんなのこよりせがたかい。" | roman: "Otoko no ko wa onna no ko yori se ga takai." | transl: "The boy is taller than the girl." | audio: "audio/ja/otoko_no_ko_phrase_2.mp3"
+  // phrase_3: "悲しそうな男の子" | reading: "かなしそうなおとこのこ" | roman: "kanashi sō na otoko no ko" | transl: "sad boy" | audio: "audio/ja/otoko_no_ko_phrase_3.mp3"
+  {
+    id: "ja_kirin", lang: "ja", niveau: "Nouveau",
+    word: "キリン",
+    reading: "キリン",
+    roman: "kirin",
+    translation: "giraffe", category: "nom",
+    phrase: "キリンは首が長い。",
+    phrase_reading: "キリンはくびがながい。",
+    phrase_roman: "Kirin wa kubi ga nagai.",
+    phrase_fr: "Giraffes have long necks.",
+    audio_word: "audio/ja/kirin.mp3", audio_phrase: "audio/ja/kirin_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'キリン':
+  // phrase_2: "キリンが、動物園で木の葉っぱを食べている。" | reading: "キリンが、どうぶつえんできのはっぱをたべている。" | roman: "Kirin ga, dōbutsuen de ki no happa o tabete iru." | transl: "The giraffes are eating leaves from a tree in a zoo." | audio: "audio/ja/kirin_phrase_2.mp3"
+  // phrase_3: "動物園で、来園者がキリンを見ている。" | reading: "どうぶつえんで、らいえんしゃがキリンをみている。" | roman: "Dōbutsuen de, raiensha ga kirin o mite iru." | transl: "The zoo visitors are watching the giraffe." | audio: "audio/ja/kirin_phrase_3.mp3"
+  {
+    id: "ja_gaido", lang: "ja", niveau: "Nouveau",
+    word: "ガイド",
+    reading: "ガイド",
+    roman: "gaido",
+    translation: "guide", category: "nom",
+    phrase: "ガイドは、知らない場所を案内してくれます。",
+    phrase_reading: "ガイドは、しらないばしょをあんないしてくれます。",
+    phrase_roman: "Gaido wa, shiranai basho o annai shite kuremasu.",
+    phrase_fr: "The guide will help you find your way in a strange place.",
+    audio_word: "audio/ja/gaido.mp3", audio_phrase: "audio/ja/gaido_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'ガイド':
+  // phrase_2: "ツアーガイド" | reading: "ツアーガイド" | roman: "tsuā gaido" | transl: "tour guide" | audio: "audio/ja/gaido_phrase_2.mp3"
+  // phrase_3: "ガイドに付いて行く" | reading: "ガイドについていく" | roman: "gaido ni tsuite iku" | transl: "follow your guide" | audio: "audio/ja/gaido_phrase_3.mp3"
+  {
+    id: "ja_uma", lang: "ja", niveau: "Nouveau",
+    word: "馬",
+    reading: "うま",
+    roman: "uma",
+    translation: "horse", category: "nom",
+    phrase: "馬が野原を駆けている。",
+    phrase_reading: "うまがのはらをかけている。",
+    phrase_roman: "Uma ga nohara o kakete iru.",
+    phrase_fr: "The horse is running in the field.",
+    audio_word: "audio/ja/uma.mp3", audio_phrase: "audio/ja/uma_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '馬':
+  // phrase_2: "馬は美しい動物です。" | reading: "うまはうつくしいどうぶつです。" | roman: "Uma wa utsukushii dōbutsu desu." | transl: "Horses are beautiful animals." | audio: "audio/ja/uma_phrase_2.mp3"
+  // phrase_3: "家のそばにいる灰色の馬" | reading: "いえのそばにいるはいいろのうま" | roman: "ie no soba ni iru haiiro no uma" | transl: "grey horse near house" | audio: "audio/ja/uma_phrase_3.mp3"
+  // phrase_4: "草原にいる馬" | reading: "そうげんにいるうま" | roman: "sōgen ni iru uma" | transl: "horse in a field" | audio: "audio/ja/uma_phrase_4.mp3"
+  // phrase_5: "馬に乗る" | reading: "うまにのる" | roman: "uma ni noru" | transl: "ride a horse" | audio: "audio/ja/uma_phrase_5.mp3"
+  {
+    id: "ja_kohi", lang: "ja", niveau: "Nouveau",
+    word: "コーヒー",
+    reading: "コーヒー",
+    roman: "kōhī",
+    translation: "coffee", category: "nom",
+    phrase: "コーヒーポットには、コーヒーが一杯入っています。",
+    phrase_reading: "コーヒーポットには、コーヒーがいっぱいはいっています。",
+    phrase_roman: "Kōhī potto ni wa kōhī ga ippai haitte imasu.",
+    phrase_fr: "The coffee pot is full of coffee.",
+    audio_word: "audio/ja/kohi.mp3", audio_phrase: "audio/ja/kohi_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'コーヒー':
+  // phrase_2: "私は、朝、コーヒーをいれるときの匂いが大好きです。" | reading: "わたしは、あさ、コーヒーをいれるときのにおいがだいすきです。" | roman: "Watashi wa, asa kōhī o ireru toki no nioi ga daisuki desu." | transl: "I love the smell of coffee brewing in the morning." | audio: "audio/ja/kohi_phrase_2.mp3"
+  // phrase_3: "私は一杯のコーヒーで一日を始める。" | reading: "わたしはいっぱいのコーヒーでいちにちをはじめる。" | roman: "Watashi wa i-ppai no kōhī de ichi-nichi o hajimeru." | transl: "I start each day with a cup of coffee." | audio: "audio/ja/kohi_phrase_3.mp3"
+  // phrase_4: "わたしは、ブラックコーヒーが好きだ。" | reading: "わたしは、ブラックコーヒーがすきだ。" | roman: "Watashi wa, burakku kōhī ga suki da." | transl: "I like my coffee black." | audio: "audio/ja/kohi_phrase_4.mp3"
+  // phrase_5: "カップに入ったコーヒー" | reading: "カップにはいったコーヒー" | roman: "kappu ni haitta kōhī" | transl: "cup of coffee" | audio: "audio/ja/kohi_phrase_5.mp3"
+  // phrase_6: "コーヒー豆" | reading: "コーヒーまめ" | roman: "kōhī mame" | transl: "coffee bean" | audio: "audio/ja/kohi_phrase_6.mp3"
+  // phrase_7: "いれたてのコーヒー" | reading: "いれたてのコーヒー" | roman: "ire tate no kōhī" | transl: "freshly brewed coffee" | audio: "audio/ja/kohi_phrase_7.mp3"
+  {
+    id: "ja_raion", lang: "ja", niveau: "Nouveau",
+    word: "ライオン",
+    reading: "ライオン",
+    roman: "raion",
+    translation: "lion", category: "nom",
+    phrase: "ライオンが、立ち止まっては、また歩いている。",
+    phrase_reading: "ライオンが、たちどまっては、またあるいている。",
+    phrase_roman: "Raion ga tachi domatte wa, mata aruite iru.",
+    phrase_fr: "The lion pauses and then continues walking.",
+    audio_word: "audio/ja/raion.mp3", audio_phrase: "audio/ja/raion_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'ライオン':
+  // phrase_2: "ライオンが寝ている。" | reading: "ライオンがねている。" | roman: "Raion ga nete iru." | transl: "The lion is sleeping." | audio: "audio/ja/raion_phrase_2.mp3"
+  // phrase_3: "大きなライオン" | reading: "おおきなライオン" | roman: "ōki na raion" | transl: "big lion" | audio: "audio/ja/raion_phrase_3.mp3"
+  {
+    id: "ja_ie", lang: "ja", niveau: "Nouveau",
+    word: "家",
+    reading: "いえ",
+    roman: "ie",
+    translation: "house", category: "nom",
+    phrase: "家はどこですか？",
+    phrase_reading: "いえはどこですか？",
+    phrase_roman: "Ie wa doko desu ka?",
+    phrase_fr: "Where is the house?",
+    audio_word: "audio/ja/ie.mp3", audio_phrase: "audio/ja/ie_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '家':
+  // phrase_2: "私は自分が住んでいる家を所有している。" | reading: "わたしはじぶんがすんでいるいえをしょゆうしている。" | roman: "Watashi wa jibun ga sunde iru ie o shoyū shite iru." | transl: "I own the house I live in." | audio: "audio/ja/ie_phrase_2.mp3"
+  // phrase_3: "二階建ての家" | reading: "にかいだてのいえ" | roman: "ni-kai date no ie" | transl: "two-story house" | audio: "audio/ja/ie_phrase_3.mp3"
+  // phrase_4: "暖かい家" | reading: "あたたかいいえ" | roman: "atatakai ie" | transl: "a warm house" | audio: "audio/ja/ie_phrase_4.mp3"
+  {
+    id: "ja_same", lang: "ja", niveau: "Nouveau",
+    word: "サメ",
+    reading: "サメ",
+    roman: "same",
+    translation: "shark", category: "nom",
+    phrase: "サーファーがサメに噛まれた。",
+    phrase_reading: "サーファーがサメにかまれた。",
+    phrase_roman: "Sāfā ga same ni kamareta.",
+    phrase_fr: "The surfer was bitten by a shark.",
+    audio_word: "audio/ja/same.mp3", audio_phrase: "audio/ja/same_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'サメ':
+  // phrase_2: "サメが、海を泳いでいる。" | reading: "サメが、うみをおよいでいる。" | roman: "Same ga, umi o oyoide iru." | transl: "The shark is swimming in the ocean." | audio: "audio/ja/same_phrase_2.mp3"
+  // phrase_3: "ホオジロザメ" | reading: "ホオジロザメ" | roman: "hōjirozame" | transl: "great white shark" | audio: "audio/ja/same_phrase_3.mp3"
+  {
+    id: "ja_taki", lang: "ja", niveau: "Nouveau",
+    word: "滝",
+    reading: "たき",
+    roman: "taki",
+    translation: "waterfall", category: "nom",
+    phrase: "その滝はきれいです。",
+    phrase_reading: "そのたきはきれいです。",
+    phrase_roman: "Sono taki wa kirei desu.",
+    phrase_fr: "The waterfall is beautiful.",
+    audio_word: "audio/ja/taki.mp3", audio_phrase: "audio/ja/taki_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '滝':
+  // phrase_2: "熱帯雨林にある滝" | reading: "ねったいうりんにあるたき" | roman: "nettai urin ni aru taki" | transl: "waterfall in a rainforest" | audio: "audio/ja/taki_phrase_2.mp3"
+  // phrase_3: "流れ落ちる滝" | reading: "ながれおちるたき" | roman: "nagare ochiru taki" | transl: "flowing waterfall" | audio: "audio/ja/taki_phrase_3.mp3"
+  
   {
     id: "ja_joshi", lang: "ja", niveau: "Nouveau",
     word: "上司",
@@ -1489,6 +1765,121 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/pan.mp3", audio_phrase: "audio/ja/pan_phrase.mp3", notes: ""
   },
   // MANDARIN
+  {
+    id: "zh_shisi", lang: "zh", niveau: "Nouveau",
+    word: "十四",
+    trad: "十四",
+    roman: "shísì",
+    ton: "Ton 2", ton_symbol: "/",
+    translation: "fourteen", category: "numeral",
+    phrase: "十四封信",
+    phrase_roman: "shísì fēng xìn",
+    phrase_fr: "fourteen letters",
+    audio_word: "audio/zh/shisi.mp3", audio_phrase: "audio/zh/shisi_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '十四':
+  // phrase_2: "十四号球有绿色条纹。" | roman: "Shísì hào qiú yǒu lǜsè tiáowén." | trad: "十四號球有綠色條紋。" | transl: "The fourteen ball has a green stripe." | audio: "audio/zh/shisi_phrase_2.mp3"
+  // phrase_3: "十四" | roman: "shísì" | transl: "14" | audio: "audio/zh/shisi_phrase_3.mp3"
+  // phrase_4: "十四号" | roman: "shísì hào" | trad: "十四號" | transl: "number fourteen" | audio: "audio/zh/shisi_phrase_4.mp3"
+  {
+    id: "zh_jiejie", lang: "zh", niveau: "Nouveau",
+    word: "姐姐",
+    trad: "姐姐",
+    roman: "jiějie",
+    ton: "Ton 3", ton_symbol: "v",
+    translation: "older sister", category: "nom",
+    phrase: "姐姐正抱着妹妹。",
+    phrase_roman: "Jiějie zhèng bàozhe mèimei.",
+    phrase_trad: "姐姐正抱著妹妹。",
+    phrase_fr: "The older sister is holding her younger sister.",
+    audio_word: "audio/zh/jiejie.mp3", audio_phrase: "audio/zh/jiejie_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '姐姐':
+  // phrase_2: "爸妈都出去的时候，姐姐照看我们。" | roman: "Bàmā dōu chūqù de shíhou, jiějie zhàokàn wǒmen." | trad: "爸媽都出去的時候，姐姐照看我們。" | transl: "Our older sister babysits when our parents are out." | audio: "audio/zh/jiejie_phrase_2.mp3"
+  // phrase_3: "有一个姐姐" | roman: "yǒu yí gè jiějie" | trad: "有一個姐姐" | transl: "have an older sister" | audio: "audio/zh/jiejie_phrase_3.mp3"
+  {
+    id: "zh_gongji", lang: "zh", niveau: "Nouveau",
+    word: "公鸡",
+    trad: "公雞",
+    roman: "gōngjī",
+    ton: "Ton 1", ton_symbol: "—",
+    translation: "rooster", category: "nom",
+    phrase: "公鸡在叫。",
+    phrase_roman: "Gōngjī zài jiào.",
+    phrase_trad: "公雞在叫。",
+    phrase_fr: "The rooster is crowing.",
+    audio_word: "audio/zh/gongji.mp3", audio_phrase: "audio/zh/gongji_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '公鸡':
+  // phrase_2: "公鸡叫的时候，我会醒来。" | roman: "Gōngjī jiào de shíhou, wǒ huì xǐnglái." | trad: "公雞叫的時候，我會醒來。" | transl: "When the rooster crows, I will wake up." | audio: "audio/zh/gongji_phrase_2.mp3"
+  // phrase_3: "公鸡边叫边四处张望。" | roman: "Gōngjī biān jiào biān sìchù zhāngwàng." | trad: "公雞邊叫邊四處張望。" | transl: "The rooster crows while it glances around." | audio: "audio/zh/gongji_phrase_3.mp3"
+  // phrase_4: "每天早上我都被这只老公鸡叫醒。" | roman: "Měitiān zǎoshang wǒ dōu bèi zhè zhī lǎogōngjī jiào xǐng." | trad: "每天早上我都被這只老公雞叫醒。" | transl: "I was woken every morning by the old rooster." | audio: "audio/zh/gongji_phrase_4.mp3"
+  // phrase_5: "打鸣的公鸡" | roman: "dǎ míng de gōngjī" | trad: "打鳴的公雞" | transl: "crowing rooster" | audio: "audio/zh/gongji_phrase_5.mp3"
+  // phrase_6: "公鸡报晓" | roman: "gōngjī bàoxiǎo" | trad: "公雞報曉" | transl: "good morning rooster" | audio: "audio/zh/gongji_phrase_6.mp3"
+  {
+    id: "zh_shaozi", lang: "zh", niveau: "Nouveau",
+    word: "勺子",
+    trad: "勺子",
+    roman: "sháozi",
+    ton: "Ton 2", ton_symbol: "/",
+    translation: "spoon", category: "nom",
+    phrase: "叉子、勺子和餐刀都是餐具。",
+    phrase_roman: "Chāzi , sháozi hé cān dāo dōu shì cānjù .",
+    phrase_trad: "叉子、勺子和餐刀都是餐具。",
+    phrase_fr: "Forks, spoons, and knives are eating utensils.",
+    audio_word: "audio/zh/shaozi.mp3", audio_phrase: "audio/zh/shaozi_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '勺子':
+  // phrase_2: "汤匙比餐勺大多了。" | roman: "Tāngchí bǐ cānsháo dà duō le." | trad: "湯匙比餐勺大多了。" | transl: "The soup spoon is much larger than the dinner spoon." | audio: "audio/zh/shaozi_phrase_2.mp3"
+  // phrase_3: "喝汤的时候要用调羹。" | roman: "Hē tāng de shíhou yào yòng tiáogēng." | trad: "喝湯的時候要用調羹。" | transl: "It is necessary to use a spoon when eating soup." | audio: "audio/zh/shaozi_phrase_3.mp3"
+  // phrase_4: "冲剂，汤匙和一个小塑料杯" | roman: "chōngjì, tāngchí hé yī gè xiǎo sùliào bēi" | trad: "沖劑，湯匙和一個小塑料杯" | transl: "liquid medicine, a spoon and a small plastic cup" | audio: "audio/zh/shaozi_phrase_4.mp3"
+  // phrase_5: "银匙" | roman: "yínchí" | trad: "銀匙" | transl: "silver spoon" | audio: "audio/zh/shaozi_phrase_5.mp3"
+  // phrase_6: "汤匙" | roman: "tāngchí" | trad: "湯匙" | transl: "soup spoon" | audio: "audio/zh/shaozi_phrase_6.mp3"
+  {
+    id: "zh_xuexi", lang: "zh", niveau: "Nouveau",
+    word: "学习",
+    trad: "學習",
+    roman: "xuéxí",
+    ton: "Ton 2", ton_symbol: "/",
+    translation: "study", category: "verbe",
+    phrase: "高中生在图书馆学习。",
+    phrase_roman: "Gāozhōngshēng zài túshūguǎn xuéxí.",
+    phrase_trad: "高中生在圖書館學習。",
+    phrase_fr: "The high school students study at the library.",
+    audio_word: "audio/zh/xuexi.mp3", audio_phrase: "audio/zh/xuexi_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '学习':
+  // phrase_2: "高中生正在图书馆学习。" | roman: "Gāozhōngshēng zhèngzài túshūguǎn xuéxí." | trad: "高中生正在圖書館學習。" | transl: "The high school students are studying at the library." | audio: "audio/zh/xuexi_phrase_2.mp3"
+  // phrase_3: "高中生们在图书馆学习过了。" | roman: "Gāozhōngshēng men zài túshūguǎn xuéxí guò le ." | trad: "高中生們在圖書館學習過了。" | transl: "The high school students studied in the library." | audio: "audio/zh/xuexi_phrase_3.mp3"
+  // phrase_4: "我每天在学校学习，然后晚上再学三个小时。" | roman: "Wǒ měitiān zài xuéxiào xuéxí, ránhòu wǎnshàng zài xué sān gè xiǎoshí." | trad: "我每天在學校學習，然後晚上再學三個小時。" | transl: "I study every day at school, and for three hours each night." | audio: "audio/zh/xuexi_phrase_4.mp3"
+  // phrase_5: "在图书馆学习" | roman: "zài túshūguǎn xuéxí" | trad: "在圖書館學習" | transl: "study at a library" | audio: "audio/zh/xuexi_phrase_5.mp3"
+  // phrase_6: "学习法律" | roman: "xuéxí fǎlǜ" | trad: "學習法律" | transl: "study law" | audio: "audio/zh/xuexi_phrase_6.mp3"
+  // phrase_7: "一起学习" | roman: "yìqǐ xuéxí" | trad: "一起學習" | transl: "study together" | audio: "audio/zh/xuexi_phrase_7.mp3"
+  {
+    id: "zh_laoshi", lang: "zh", niveau: "Nouveau",
+    word: "老师",
+    trad: "老師",
+    roman: "lǎoshī",
+    ton: "Ton 3", ton_symbol: "v",
+    translation: "teacher", category: "nom",
+    phrase: "我们的法语老师在家说法语。",
+    phrase_roman: "Wǒmen de Fǎyǔ lǎoshī zài jiā shuō Fǎyǔ.",
+    phrase_trad: "我們的法語老師在家說法語。",
+    phrase_fr: "Our French teacher speaks the language at home.",
+    audio_word: "audio/zh/laoshi.mp3", audio_phrase: "audio/zh/laoshi_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour '老师':
+  // phrase_2: "史密斯先生是我高中最喜欢的老师。" | roman: "Shǐmìsī xiānsheng shì wǒ gāozhōng zuì xǐhuān de lǎoshī." | trad: "史密斯先生是我高中最喜歡的老師。" | transl: "Mr. Smith was my favorite high school teacher." | audio: "audio/zh/laoshi_phrase_2.mp3"
+  // phrase_3: "这名老师正在教室里教孩子们。" | roman: "Zhè míng lǎoshī zhèngzài jiàoshì lǐ jiāo háizimen." | trad: "這名老師正在教室裏教孩子們。" | transl: "The teacher is teaching the kids in the classroom." | audio: "audio/zh/laoshi_phrase_3.mp3"
+  // phrase_4: "英语老师" | roman: "Yīngyǔ lǎoshī" | trad: "英語老師" | transl: "English teacher" | audio: "audio/zh/laoshi_phrase_4.mp3"
+  // phrase_5: "最喜欢的老师" | roman: "zuì xǐhuān de lǎoshī" | trad: "最喜歡的老師" | transl: "favorite teacher" | audio: "audio/zh/laoshi_phrase_5.mp3"
+  
   {
     id: "zh_piao", lang: "zh", niveau: "Nouveau",
     word: "票",
@@ -2053,6 +2444,87 @@ const INITIAL_DATA = [
   },
   // RUSSE
   {
+    id: "ru_selderey", lang: "ru", niveau: "Nouveau",
+    word: "сельдерей",
+    roman: "sel'derey",
+    genre: "masculin",
+    translation: "celery", category: "nom",
+    phrase: "Сам процесс поедания сельдерея требует больше калорий, чем  вы получите съев его.",
+    phrase_roman: "Sam protsess poyedaniya sel'dereya trebuyet bol'she kaloriy, chem vy poluchite s'yev yego.",
+    phrase_fr: "It takes more calories to eat celery than you get by eating it.",
+    audio_word: "audio/ru/selderey.mp3", audio_phrase: "audio/ru/selderey_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'сельдерей':
+  // phrase_2: "пучок сельдерея" | roman: "puchok sel'dereya" | transl: "celery bunch" | audio: "audio/ru/selderey_phrase_2.mp3"
+  // phrase_3: "стебли сельдерея" | roman: "stebli sel'dereya" | transl: "celery stalks" | audio: "audio/ru/selderey_phrase_3.mp3"
+  {
+    id: "ru_zharkiy", lang: "ru", niveau: "Nouveau",
+    word: "жаркий",
+    roman: "zharkiy",
+    translation: "hot", category: "adjectif",
+    phrase: "Сегодня жаркий день.",
+    phrase_roman: "Segodnya zharkiy den'.",
+    phrase_fr: "It's a hot day.",
+    audio_word: "audio/ru/zharkiy.mp3", audio_phrase: "audio/ru/zharkiy_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'жаркий':
+  // phrase_2: "жаркий день" | roman: "zharkiy den'" | transl: "hot day" | audio: "audio/ru/zharkiy_phrase_2.mp3"
+  // phrase_3: "жаркая пустыня" | roman: "zharkaya pustynya" | transl: "hot desert" | audio: "audio/ru/zharkiy_phrase_3.mp3"
+  // phrase_4: "жаркий летний день" | roman: "zharkiy letniy den'" | transl: "hot summer day" | audio: "audio/ru/zharkiy_phrase_4.mp3"
+  {
+    id: "ru_medsestra", lang: "ru", niveau: "Nouveau",
+    word: "медсестра",
+    roman: "medsestra",
+    genre: "féminin",
+    translation: "nurse", category: "nom",
+    phrase: "Женщина - медсестра.",
+    phrase_roman: "Zhenshchina - medsestra.",
+    phrase_fr: "The woman is a nurse.",
+    audio_word: "audio/ru/medsestra.mp3", audio_phrase: "audio/ru/medsestra_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'медсестра':
+  // phrase_2: "Медсестра в школьном медпункте осматривает ученика." | roman: "Medsestra v shkol'nom medpunkte osmatrivayet uchenika." | transl: "The nurse at the school infirmary is examining the student." | audio: "audio/ru/medsestra_phrase_2.mp3"
+  // phrase_3: "Медсестра проводит с пациентами больше времени, чем доктор." | roman: "Medsestra provodit s patsiyentami bol'she vremeni, chem doktor." | transl: "The nurse spends more time with patients than the doctor does." | audio: "audio/ru/medsestra_phrase_3.mp3"
+  // phrase_4: "Медсестра проводит с пациентом больше времени, чем врач." | roman: "Medsestra provodit s patsiyentom bol'she vremeni, chem vrach." | transl: "The nurse spends more time with the patient than the doctor." | audio: "audio/ru/medsestra_phrase_4.mp3"
+  // phrase_5: "медсестра" | roman: "medsestra" | transl: "female nurse" | audio: "audio/ru/medsestra_phrase_5.mp3"
+  // phrase_6: "старшая медсестра" | roman: "starshaya medsestra" | transl: "head nurse" | audio: "audio/ru/medsestra_phrase_6.mp3"
+  {
+    id: "ru_pogoda", lang: "ru", niveau: "Nouveau",
+    word: "погода",
+    roman: "pogoda",
+    genre: "féminin",
+    translation: "weather", category: "nom",
+    phrase: "После обеда погода изменится.",
+    phrase_roman: "Posle obeda pogoda izmenitsya.",
+    phrase_fr: "In the afternoon, the weather will change.",
+    audio_word: "audio/ru/pogoda.mp3", audio_phrase: "audio/ru/pogoda_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'погода':
+  // phrase_2: "Семья наслаждается хорошей погодой." | roman: "Sem'ya naslazhdayetsya khoroshey pogodoy." | transl: "The family is enjoying the fine weather." | audio: "audio/ru/pogoda_phrase_2.mp3"
+  // phrase_3: "Погода сегодня солнечная с переменной облачностью." | roman: "Pogoda segodnya solnechnaya s peremennoy oblachnost'yu." | transl: "Today's weather is sunny with occasional clouds." | audio: "audio/ru/pogoda_phrase_3.mp3"
+  // phrase_4: "проверь прогноз погоды" | roman: "prover' prognoz pogody" | transl: "check the weather report" | audio: "audio/ru/pogoda_phrase_4.mp3"
+  // phrase_5: "еженедельный прогноз погоды" | roman: "yezhenedel'nyy prognoz pogody" | transl: "weekly weather report" | audio: "audio/ru/pogoda_phrase_5.mp3"
+  // phrase_6: "погодная сводка" | roman: "pogodnaya svodka" | transl: "weather bulletin" | audio: "audio/ru/pogoda_phrase_6.mp3"
+  {
+    id: "ru_sosyed", lang: "ru", niveau: "Nouveau",
+    word: "сосед",
+    roman: "sosyed",
+    genre: "masculin",
+    translation: "neighbor", category: "nom",
+    phrase: "Наш сосед всегда жалуется на шум на лестничной клетке.",
+    phrase_roman: "Nash sosed vsegda zhaluyetsya na shum na lestnichnoy kletke.",
+    phrase_fr: "Our neighbor always complains about the noise on the staircase.",
+    audio_word: "audio/ru/sosyed.mp3", audio_phrase: "audio/ru/sosyed_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'сосед':
+  // phrase_2: "сосед по лестничной клетке" | roman: "sosed po lestnichnoy kletke" | transl: "next-door neighbor" | audio: "audio/ru/sosyed_phrase_2.mp3"
+  
+  {
     id: "ru_tualetnaya_bumaga", lang: "ru", niveau: "Nouveau",
     word: "туалетная бумага",
     roman: "tualetnaya bumaga",
@@ -2564,6 +3036,178 @@ const INITIAL_DATA = [
   },
   // POLONAIS
   {
+    id: "pl_pietnascie", lang: "pl", niveau: "Nouveau",
+    word: "piętnaście",
+    translation: "fifteen", category: "numeral",
+    phrase: "Dojazd do pracy zajmuje (mi) piętnaście minut.",
+    phrase_fr: "It takes fifteen minutes to drive to work.",
+    audio_word: "audio/pl/pietnascie.mp3", audio_phrase: "audio/pl/pietnascie_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'piętnaście':
+  // phrase_2: "liczba piętnaście" | transl: "number fifteen" | audio: "audio/pl/pietnascie_phrase_2.mp3"
+  // phrase_3: "piętnaście" | transl: "15" | audio: "audio/pl/pietnascie_phrase_3.mp3"
+  {
+    id: "pl_łazienka", lang: "pl", niveau: "Nouveau",
+    word: "łazienka",
+    genre: "féminin",
+    translation: "bathroom", category: "nom",
+    phrase: "Łazienka jest na końcu korytarza.",
+    phrase_fr: "The bathroom is at the end of the hallway.",
+    audio_word: "audio/pl/łazienka.mp3", audio_phrase: "audio/pl/łazienka_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'łazienka':
+  // phrase_2: "łazienka z prysznicem i wanną" | transl: "bathroom with a shower and a bathtub" | audio: "audio/pl/łazienka_phrase_2.mp3"
+  {
+    id: "pl_kura", lang: "pl", niveau: "Nouveau",
+    word: "kura",
+    genre: "féminin",
+    translation: "chicken", category: "nom",
+    phrase: "Kura i kurczaki dziobią swój pokarm.",
+    phrase_fr: "The chicken and chicks are pecking at their food.",
+    audio_word: "audio/pl/kura.mp3", audio_phrase: "audio/pl/kura_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'kura':
+  // phrase_2: "biała kura" | transl: "white chicken" | audio: "audio/pl/kura_phrase_2.mp3"
+  // phrase_3: "brązowa kura" | transl: "brown chicken" | audio: "audio/pl/kura_phrase_3.mp3"
+  {
+    id: "pl_słon", lang: "pl", niveau: "Nouveau",
+    word: "słoń",
+    genre: "masculin",
+    translation: "elephant", category: "nom",
+    phrase: "Słoń jest szary.",
+    phrase_fr: "The elephant is gray.",
+    audio_word: "audio/pl/słon.mp3", audio_phrase: "audio/pl/słon_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'słoń':
+  // phrase_2: "Widziałam słonia w zoo." | transl: "I saw an elephant at the zoo." | audio: "audio/pl/słon_phrase_2.mp3"
+  // phrase_3: "szary słoń" | transl: "gray elephant" | audio: "audio/pl/słon_phrase_3.mp3"
+  {
+    id: "pl_ryba", lang: "pl", niveau: "Nouveau",
+    word: "ryba",
+    genre: "féminin",
+    translation: "fish", category: "nom",
+    phrase: "Ryba pływa w wodzie.",
+    phrase_fr: "The fish is swimming in the water.",
+    audio_word: "audio/pl/ryba.mp3", audio_phrase: "audio/pl/ryba_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'ryba':
+  // phrase_2: "Ryba obserwuje przynętę." | transl: "The fish is looking at the bait." | audio: "audio/pl/ryba_phrase_2.mp3"
+  // phrase_3: "ryba morska" | transl: "saltwater fish" | audio: "audio/pl/ryba_phrase_3.mp3"
+  // phrase_4: "ryba słodkowodna" | transl: "freshwater fish" | audio: "audio/pl/ryba_phrase_4.mp3"
+  {
+    id: "pl_meble", lang: "pl", niveau: "Nouveau",
+    word: "meble",
+    translation: "furniture", category: "nom",
+    phrase: "Po pożarze musieliśmy wymienić wszystkie meble.",
+    phrase_fr: "We had to replace all of our furniture after the fire.",
+    audio_word: "audio/pl/meble.mp3", audio_phrase: "audio/pl/meble_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'meble':
+  // phrase_2: "umeblowany gabinet w domu" | transl: "home study with furniture" | audio: "audio/pl/meble_phrase_2.mp3"
+  // phrase_3: "meble salonowe" | transl: "living room furniture" | audio: "audio/pl/meble_phrase_3.mp3"
+  {
+    id: "pl_włosy", lang: "pl", niveau: "Nouveau",
+    word: "włosy",
+    translation: "hair", category: "nom",
+    phrase: "Ta kobieta ma blond włosy.",
+    phrase_fr: "The woman has blonde hair.",
+    audio_word: "audio/pl/włosy.mp3", audio_phrase: "audio/pl/włosy_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'włosy':
+  // phrase_2: "Kobieta myje włosy." | transl: "The woman is shampooing her hair." | audio: "audio/pl/włosy_phrase_2.mp3"
+  // phrase_3: "Ta kobieta ma czarne włosy." | transl: "The woman has black hair." | audio: "audio/pl/włosy_phrase_3.mp3"
+  // phrase_4: "krótkie włosy" | transl: "short hair" | audio: "audio/pl/włosy_phrase_4.mp3"
+  {
+    id: "pl_list", lang: "pl", niveau: "Nouveau",
+    word: "list",
+    genre: "masculin",
+    translation: "letter", category: "nom",
+    phrase: "Ktoś wysyła list.",
+    phrase_fr: "The person is mailing a letter.",
+    audio_word: "audio/pl/list.mp3", audio_phrase: "audio/pl/list_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'list':
+  // phrase_2: "wysyłać list" | transl: "mail a letter" | audio: "audio/pl/list_phrase_2.mp3"
+  {
+    id: "pl_listonosz", lang: "pl", niveau: "Nouveau",
+    word: "listonosz",
+    genre: "masculin",
+    translation: "mailman", category: "nom",
+    phrase: "Listonosz dostarcza pocztę.",
+    phrase_fr: "The mailman is delivering the mail.",
+    audio_word: "audio/pl/listonosz.mp3", audio_phrase: "audio/pl/listonosz_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'listonosz':
+  // phrase_2: "listonosz w mundurze" | transl: "mailman in uniform" | audio: "audio/pl/listonosz_phrase_2.mp3"
+  {
+    id: "pl_kuchenka_mikrofalowa", lang: "pl", niveau: "Nouveau",
+    word: "kuchenka mikrofalowa",
+    genre: "féminin",
+    translation: "microwave", category: "expression",
+    phrase: "Najwygodniejszym sprzętem kuchennym jest kuchenka mikrofalowa.",
+    phrase_fr: "The most convenient kitchen appliance is the microwave oven.",
+    audio_word: "audio/pl/kuchenka_mikrofalowa.mp3", audio_phrase: "audio/pl/kuchenka_mikrofalowa_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'kuchenka mikrofalowa':
+  // phrase_2: "kuchenka mikrofalowa ze stali nierdzewnej" | transl: "stainless steel microwave oven" | audio: "audio/pl/kuchenka_mikrofalowa_phrase_2.mp3"
+  {
+    id: "pl_komar", lang: "pl", niveau: "Nouveau",
+    word: "komar",
+    genre: "masculin",
+    translation: "mosquito", category: "nom",
+    phrase: "Ważki zjadają komary.",
+    phrase_fr: "Dragonflies eat mosquitos.",
+    audio_word: "audio/pl/komar.mp3", audio_phrase: "audio/pl/komar_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'komar':
+  // phrase_2: "Ten wredny mały komar ugryzł mnie w rękę." | transl: "That nasty little mosquito bit me on my arm." | audio: "audio/pl/komar_phrase_2.mp3"
+  // phrase_3: "komar krwiopijca" | transl: "blood sucking mosquito" | audio: "audio/pl/komar_phrase_3.mp3"
+  // phrase_4: "ugryzienie komara" | transl: "mosquito bite" | audio: "audio/pl/komar_phrase_4.mp3"
+  {
+    id: "pl_czytac", lang: "pl", niveau: "Nouveau",
+    word: "czytać",
+    translation: "read", category: "verbe",
+    phrase: "Matka czyta książkę swojej córce.",
+    phrase_fr: "The mother is reading a book to her daughter.",
+    audio_word: "audio/pl/czytac.mp3", audio_phrase: "audio/pl/czytac_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'czytać':
+  // phrase_2: "Matka czytała swojej córce." | transl: "The mother read to her daughter." | audio: "audio/pl/czytac_phrase_2.mp3"
+  // phrase_3: "Matka czytała książkę swojej córce." | transl: "The mother read a book to her daughter." | audio: "audio/pl/czytac_phrase_3.mp3"
+  // phrase_4: "Matka czyta swojej córce." | transl: "The mother is reading to her daughter." | audio: "audio/pl/czytac_phrase_4.mp3"
+  // phrase_5: "Kobieta czyta magazyn." | transl: "The woman is reading a magazine." | audio: "audio/pl/czytac_phrase_5.mp3"
+  // phrase_6: "Chłopiec czyta książkę w parku." | transl: "The boy is reading a book in the park." | audio: "audio/pl/czytac_phrase_6.mp3"
+  // phrase_7: "Wyłącz telewizor i poczytaj książkę." | transl: "Turn off the television, and read a book." | audio: "audio/pl/czytac_phrase_7.mp3"
+  // phrase_8: "czytać książkę swojej córce" | transl: "read a book to one's daughter" | audio: "audio/pl/czytac_phrase_8.mp3"
+  // phrase_9: "czytać swojej córce" | transl: "read to one's daughter" | audio: "audio/pl/czytac_phrase_9.mp3"
+  // phrase_10: "czytać magazyn" | transl: "read a magazine" | audio: "audio/pl/czytac_phrase_10.mp3"
+  // phrase_11: "czytać gazetę" | transl: "read the newspaper" | audio: "audio/pl/czytac_phrase_11.mp3"
+  {
+    id: "pl_komedia_romantyczna", lang: "pl", niveau: "Nouveau",
+    word: "komedia romantyczna",
+    genre: "féminin",
+    translation: "romantic comedy", category: "nom",
+    phrase: "Kobieta dobrze się bawi oglądając komedię romantyczną, a mężczyzna śpi.",
+    phrase_fr: "The woman is enjoying the romantic comedy, and the man is sleeping.",
+    audio_word: "audio/pl/komedia_romantyczna.mp3", audio_phrase: "audio/pl/komedia_romantyczna_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'komedia romantyczna':
+  // phrase_2: "dobra komedia romantyczna" | transl: "good romantic comedy" | audio: "audio/pl/komedia_romantyczna_phrase_2.mp3"
+  
+  {
     id: "pl_budzik", lang: "pl", niveau: "Nouveau",
     word: "budzik",
     genre: "masculin",
@@ -2859,6 +3503,37 @@ const INITIAL_DATA = [
   },
   // PORTUGAIS BR
   {
+    id: "pt_nojento", lang: "pt", niveau: "Nouveau",
+    word: "nojento",
+    translation: "disgusting", category: "adjectif",
+    phrase: "O homem está comendo um lanche nojento.",
+    phrase_fr: "The man is eating a disgusting snack.",
+    audio_word: "audio/pt/nojento.mp3", audio_phrase: "audio/pt/nojento_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'nojento':
+  // phrase_2: "O bebê está sendo alimentado com uma comida nojenta, e ele não está feliz." | transl: "The baby is being fed disgusting food, and he is not happy." | audio: "audio/pt/nojento_phrase_2.mp3"
+  // phrase_3: "gosto nojento" | transl: "disgusting taste" | audio: "audio/pt/nojento_phrase_3.mp3"
+  // phrase_4: "comida nojenta" | transl: "disgusting food" | audio: "audio/pt/nojento_phrase_4.mp3"
+  {
+    id: "pt_assistir", lang: "pt", niveau: "Nouveau",
+    word: "assistir",
+    translation: "watch", category: "verbe",
+    phrase: "A família assiste televisão.",
+    phrase_fr: "The family watches television.",
+    audio_word: "audio/pt/assistir.mp3", audio_phrase: "audio/pt/assistir_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'assistir':
+  // phrase_2: "A família assistiu televisão." | transl: "The family watched television." | audio: "audio/pt/assistir_phrase_2.mp3"
+  // phrase_3: "A família está assistindo televisão." | transl: "The family is watching television." | audio: "audio/pt/assistir_phrase_3.mp3"
+  // phrase_4: "Os fãs estão assistindo a um jogo." | transl: "The fans are watching a game." | audio: "audio/pt/assistir_phrase_4.mp3"
+  // phrase_5: "assistir televisão" | transl: "watch television" | audio: "audio/pt/assistir_phrase_5.mp3"
+  // phrase_6: "assistir um filme em uma TV tela grande" | transl: "watch a movie on a big screen TV" | audio: "audio/pt/assistir_phrase_6.mp3"
+  // phrase_7: "assistir um jogo" | transl: "watch a game" | audio: "audio/pt/assistir_phrase_7.mp3"
+  // phrase_8: "assistir um filme" | transl: "watch a movie" | audio: "audio/pt/assistir_phrase_8.mp3"
+  
+  {
     id: "pt_patinacao_no_gelo", lang: "pt", niveau: "Nouveau",
     word: "patinação no gelo",
     genre: "féminin",
@@ -2922,6 +3597,723 @@ const INITIAL_DATA = [
   },
   // ALLEMAND
   {
+    id: "de_acht", lang: "de", niveau: "Nouveau",
+    word: "acht",
+    translation: "eight", category: "numeral",
+    phrase: "Ich habe eine achtjährige Tochter.",
+    phrase_fr: "I have an eight-year-old daughter.",
+    audio_word: "audio/de/acht.mp3", audio_phrase: "",
+    notes: ""
+  },
+  // ── Autres phrases pour 'acht':
+  // phrase_2: "achtes Stockwerk" | transl: "eighth floor"
+  // phrase_3: "Sein Zimmer ist im achten Stock." | transl: "His room is on the eighth floor."
+  // phrase_4: "Sein Zimmer ist nicht im achten Stock." | transl: "His room is not on the eighth floor."
+  // phrase_5: "Du solltest mindestens acht Stunden pro Nacht schlafen." | transl: "You should sleep at least eight hours every night." | audio: "audio/de/acht_phrase_5.mp3"
+  // phrase_6: "Eine Spinne hat acht Beine." | transl: "A spider has eight legs." | audio: "audio/de/acht_phrase_6.mp3"
+  // phrase_7: "acht Grad" | transl: "eight degrees" | audio: "audio/de/acht_phrase_7.mp3"
+  // phrase_8: "Nummer acht" | transl: "number eight" | audio: "audio/de/acht_phrase_8.mp3"
+  // phrase_9: "acht Dinge" | transl: "eight things" | audio: "audio/de/acht_phrase_9.mp3"
+  // phrase_10: "acht Mal" | transl: "eight times" | audio: "audio/de/acht_phrase_10.mp3"
+  {
+    id: "de_nehmen", lang: "de", niveau: "Nouveau",
+    word: "nehmen",
+    translation: "take", category: "verbe",
+    phrase: "Die Leute nehmen sich die Erdbeeren.",
+    phrase_fr: "The people take the strawberries.",
+    audio_word: "audio/de/nehmen.mp3", audio_phrase: "audio/de/nehmen_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'nehmen':
+  // phrase_2: "Die Frau nimmt sich die Tüte Salat." | transl: "The woman is taking the bag of salad." | audio: "audio/de/nehmen_phrase_2.mp3"
+  // phrase_3: "eine Erdbeere nehmen" | transl: "take a strawberry" | audio: "audio/de/nehmen_phrase_3.mp3"
+  // phrase_4: "etwas aus einem Regal nehmen" | transl: "take something from a shelf" | audio: "audio/de/nehmen_phrase_4.mp3"
+  {
+    id: "de_baum", lang: "de", niveau: "Nouveau",
+    word: "Baum",
+    genre: "masculin",
+    translation: "tree", category: "nom",
+    phrase: "Wir essen jedes Jahr Obst vom Apfelbaum aus meinem Garten hinterm Haus.",
+    phrase_fr: "We eat fruit every year from the apple tree in my back yard.",
+    audio_word: "audio/de/baum.mp3", audio_phrase: "audio/de/baum_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Baum':
+  // phrase_2: "Pfirsichbaum mit Pfirsichen" | transl: "peach tree with peaches" | audio: "audio/de/baum_phrase_2.mp3"
+  // phrase_3: "Baum mit grünen Blättern" | transl: "green leafed tree" | audio: "audio/de/baum_phrase_3.mp3"
+  // phrase_4: "Bäume" | transl: "Trees" | audio: "audio/de/baum_phrase_4.mp3"
+  // phrase_5: "großer Baum" | transl: "big tree" | audio: "audio/de/baum_phrase_5.mp3"
+  // phrase_6: "Apfelbaum" | transl: "apple tree" | audio: "audio/de/baum_phrase_6.mp3"
+  {
+    id: "de_regenbogen", lang: "de", niveau: "Nouveau",
+    word: "Regenbogen",
+    genre: "masculin",
+    translation: "rainbow", category: "nom",
+    phrase: "Nach dem Regen kannst du vielleicht einen Regenbogen sehen.",
+    phrase_fr: "After the rain, you may see a rainbow.",
+    audio_word: "audio/de/regenbogen.mp3", audio_phrase: "audio/de/regenbogen_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Regenbogen':
+  // phrase_2: "malerischer Regenbogen" | transl: "scenic rainbow" | audio: "audio/de/regenbogen_phrase_2.mp3"
+  // phrase_3: "bunter Regenbogen" | transl: "colorful rainbow" | audio: "audio/de/regenbogen_phrase_3.mp3"
+  {
+    id: "de_bart", lang: "de", niveau: "Nouveau",
+    word: "Bart",
+    genre: "masculin",
+    translation: "beard", category: "nom",
+    phrase: "Der Mann hat einen Vollbart, aber nur wenige Haare auf seinem Kopf.",
+    phrase_fr: "The man has a full beard, but little hair on the top of his head.",
+    audio_word: "audio/de/bart.mp3", audio_phrase: "audio/de/bart_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Bart':
+  // phrase_2: "Vollbart" | transl: "full beard" | audio: "audio/de/bart_phrase_2.mp3"
+  // phrase_3: "Schnurrbart und Bart" | transl: "mustache and beard" | audio: "audio/de/bart_phrase_3.mp3"
+  // phrase_4: "sich den Bart mit einem Einmal-Rasierer rasieren" | transl: "shave a beard with a disposable razor" | audio: "audio/de/bart_phrase_4.mp3"
+  {
+    id: "de_decke", lang: "de", niveau: "Nouveau",
+    word: "Decke",
+    genre: "féminin",
+    translation: "blanket", category: "nom",
+    phrase: "Die Decke, die mir der Flugbegleiter gab, war sehr komfortabel.",
+    phrase_fr: "The blanket the flight attendant gave me was very comfortable.",
+    audio_word: "audio/de/decke.mp3", audio_phrase: "audio/de/decke_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Decke':
+  // phrase_2: "Flugzeugdecke" | transl: "airplane blanket" | audio: "audio/de/decke_phrase_2.mp3"
+  // phrase_3: "warme Decke" | transl: "warm blanket" | audio: "audio/de/decke_phrase_3.mp3"
+  {
+    id: "de_ohrring", lang: "de", niveau: "Nouveau",
+    word: "Ohrring",
+    genre: "masculin",
+    translation: "earring", category: "nom",
+    phrase: "Meine Mutter trägt ihre Diamantohrringe.",
+    phrase_fr: "My mother is wearing her diamond earrings.",
+    audio_word: "audio/de/ohrring.mp3", audio_phrase: "audio/de/ohrring_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Ohrring':
+  // phrase_2: "Das Mädchen hat seine Ohren gepierct, als sie die Ohrringe gekauft hat." | transl: "The girl pierced her ears when she bought the earrings." | audio: "audio/de/ohrring_phrase_2.mp3"
+  // phrase_3: "handgefertigte Ohrringe" | transl: "hand-made earrings" | audio: "audio/de/ohrring_phrase_3.mp3"
+  // phrase_4: "Perlenohrringe" | transl: "pearl earrings" | audio: "audio/de/ohrring_phrase_4.mp3"
+  {
+    id: "de_bargeld", lang: "de", niveau: "Nouveau",
+    word: "Bargeld",
+    genre: "neutre",
+    translation: "cash", category: "nom",
+    phrase: "Da liegen ein paar hundert Dollar Bargeld.",
+    phrase_fr: "There is a few hundred dollars in cash.",
+    audio_word: "audio/de/bargeld.mp3", audio_phrase: "audio/de/bargeld_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Bargeld':
+  // phrase_2: "Ich mag es nicht Bargeld mit mir zu tragen, wenn ich ausgehe." | transl: "I do not like to carry cash with me when I go out." | audio: "audio/de/bargeld_phrase_2.mp3"
+  // phrase_3: "Stapel an Bargeld" | transl: "stacks of cash" | audio: "audio/de/bargeld_phrase_3.mp3"
+  // phrase_4: "Amerikanisches Bargeld" | transl: "American cash" | audio: "audio/de/bargeld_phrase_4.mp3"
+  // phrase_5: "Bargeld mit sich tragen" | transl: "carry cash" | audio: "audio/de/bargeld_phrase_5.mp3"
+  {
+    id: "de_stuhl", lang: "de", niveau: "Nouveau",
+    word: "Stuhl",
+    genre: "masculin",
+    translation: "chair", category: "nom",
+    phrase: "Es fällt leichter zu lernen, wenn man in einem bequemen Stuhl sitzt.",
+    phrase_fr: "It is easier to study when you are sitting in a comfortable chair.",
+    audio_word: "audio/de/stuhl.mp3", audio_phrase: "audio/de/stuhl_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Stuhl':
+  // phrase_2: "Die Katze sitzt lieber in dem Stuhl als ich." | transl: "The cat like sits in the chair more than I do." | audio: "audio/de/stuhl_phrase_2.mp3"
+  // phrase_3: "brauner Lederstuhl" | transl: "brown leather chair" | audio: "audio/de/stuhl_phrase_3.mp3"
+  // phrase_4: "bequemer Stuhl" | transl: "comfortable chair" | audio: "audio/de/stuhl_phrase_4.mp3"
+  {
+    id: "de_hals", lang: "de", niveau: "Nouveau",
+    word: "Hals",
+    genre: "masculin",
+    translation: "neck", category: "nom",
+    phrase: "Die silberne Kette um ihren Hals ist sehr teuer.",
+    phrase_fr: "The silver necklace on her neck is very expensive.",
+    audio_word: "audio/de/hals.mp3", audio_phrase: "audio/de/hals_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Hals':
+  // phrase_2: "Giraffen haben lange Hälse." | transl: "Giraffes have long necks." | audio: "audio/de/hals_phrase_2.mp3"
+  // phrase_3: "Der Frau juckt der Hals." | transl: "The woman has an itchy neck." | audio: "audio/de/hals_phrase_3.mp3"
+  // phrase_4: "Ich habe Nackenschmerzen." | transl: "I've got a pain in my neck." | audio: "audio/de/hals_phrase_4.mp3"
+  // phrase_5: "Meine Nackenmuskeln schmerzen sehr." | transl: "My neck muscles are very sore." | audio: "audio/de/hals_phrase_5.mp3"
+  // phrase_6: "Der Hals verbindet den Kopf mit dem Körper." | transl: "The neck connects the head to the body." | audio: "audio/de/hals_phrase_6.mp3"
+  // phrase_7: "langer Schwanenhals" | transl: "long neck swan" | audio: "audio/de/hals_phrase_7.mp3"
+  // phrase_8: "Halsverletzung" | transl: "neck injury" | audio: "audio/de/hals_phrase_8.mp3"
+  // phrase_9: "langer Hals" | transl: "long neck" | audio: "audio/de/hals_phrase_9.mp3"
+  // phrase_10: "Kopf und Hals" | transl: "head and neck" | audio: "audio/de/hals_phrase_10.mp3"
+  {
+    id: "de_lecker", lang: "de", niveau: "Nouveau",
+    word: "lecker",
+    translation: "delicious", category: "adjectif",
+    phrase: "Die Pizza sieht lecker aus.",
+    phrase_fr: "The pizza looks delicious.",
+    audio_word: "audio/de/lecker.mp3", audio_phrase: "audio/de/lecker_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'lecker':
+  // phrase_2: "Die Frau genießt eine leckere Pizza." | transl: "The woman is enjoying delicious pizza." | audio: "audio/de/lecker_phrase_2.mp3"
+  // phrase_3: "Dieses Rindfleisch ist sehr lecker." | transl: "This beef is very delicious." | audio: "audio/de/lecker_phrase_3.mp3"
+  // phrase_4: "leckere Pizza" | transl: "delicious pizza" | audio: "audio/de/lecker_phrase_4.mp3"
+  {
+    id: "de_geschaftsleiter", lang: "de", niveau: "Nouveau",
+    word: "Geschäftsleiter",
+    genre: "masculin",
+    translation: "director", category: "nom",
+    phrase: "Er ist der Geschäftsleiter meiner Firma.",
+    phrase_fr: "He's the director of my company.",
+    audio_word: "audio/de/geschaftsleiter.mp3", audio_phrase: "audio/de/geschaftsleiter_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Geschäftsleiter':
+  // phrase_2: "Der Regisseur sagt den Schauspielern, was sie tun sollen." | transl: "The director tells the actors what to do." | audio: "audio/de/geschaftsleiter_phrase_2.mp3"
+  // phrase_3: "Geschäftsleiter einer Firma" | transl: "company director" | audio: "audio/de/geschaftsleiter_phrase_3.mp3"
+  // phrase_4: "Filmregisseur" | transl: "movie director" | audio: "audio/de/geschaftsleiter_phrase_4.mp3"
+  {
+    id: "de_arzt", lang: "de", niveau: "Nouveau",
+    word: "Arzt",
+    genre: "masculin",
+    translation: "medical doctor", category: "nom",
+    phrase: "Der Arzt untersucht den Fuß.",
+    phrase_fr: "The doctor is examining the foot.",
+    audio_word: "audio/de/arzt.mp3", audio_phrase: "audio/de/arzt_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Arzt':
+  // phrase_2: "Der Arzt fühlt den Puls des Patienten." | transl: "The doctor is taking the patient's pulse." | audio: "audio/de/arzt_phrase_2.mp3"
+  // phrase_3: "Wenn du krank wirst, gehe zum Arzt." | transl: "If you get sick go to the doctor." | audio: "audio/de/arzt_phrase_3.mp3"
+  // phrase_4: "Arztbesuch" | transl: "doctor visit" | audio: "audio/de/arzt_phrase_4.mp3"
+  {
+    id: "de_radieren", lang: "de", niveau: "Nouveau",
+    word: "radieren",
+    translation: "erase", category: "verbe",
+    phrase: "Der Schüler radiert das Geschriebene.",
+    phrase_fr: "The student is erasing the writing.",
+    audio_word: "audio/de/radieren.mp3", audio_phrase: "audio/de/radieren_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'radieren':
+  // phrase_2: "Bleistifte sind beliebte Schreibwerkzeuge, da man Bleistiftstriche einfach wegradieren kann." | transl: "Pencils are popular writing tools, as pencil marks erase easily." | audio: "audio/de/radieren_phrase_2.mp3"
+  {
+    id: "de_osten", lang: "de", niveau: "Nouveau",
+    word: "Osten",
+    genre: "masculin",
+    translation: "east", category: "nom",
+    phrase: "Die Sonne geht im Osten auf und geht im Westen unter.",
+    phrase_fr: "The sun rises in the east and sets in the west.",
+    audio_word: "audio/de/osten.mp3", audio_phrase: "audio/de/osten_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Osten':
+  // phrase_2: "Die Sonne geht jeden Morgen im Osten auf." | transl: "The sun rises every morning in the East." | audio: "audio/de/osten_phrase_2.mp3"
+  // phrase_3: "dem Osten zugewandt" | transl: "facing east" | audio: "audio/de/osten_phrase_3.mp3"
+  {
+    id: "de_mehl", lang: "de", niveau: "Nouveau",
+    word: "Mehl",
+    genre: "neutre",
+    translation: "flour", category: "nom",
+    phrase: "Du musst das Mehl mit Wasser mischen.",
+    phrase_fr: "You need to mix the flour with water.",
+    audio_word: "audio/de/mehl.mp3", audio_phrase: "audio/de/mehl_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Mehl':
+  // phrase_2: "Meine Mutter siebt ihr Mehl immer vor dem Kuchenbacken." | transl: "My mother always sifted her flour before baking a cake." | audio: "audio/de/mehl_phrase_2.mp3"
+  // phrase_3: "Fette und bemehle eine Pfanne vor dem Kuchenbacken." | transl: "Grease and flour a pan before baking a cake." | audio: "audio/de/mehl_phrase_3.mp3"
+  // phrase_4: "Sack weißes Mehl" | transl: "bag of white flour" | audio: "audio/de/mehl_phrase_4.mp3"
+  // phrase_5: "weißes Mehl" | transl: "white flour" | audio: "audio/de/mehl_phrase_5.mp3"
+  // phrase_6: "gesiebtes Mehl" | transl: "sifted flour" | audio: "audio/de/mehl_phrase_6.mp3"
+  // phrase_7: "Mehrzweckmehl" | transl: "general purpose flour" | audio: "audio/de/mehl_phrase_7.mp3"
+  {
+    id: "de_stirn", lang: "de", niveau: "Nouveau",
+    word: "Stirn",
+    genre: "féminin",
+    translation: "forehead", category: "nom",
+    phrase: "Die neuesten Fieberthermometer können die Temperatur im Ohr und an der Stirn messen.",
+    phrase_fr: "The newest thermometer can take a temperature in the ear or on the forehead.",
+    audio_word: "audio/de/stirn.mp3", audio_phrase: "",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Stirn':
+  // phrase_2: "Die Frau hat Falten auf ihrer Stirn." | transl: "The woman has clear wrinkles on her forehead." | audio: "audio/de/stirn_phrase_2.mp3"
+  // phrase_3: "Wenn er Kopfschmerzen hat, reibt er seine Stirn." | transl: "When he has a headache, he rubs his forehead." | audio: "audio/de/stirn_phrase_3.mp3"
+  // phrase_4: "Falten auf der Stirn" | transl: "wrinkles on the forehead" | audio: "audio/de/stirn_phrase_4.mp3"
+  // phrase_5: "Stirnfalten" | transl: "forehead wrinkles" | audio: "audio/de/stirn_phrase_5.mp3"
+  {
+    id: "de_wald", lang: "de", niveau: "Nouveau",
+    word: "Wald",
+    genre: "masculin",
+    translation: "forest", category: "nom",
+    phrase: "Dieser Hirsch ist tief in den Wald gerannt.",
+    phrase_fr: "That deer ran away into the forest.",
+    audio_word: "audio/de/wald.mp3", audio_phrase: "audio/de/wald_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Wald':
+  // phrase_2: "Wälder in der ganzen Welt schrumpfen." | transl: "Forests across the world are shrinking in size." | audio: "audio/de/wald_phrase_2.mp3"
+  // phrase_3: "Waldbäume" | transl: "forest trees" | audio: "audio/de/wald_phrase_3.mp3"
+  // phrase_4: "Waldgebiet" | transl: "forest area" | audio: "audio/de/wald_phrase_4.mp3"
+  {
+    id: "de_benzin", lang: "de", niveau: "Nouveau",
+    word: "Benzin",
+    genre: "neutre",
+    translation: "gasoline", category: "nom",
+    phrase: "Der Preis für Benzin steigt.",
+    phrase_fr: "The price of gasoline is rising.",
+    audio_word: "audio/de/benzin.mp3", audio_phrase: "audio/de/benzin_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Benzin':
+  // phrase_2: "Alle unsere Transportfahrzeuge fahren mit Benzin." | transl: "All of our delivery vehicles run on gasoline." | audio: "audio/de/benzin_phrase_2.mp3"
+  // phrase_3: "Benzin tanken" | transl: "pump gasoline" | audio: "audio/de/benzin_phrase_3.mp3"
+  // phrase_4: "Tankstelle" | transl: "petrol station" | audio: "audio/de/benzin_phrase_4.mp3"
+  {
+    id: "de_links", lang: "de", niveau: "Nouveau",
+    word: "links",
+    translation: "left", category: "adverbe",
+    phrase: "An der Kreuzung bog der Mann links ab.",
+    phrase_fr: "At the intersection, the man turned left.",
+    audio_word: "audio/de/links.mp3", audio_phrase: "",
+    notes: ""
+  },
+  // ── Autres phrases pour 'links':
+  // phrase_2: "Es ist auf der linken Seite." | transl: "It's on the left side." | audio: "audio/de/links_phrase_2.mp3"
+  // phrase_3: "Gehe geradeaus und biege an der zweiten Kreuzung nach links ab." | transl: "Go straight, and then turn left at the second intersection." | audio: "audio/de/links_phrase_3.mp3"
+  // phrase_4: "Linksabbiegeschild" | transl: "left turn sign" | audio: "audio/de/links_phrase_4.mp3"
+  // phrase_5: "Linkskurve" | transl: "left turn" | audio: "audio/de/links_phrase_5.mp3"
+  {
+    id: "de_gras", lang: "de", niveau: "Nouveau",
+    word: "Gras",
+    genre: "neutre",
+    translation: "grass", category: "nom",
+    phrase: "Die Füchse spielen im Gras.",
+    phrase_fr: "The foxes are playing in the grass.",
+    audio_word: "audio/de/gras.mp3", audio_phrase: "audio/de/gras_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Gras':
+  // phrase_2: "Der Gorilla ruht sich im Gras aus." | transl: "The gorilla is resting in the grass." | audio: "audio/de/gras_phrase_2.mp3"
+  // phrase_3: "grünes Gras" | transl: "green grass" | audio: "audio/de/gras_phrase_3.mp3"
+  // phrase_4: "weißer Hase im grünen Gras" | transl: "white rabbit in the green grass" | audio: "audio/de/gras_phrase_4.mp3"
+  {
+    id: "de_hugel", lang: "de", niveau: "Nouveau",
+    word: "Hügel",
+    genre: "masculin",
+    translation: "hill", category: "nom",
+    phrase: "Auf der Spitze des Hügels steht eine Marmorstatue.",
+    phrase_fr: "On top of the hill sits a marble statue.",
+    audio_word: "audio/de/hugel.mp3", audio_phrase: "audio/de/hugel_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Hügel':
+  // phrase_2: "Hügel in der Landschaft" | transl: "hill in the countryside" | audio: "audio/de/hugel_phrase_2.mp3"
+  // phrase_3: "über den Hügel" | transl: "over the hill" | audio: "audio/de/hugel_phrase_3.mp3"
+  {
+    id: "de_gelb", lang: "de", niveau: "Nouveau",
+    word: "gelb",
+    translation: "yellow", category: "adjectif",
+    phrase: "Der Schreiner trägt einen gelben Helm.",
+    phrase_fr: "The carpenter is wearing a yellow helmet.",
+    audio_word: "audio/de/gelb.mp3", audio_phrase: "audio/de/gelb_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'gelb':
+  // phrase_2: "Der Junge pflückt gelbe Blumen." | transl: "The boy is picking yellow flowers." | audio: "audio/de/gelb_phrase_2.mp3"
+  // phrase_3: "Die Sonne sieht gelb aus, aber ist nicht wirklich gelb." | transl: "The sun looks yellow, but it's not really yellow." | audio: "audio/de/gelb_phrase_3.mp3"
+  // phrase_4: "gelbe Farbe" | transl: "yellow paint" | audio: "audio/de/gelb_phrase_4.mp3"
+  // phrase_5: "gelber Sand" | transl: "yellow sands" | audio: "audio/de/gelb_phrase_5.mp3"
+  {
+    id: "de_saft", lang: "de", niveau: "Nouveau",
+    word: "Saft",
+    genre: "masculin",
+    translation: "juice", category: "nom",
+    phrase: "Ich trinke Orangensaft zum Frühstück und Apfelsaft zum Mittagessen.",
+    phrase_fr: "I drink orange juice with breakfast and apple juice with lunch.",
+    audio_word: "audio/de/saft.mp3", audio_phrase: "audio/de/saft_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Saft':
+  // phrase_2: "Wir genießen frisch gepressten Frucht- und Gemüsesaft jeden Tag." | transl: "We enjoy freshly squeezed fruit and vegetable juice every day." | audio: "audio/de/saft_phrase_2.mp3"
+  // phrase_3: "100% Saft" | transl: "100% juice" | audio: "audio/de/saft_phrase_3.mp3"
+  // phrase_4: "Apfelsaft, Orangensaft und Traubensaft" | transl: "apple juice, orange juice, and grape juice" | audio: "audio/de/saft_phrase_4.mp3"
+  // phrase_5: "frisch gepresster Saft" | transl: "fresh squeezed juice" | audio: "audio/de/saft_phrase_5.mp3"
+  {
+    id: "de_springen", lang: "de", niveau: "Nouveau",
+    word: "springen",
+    translation: "jump", category: "verbe",
+    phrase: "Die Frau springt gerade in die Luft.",
+    phrase_fr: "The woman is jumping in the air.",
+    audio_word: "audio/de/springen.mp3", audio_phrase: "audio/de/springen_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'springen':
+  // phrase_2: "Der Mann springt gerade über eine Hürde." | transl: "The man is jumping the hurdle." | audio: "audio/de/springen_phrase_2.mp3"
+  // phrase_3: "Der Mann sprang auf dem Gipfel eines Berges." | transl: "The man jumped on top of the mountain." | audio: "audio/de/springen_phrase_3.mp3"
+  // phrase_4: "Der Delfin springt aus dem Wasser." | transl: "The dolphin jumps out of the water." | audio: "audio/de/springen_phrase_4.mp3"
+  // phrase_5: "über eine Hürde springen" | transl: "jump a hurdle" | audio: "audio/de/springen_phrase_5.mp3"
+  // phrase_6: "auf dem Gipfel eines Berges springen" | transl: "jump on top of a mountain" | audio: "audio/de/springen_phrase_6.mp3"
+  {
+    id: "de_lamm", lang: "de", niveau: "Nouveau",
+    word: "Lamm",
+    genre: "neutre",
+    translation: "lamb", category: "nom",
+    phrase: "Die Lämmer essen.",
+    phrase_fr: "The lambs are eating.",
+    audio_word: "audio/de/lamm.mp3", audio_phrase: "audio/de/lamm_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Lamm':
+  // phrase_2: "Ein Lamm ist das Baby eines Schafes." | transl: "A lamb is a baby sheep." | audio: "audio/de/lamm_phrase_2.mp3"
+  // phrase_3: "kleines Lamm" | transl: "little lamb" | audio: "audio/de/lamm_phrase_3.mp3"
+  // phrase_4: "Lammrücken" | transl: "rack of lamb" | audio: "audio/de/lamm_phrase_4.mp3"
+  {
+    id: "de_sprache", lang: "de", niveau: "Nouveau",
+    word: "Sprache",
+    genre: "féminin",
+    translation: "language", category: "nom",
+    phrase: "Die Amtssprache ist Koreanisch.",
+    phrase_fr: "Korean is the official language.",
+    audio_word: "audio/de/sprache.mp3", audio_phrase: "audio/de/sprache_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Sprache':
+  // phrase_2: "Englische und Französische Sprache" | transl: "English and French language" | audio: "audio/de/sprache_phrase_2.mp3"
+  // phrase_3: "die Sprache sprechen" | transl: "speak the language" | audio: "audio/de/sprache_phrase_3.mp3"
+  {
+    id: "de_spat", lang: "de", niveau: "Nouveau",
+    word: "spät",
+    translation: "late", category: "adjectif",
+    phrase: "Der Klient ist zu spät für das Treffen.",
+    phrase_fr: "The client is late for the meeting.",
+    audio_word: "audio/de/spat.mp3", audio_phrase: "audio/de/spat_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'spät':
+  // phrase_2: "Der Verkehr auf der Bundesstraße ließ uns zu spät zu unserem Flug kommen." | transl: "The traffic on the highway made us late for our flight." | audio: "audio/de/spat_phrase_2.mp3"
+  // phrase_3: "Ich werde müde, wenn ich bis spät abends arbeiten muss." | transl: "I get tired when I have to work late." | audio: "audio/de/spat_phrase_3.mp3"
+  // phrase_4: "zu spät für ein Meeting" | transl: "late for a meeting" | audio: "audio/de/spat_phrase_4.mp3"
+  // phrase_5: "bis spät arbeiten" | transl: "work late" | audio: "audio/de/spat_phrase_5.mp3"
+  // phrase_6: "eine Stunde zu spät" | transl: "an hour late" | audio: "audio/de/spat_phrase_6.mp3"
+  {
+    id: "de_einkaufszentrum", lang: "de", niveau: "Nouveau",
+    word: "Einkaufszentrum",
+    genre: "neutre",
+    translation: "mall", category: "nom",
+    phrase: "Das Einkaufszentrum ist voller Menschen.",
+    phrase_fr: "The mall is full of people.",
+    audio_word: "audio/de/einkaufszentrum.mp3", audio_phrase: "audio/de/einkaufszentrum_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Einkaufszentrum':
+  // phrase_2: "Im Einkaufszentrum gibt es eine große Auswahl an Geschäften." | transl: "There are a large variety of stores at the mall." | audio: "audio/de/einkaufszentrum_phrase_2.mp3"
+  // phrase_3: "in ein Einkaufszentrum gehen" | transl: "visit the shopping mall" | audio: "audio/de/einkaufszentrum_phrase_3.mp3"
+  // phrase_4: "Einkaufszentrum" | transl: "shopping mall" | audio: "audio/de/einkaufszentrum_phrase_4.mp3"
+  {
+    id: "de_speisekarte", lang: "de", niveau: "Nouveau",
+    word: "Speisekarte",
+    genre: "féminin",
+    translation: "menu", category: "nom",
+    phrase: "Der Gast liest die Speisekarte.",
+    phrase_fr: "The customer is looking at the menu.",
+    audio_word: "audio/de/speisekarte.mp3", audio_phrase: "audio/de/speisekarte_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Speisekarte':
+  // phrase_2: "Kann ich bitte die Speisekarte sehen?" | transl: "Can I see the menu please?" | audio: "audio/de/speisekarte_phrase_2.mp3"
+  // phrase_3: "von der Speisekarte auswählen" | transl: "select from the menu" | audio: "audio/de/speisekarte_phrase_3.mp3"
+  // phrase_4: "Speisekarte für das Abendessen" | transl: "dinner menu" | audio: "audio/de/speisekarte_phrase_4.mp3"
+  {
+    id: "de_mikrowelle", lang: "de", niveau: "Nouveau",
+    word: "Mikrowelle",
+    genre: "féminin",
+    translation: "microwave oven", category: "nom",
+    phrase: "Das praktischste Küchengerät ist die Mikrowelle.",
+    phrase_fr: "The most convenient kitchen appliance is the microwave oven.",
+    audio_word: "audio/de/mikrowelle.mp3", audio_phrase: "audio/de/mikrowelle_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Mikrowelle':
+  // phrase_2: "Mikrowellenofen aus rostfreiem Stahl" | transl: "stainless steel microwave oven" | audio: "audio/de/mikrowelle_phrase_2.mp3"
+  {
+    id: "de_berg", lang: "de", niveau: "Nouveau",
+    word: "Berg",
+    genre: "masculin",
+    translation: "mountain", category: "nom",
+    phrase: "Da ist Schnee auf der Spitze des Berges.",
+    phrase_fr: "There is snow on top of the mountain.",
+    audio_word: "audio/de/berg.mp3", audio_phrase: "audio/de/berg_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Berg':
+  // phrase_2: "Der Mann fährt mit seinem Fahrrad den Berg hinab." | transl: "The man is riding his bike down the mountain." | audio: "audio/de/berg_phrase_2.mp3"
+  // phrase_3: "Bergkette" | transl: "mountain range" | audio: "audio/de/berg_phrase_3.mp3"
+  {
+    id: "de_nasenloch", lang: "de", niveau: "Nouveau",
+    word: "Nasenloch",
+    genre: "neutre",
+    translation: "nostril", category: "nom",
+    phrase: "Mit einer Erkältung kann man manchmal nicht durch seine Nasenlöcher atmen.",
+    phrase_fr: "With a cold you sometimes cannot breathe through your notrils.",
+    audio_word: "audio/de/nasenloch.mp3", audio_phrase: "audio/de/nasenloch_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Nasenloch':
+  // phrase_2: "linkes Nasenloch" | transl: "left nostril" | audio: "audio/de/nasenloch_phrase_2.mp3"
+  // phrase_3: "erweiterte Nasenlöcher" | transl: "flaring nostrils" | audio: "audio/de/nasenloch_phrase_3.mp3"
+  {
+    id: "de_schmal", lang: "de", niveau: "Nouveau",
+    word: "schmal",
+    translation: "narrow", category: "adjectif",
+    phrase: "Der Mann wandert auf einem schmalen Pfad.",
+    phrase_fr: "The man is hiking on a narrow path.",
+    audio_word: "audio/de/schmal.mp3", audio_phrase: "audio/de/schmal_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'schmal':
+  // phrase_2: "Die Meerenge war zu schmal für das Kreuzfahrtschiff." | transl: "The straits were too narrow for the cruise ship." | audio: "audio/de/schmal_phrase_2.mp3"
+  // phrase_3: "schmaler Durchgang" | transl: "narrow pass" | audio: "audio/de/schmal_phrase_3.mp3"
+  // phrase_4: "schmale Meerenge" | transl: "narrow straits" | audio: "audio/de/schmal_phrase_4.mp3"
+  {
+    id: "de_wildschwein", lang: "de", niveau: "Nouveau",
+    word: "Wildschwein",
+    genre: "neutre",
+    translation: "wild boar", category: "nom",
+    phrase: "Das Wildschwein läuft im Schnee.",
+    phrase_fr: "The wild boar is walking in the snow.",
+    audio_word: "audio/de/wildschwein.mp3", audio_phrase: "audio/de/wildschwein_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Wildschwein':
+  // phrase_2: "Die Wildschweine kauen das Gras." | transl: "The wild boars are chewing the grass." | audio: "audio/de/wildschwein_phrase_2.mp3"
+  // phrase_3: "Wildschwein im Schnee" | transl: "wild boar in the snow" | audio: "audio/de/wildschwein_phrase_3.mp3"
+  {
+    id: "de_buro", lang: "de", niveau: "Nouveau",
+    word: "Büro",
+    genre: "neutre",
+    translation: "office", category: "nom",
+    phrase: "Ich bin der Chef in meinem Büro.",
+    phrase_fr: "I am the boss in my office.",
+    audio_word: "audio/de/buro.mp3", audio_phrase: "audio/de/buro_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Büro':
+  // phrase_2: "Die Leute arbeiten im Büro." | transl: "The people are working at the office." | audio: "audio/de/buro_phrase_2.mp3"
+  // phrase_3: "Arbeitsbüro" | transl: "work office" | audio: "audio/de/buro_phrase_3.mp3"
+  // phrase_4: "Büroangestellte" | transl: "office workers" | audio: "audio/de/buro_phrase_4.mp3"
+  // phrase_5: "im Büro arbeiten" | transl: "work at an office" | audio: "audio/de/buro_phrase_5.mp3"
+  // phrase_6: "Firmenbüro" | transl: "company office" | audio: "audio/de/buro_phrase_6.mp3"
+  {
+    id: "de_lesen", lang: "de", niveau: "Nouveau",
+    word: "lesen",
+    translation: "read", category: "verbe",
+    phrase: "Die Frau liest eine Zeitschrift.",
+    phrase_fr: "The woman is reading a magazine.",
+    audio_word: "audio/de/lesen.mp3", audio_phrase: "audio/de/lesen_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'lesen':
+  // phrase_2: "Die Mutter liest ihrer Tochter ein Buch vor." | transl: "The mother reads a book to her daughter." | audio: "audio/de/lesen_phrase_2.mp3"
+  // phrase_3: "Der Junge liest ein Buch im Park." | transl: "The boy is reading a book in the park." | audio: "audio/de/lesen_phrase_3.mp3"
+  // phrase_4: "Schalte den Fernseher aus und lese ein Buch." | transl: "Turn off the television, and read a book." | audio: "audio/de/lesen_phrase_4.mp3"
+  // phrase_5: "Wir müssen zehn Bücher in diesem Semester lesen." | transl: "We have to read ten books this school semester." | audio: "audio/de/lesen_phrase_5.mp3"
+  // phrase_6: "seiner Tochter vorlesen" | transl: "read to one's daughter" | audio: "audio/de/lesen_phrase_6.mp3"
+  // phrase_7: "seiner Tochter ein Buch vorlesen" | transl: "read a book to one's daughter" | audio: "audio/de/lesen_phrase_7.mp3"
+  // phrase_8: "die Zeitung lesen" | transl: "read the newspaper" | audio: "audio/de/lesen_phrase_8.mp3"
+  // phrase_9: "eine Zeitschrift lesen" | transl: "read a magazine" | audio: "audio/de/lesen_phrase_9.mp3"
+  // phrase_10: "ein Buch lesen" | transl: "read a book" | audio: "audio/de/lesen_phrase_10.mp3"
+  {
+    id: "de_reservierung", lang: "de", niveau: "Nouveau",
+    word: "Reservierung",
+    genre: "féminin",
+    translation: "reservation", category: "nom",
+    phrase: "Haben Sie eine Reservierung?",
+    phrase_fr: "Do you have a reservation?",
+    audio_word: "audio/de/reservierung.mp3", audio_phrase: "audio/de/reservierung_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Reservierung':
+  // phrase_2: "Reservierung für 20 Uhr" | transl: "reservation for 8 PM" | audio: "audio/de/reservierung_phrase_2.mp3"
+  // phrase_3: "Reservierung für drei" | transl: "reservation for three" | audio: "audio/de/reservierung_phrase_3.mp3"
+  {
+    id: "de_straße", lang: "de", niveau: "Nouveau",
+    word: "Straße",
+    genre: "féminin",
+    translation: "street", category: "nom",
+    phrase: "Die Autos fahren die Straße herunter.",
+    phrase_fr: "The cars are moving down the city street.",
+    audio_word: "audio/de/straße.mp3", audio_phrase: "audio/de/straße_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Straße':
+  // phrase_2: "Wir haben auf der Strasse vor dem Gebäude geparkt." | transl: "We parked on the street in front of the building." | audio: "audio/de/straße_phrase_2.mp3"
+  // phrase_3: "Der Bus ist auf der Straße geparkt." | transl: "The bus is parked on the street." | audio: "audio/de/straße_phrase_3.mp3"
+  // phrase_4: "Einbahnstraße" | transl: "one way street" | audio: "audio/de/straße_phrase_4.mp3"
+  // phrase_5: "Hauptstrasse" | transl: "main street" | audio: "audio/de/straße_phrase_5.mp3"
+  {
+    id: "de_gehalt", lang: "de", niveau: "Nouveau",
+    word: "Gehalt",
+    genre: "neutre",
+    translation: "salary", category: "nom",
+    phrase: "Wie hoch ist das Gehalt?",
+    phrase_fr: "How much is the salary?",
+    audio_word: "audio/de/gehalt.mp3", audio_phrase: "audio/de/gehalt_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Gehalt':
+  // phrase_2: "Ich erhalte ein kleines Gehalt plus Kommission jeden Monat." | transl: "I receive a small salary plus commissions each month." | audio: "audio/de/gehalt_phrase_2.mp3"
+  // phrase_3: "Bargehalt" | transl: "cash salary" | audio: "audio/de/gehalt_phrase_3.mp3"
+  // phrase_4: "monatliches Gehalt" | transl: "monthly salary" | audio: "audio/de/gehalt_phrase_4.mp3"
+  {
+    id: "de_salzig", lang: "de", niveau: "Nouveau",
+    word: "salzig",
+    translation: "salty", category: "adjectif",
+    phrase: "Diese Suppe ist zu salzig.",
+    phrase_fr: "This soup is too salty.",
+    audio_word: "audio/de/salzig.mp3", audio_phrase: "audio/de/salzig_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'salzig':
+  // phrase_2: "Diese Häppchen sind zu salzig." | transl: "These appetizers are too salty." | audio: "audio/de/salzig_phrase_2.mp3"
+  // phrase_3: "salziger Snack" | transl: "salty snack" | audio: "audio/de/salzig_phrase_3.mp3"
+  {
+    id: "de_meeresfruchte", lang: "de", niveau: "Nouveau",
+    word: "Meeresfrüchte",
+    genre: "féminin",
+    translation: "seafood", category: "nom",
+    phrase: "Muscheln, Lachs, Garnelen, Hummer und Tintenfisch sind alles Meeresfrüchte.",
+    phrase_fr: "Clams, salmon, shrimp, lobsters, and squid are all seafood.",
+    audio_word: "audio/de/meeresfruchte.mp3", audio_phrase: "audio/de/meeresfruchte_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Meeresfrüchte':
+  // phrase_2: "Meeresfrüchteteller" | transl: "seafood platter" | audio: "audio/de/meeresfruchte_phrase_2.mp3"
+  // phrase_3: "Meeresfrüchterestaurant" | transl: "seafood restaurant" | audio: "audio/de/meeresfruchte_phrase_3.mp3"
+  {
+    id: "de_garnele", lang: "de", niveau: "Nouveau",
+    word: "Garnele",
+    genre: "féminin",
+    translation: "shrimp", category: "nom",
+    phrase: "Garnelen kann man sowohl in Süßwasser, als auch in Salzwasser finden.",
+    phrase_fr: "Shrimp can be found in both fresh and salt water.",
+    audio_word: "audio/de/garnele.mp3", audio_phrase: "audio/de/garnele_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Garnele':
+  // phrase_2: "gekochte Garnele" | transl: "boiled shrimp" | audio: "audio/de/garnele_phrase_2.mp3"
+  // phrase_3: "Garnelencocktail" | transl: "shrimp cocktail" | audio: "audio/de/garnele_phrase_3.mp3"
+  // phrase_4: "Riesengarnele" | transl: "jumbo shrimp" | audio: "audio/de/garnele_phrase_4.mp3"
+  {
+    id: "de_rock", lang: "de", niveau: "Nouveau",
+    word: "Rock",
+    genre: "masculin",
+    translation: "skirt", category: "nom",
+    phrase: "Sie trägt einen gelben Rock.",
+    phrase_fr: "She is wearing a yellow skirt.",
+    audio_word: "audio/de/rock.mp3", audio_phrase: "audio/de/rock_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Rock':
+  // phrase_2: "In Nordamerika und Europa sind Röcke üblicherweise als Frauenkleidung gedacht, aber viele Männer tragen Röcke auf der ganzen Welt." | transl: "In North America and Europe skirts are usually thought of as women's clothing, but many men wear skirts throughout the world." | audio: "audio/de/rock_phrase_2.mp3"
+  // phrase_3: "dunkelpinker Rock" | transl: "dark pink skirt" | audio: "audio/de/rock_phrase_3.mp3"
+  // phrase_4: "Minirock" | transl: "miniskirt" | audio: "audio/de/rock_phrase_4.mp3"
+  {
+    id: "de_werkzeugkasten", lang: "de", niveau: "Nouveau",
+    word: "Werkzeugkasten",
+    genre: "masculin",
+    translation: "toolbox", category: "nom",
+    phrase: "Ich bewahre Schraubenschlüssel und Schraubenzieher in meinem Werkzeugkasten auf.",
+    phrase_fr: "I keep wrenches and screwdrivers in my toolbox.",
+    audio_word: "audio/de/werkzeugkasten.mp3", audio_phrase: "audio/de/werkzeugkasten_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Werkzeugkasten':
+  // phrase_2: "In meinem Werkzeugkasten habe ich bislang nur einen Hammer und ein paar Schraubenzieher." | transl: "In my toolbox I only have one hammer and a few screwdrivers." | audio: "audio/de/werkzeugkasten_phrase_2.mp3"
+  // phrase_3: "Werkzeuge in einem Werkzeugkasten" | transl: "tools in a toolbox" | audio: "audio/de/werkzeugkasten_phrase_3.mp3"
+  {
+    id: "de_taifun", lang: "de", niveau: "Nouveau",
+    word: "Taifun",
+    genre: "masculin",
+    translation: "typhoon", category: "nom",
+    phrase: "Der Taifun ist angekommen.",
+    phrase_fr: "The typhoon has hit.",
+    audio_word: "audio/de/taifun.mp3", audio_phrase: "",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Taifun':
+  // phrase_2: "Der Taifun ist angekommen." | transl: "The typhoon has hit."
+  // phrase_3: "Der Taifun ist angekommen." | transl: "The typhoon has hit."
+  // phrase_4: "Der Taifun ist angekommen." | transl: "The typhoon has hit."
+  // phrase_5: "Der Taifun im westlichen Pazifik brachte das Schiff vom Kurs ab." | transl: "The typhoon in the western pacific blew the ship off course." | audio: "audio/de/taifun_phrase_5.mp3"
+  // phrase_6: "Draußen ist es windig." | transl: "It's windy outside." | audio: "audio/de/taifun_phrase_6.mp3"
+  // phrase_7: "Taifun im Pazifik" | transl: "pacific typhoon" | audio: "audio/de/taifun_phrase_7.mp3"
+  {
+    id: "de_kuh", lang: "de", niveau: "Nouveau",
+    word: "Kuh",
+    genre: "féminin",
+    translation: "cow", category: "nom",
+    phrase: "Die Kuh ist auf dem Feld.",
+    phrase_fr: "The cow is in the field.",
+    audio_word: "audio/de/kuh.mp3", audio_phrase: "audio/de/kuh_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Kuh':
+  // phrase_2: "Die Kühe grasen auf dem Feld." | transl: "The cows are grazing in the field." | audio: "audio/de/kuh_phrase_2.mp3"
+  // phrase_3: "Fleisch und Milch sind beides wichtige Erzeugnisse einer Kuh." | transl: "Both beef and milk are important products from the cow." | audio: "audio/de/kuh_phrase_3.mp3"
+  // phrase_4: "schwarz-weiße Kuh" | transl: "black and white cow" | audio: "audio/de/kuh_phrase_4.mp3"
+  // phrase_5: "Kuhmilch" | transl: "cow milk" | audio: "audio/de/kuh_phrase_5.mp3"
+  {
+    id: "de_gemuse", lang: "de", niveau: "Nouveau",
+    word: "Gemüse",
+    genre: "neutre",
+    translation: "vegetable", category: "nom",
+    phrase: "Gemüse ist eine reiche Quelle an Vitaminen und Mineralien.",
+    phrase_fr: "Vegetables are a rich source of vitamins and minerals.",
+    audio_word: "audio/de/gemuse.mp3", audio_phrase: "audio/de/gemuse_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Gemüse':
+  // phrase_2: "Paprika, Brokkoli, Zucchini, Lauch, Karotten, Auberginen und Salat sind alles Gemüse." | transl: "Peppers, broccoli, zucchini, leeks, carrots, eggplants, and lettuce are all vegetables." | audio: "audio/de/gemuse_phrase_2.mp3"
+  // phrase_3: "Die Frau kauft Gemüse im Lebensmittelgeschäft." | transl: "The woman is shopping for vegetables at the grocery store." | audio: "audio/de/gemuse_phrase_3.mp3"
+  // phrase_4: "Eine Ernährung reich an Gemüse und Obst hält den Körper gesund." | transl: "A diet rich in vegetables and fruit keeps the body healthy." | audio: "audio/de/gemuse_phrase_4.mp3"
+  // phrase_5: "Gesundheitsexperten empfehlen fünf Portionen Obst und Gemüse am Tag." | transl: "Health experts recommend five servings of fruit and vegtables a day." | audio: "audio/de/gemuse_phrase_5.mp3"
+  // phrase_6: "frisches Gemüse" | transl: "fresh vegetables" | audio: "audio/de/gemuse_phrase_6.mp3"
+  // phrase_7: "ein bitteres, grünes Gemüse" | transl: "a bitter green vegetable" | audio: "audio/de/gemuse_phrase_7.mp3"
+  // phrase_8: "Gemüseabteilung im Supermarkt" | transl: "vegetable section of the supermarket" | audio: "audio/de/gemuse_phrase_8.mp3"
+  // phrase_9: "Gemüsesaft" | transl: "vegetable juice" | audio: "audio/de/gemuse_phrase_9.mp3"
+  // phrase_10: "Gemüsegarten" | transl: "vegetable garden" | audio: "audio/de/gemuse_phrase_10.mp3"
+  {
+    id: "de_grun", lang: "de", niveau: "Nouveau",
+    word: "grün",
+    translation: "green", category: "adjectif",
+    phrase: "Das Glühwürmchen ist auf dem grünen Blatt.",
+    phrase_fr: "The firefly is on the green leaf.",
+    audio_word: "audio/de/grun.mp3", audio_phrase: "audio/de/grun_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'grün':
+  // phrase_2: "grünes Gras" | transl: "green grass" | audio: "audio/de/grun_phrase_2.mp3"
+  // phrase_3: "waldgrün" | transl: "forest green" | audio: "audio/de/grun_phrase_3.mp3"
+  // phrase_4: "hellgrün" | transl: "light green" | audio: "audio/de/grun_phrase_4.mp3"
+  {
+    id: "de_flug", lang: "de", niveau: "Nouveau",
+    word: "Flug",
+    genre: "masculin",
+    translation: "flight", category: "nom",
+    phrase: "Der Flug geht in einer Stunde.",
+    phrase_fr: "The flight will leave in one hour.",
+    audio_word: "audio/de/flug.mp3", audio_phrase: "audio/de/flug_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'Flug':
+  // phrase_2: "schneller Flug" | transl: "quick flight" | audio: "audio/de/flug_phrase_2.mp3"
+  // phrase_3: "Bordkarte für den Flug" | transl: "boarding pass for the flight" | audio: "audio/de/flug_phrase_3.mp3"
+  
+  {
     id: "de_001", lang: "de", niveau: "Nouveau",
     word: "lernen",
     roman: "lernen",
@@ -2961,7 +4353,334 @@ const INITIAL_DATA = [
     phrase_roman: "",
     phrase_fr: "Le temps est beau aujourd'hui.",
     audio_word: "", audio_phrase: "", notes: "ö = eu français · comparatif : schöner · superlatif : am schönsten"
-  }
+  },
+  // ESPAGNOL
+  {
+    id: "es_tobillo", lang: "es", niveau: "Nouveau",
+    word: "tobillo",
+    genre: "masculin",
+    translation: "ankle", category: "nom",
+    phrase: "El atleta se esguinzó el tobillo.",
+    phrase_fr: "The athlete sprained his ankle.",
+    audio_word: "audio/es/tobillo.mp3", audio_phrase: "audio/es/tobillo_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'tobillo':
+  // phrase_2: "Me tropecé en las escaleras y ahora tengo un esguince en el tobillo." | transl: "I tripped on the stairs, and now I have a sprained ankle." | audio: "audio/es/tobillo_phrase_2.mp3"
+  // phrase_3: "La parte alta del zapato frotaba el hueso de su tobillo." | transl: "The top of the shoe rubbed the bone in her ankle." | audio: "audio/es/tobillo_phrase_3.mp3"
+  // phrase_4: "tobillo hinchado" | transl: "swollen ankle" | audio: "audio/es/tobillo_phrase_4.mp3"
+  // phrase_5: "hueso del tobillo" | transl: "ankle bone" | audio: "audio/es/tobillo_phrase_5.mp3"
+  {
+    id: "es_pajaro", lang: "es", niveau: "Nouveau",
+    word: "pájaro",
+    genre: "masculin",
+    translation: "bird", category: "nom",
+    phrase: "Hoy vimos quince pájaros en la observación de aves.",
+    phrase_fr: "Bird-watching, we saw fifteen birds today.",
+    audio_word: "audio/es/pajaro.mp3", audio_phrase: "audio/es/pajaro_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'pájaro':
+  // phrase_2: "Cada año, los pájaros vuelan de Canadá a Méjico." | transl: "Each year, the birds fly from Canada to Mexico." | audio: "audio/es/pajaro_phrase_2.mp3"
+  // phrase_3: "pájaro amarillo con un pico anaranjado" | transl: "yellow bird with an orange beak" | audio: "audio/es/pajaro_phrase_3.mp3"
+  // phrase_4: "pájaro marrón y naranja" | transl: "yellowish brown bird" | audio: "audio/es/pajaro_phrase_4.mp3"
+  // phrase_5: "pájaro mascota" | transl: "pet bird" | audio: "audio/es/pajaro_phrase_5.mp3"
+  {
+    id: "es_calido", lang: "es", niveau: "Nouveau",
+    word: "cálido",
+    translation: "warm", category: "adjectif",
+    phrase: "El verano es el tiempo de las vacaciones familiares y el clima cálido.",
+    phrase_fr: "Summer is the time of family vacations and warm weather.",
+    audio_word: "audio/es/calido.mp3", audio_phrase: "audio/es/calido_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'cálido':
+  // phrase_2: "Ya es otoño, pero todavía son cálidos estos días." | transl: "It's already fall, but it's still warm these days." | audio: "audio/es/calido_phrase_2.mp3"
+  // phrase_3: "clima cálido" | transl: "warm weather" | audio: "audio/es/calido_phrase_3.mp3"
+  // phrase_4: "viento cálido" | transl: "warm wind" | audio: "audio/es/calido_phrase_4.mp3"
+  {
+    id: "es_nube", lang: "es", niveau: "Nouveau",
+    word: "nube",
+    genre: "féminin",
+    translation: "cloud", category: "nom",
+    phrase: "No veo una nube en el cielo.",
+    phrase_fr: "I don’t see a cloud in the sky.",
+    audio_word: "audio/es/nube.mp3", audio_phrase: "audio/es/nube_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'nube':
+  // phrase_2: "nube esponjosa" | transl: "fluffy cloud" | audio: "audio/es/nube_phrase_2.mp3"
+  // phrase_3: "una nube oscura" | transl: "a dark cloud" | audio: "audio/es/nube_phrase_3.mp3"
+  // phrase_4: "cielo azul con nubes blancas" | transl: "blue sky with white clouds" | audio: "audio/es/nube_phrase_4.mp3"
+  {
+    id: "es_llovizna", lang: "es", niveau: "Nouveau",
+    word: "llovizna",
+    genre: "féminin",
+    translation: "drizzle", category: "nom",
+    phrase: "Una llovizna es una lluvia muy ligera.",
+    phrase_fr: "A drizzle is a very fine light rain.",
+    audio_word: "audio/es/llovizna.mp3", audio_phrase: "audio/es/llovizna_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'llovizna':
+  // phrase_2: "llovizna ligera" | transl: "light drizzle" | audio: "audio/es/llovizna_phrase_2.mp3"
+  {
+    id: "es_escarcha", lang: "es", niveau: "Nouveau",
+    word: "escarcha",
+    genre: "féminin",
+    translation: "frost", category: "nom",
+    phrase: "Si hace mucho frío,la escarcha matará mis plantas.",
+    phrase_fr: "If it gets too cold, the frost will kill my flowers.",
+    audio_word: "audio/es/escarcha.mp3", audio_phrase: "audio/es/escarcha_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'escarcha':
+  // phrase_2: "escarcha matutina" | transl: "morning frost" | audio: "audio/es/escarcha_phrase_2.mp3"
+  // phrase_3: "escarcha en el cristal de mi ventana" | transl: "frost on my window panes" | audio: "audio/es/escarcha_phrase_3.mp3"
+  {
+    id: "es_rinon", lang: "es", niveau: "Nouveau",
+    word: "riñón",
+    genre: "masculin",
+    translation: "kidney", category: "nom",
+    phrase: "La mayoría de las personas nacen con dos riñones en su cuerpo.",
+    phrase_fr: "Most people are born with two kidneys in their body.",
+    audio_word: "audio/es/rinon.mp3", audio_phrase: "audio/es/rinon_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'riñón':
+  // phrase_2: "riñón izquierdo y riñón derecho" | transl: "left kidney and right kidney" | audio: "audio/es/rinon_phrase_2.mp3"
+  // phrase_3: "piedras en el riñón" | transl: "kidney stones" | audio: "audio/es/rinon_phrase_3.mp3"
+  {
+    id: "es_tenedor", lang: "es", niveau: "Nouveau",
+    word: "tenedor",
+    genre: "masculin",
+    translation: "fork", category: "nom",
+    phrase: "¿Puedes diferenciar entre el tenedor para ensalada y el tenedor para la cena?",
+    phrase_fr: "Can you tell the salad fork from the dinner fork?",
+    audio_word: "audio/es/tenedor.mp3", audio_phrase: "audio/es/tenedor_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'tenedor':
+  // phrase_2: "El tenedor para la cena generalmente tiene cuatro dientes." | transl: "The diner fork generally has four tines." | audio: "audio/es/tenedor_phrase_2.mp3"
+  // phrase_3: "tenedor sobre un plato" | transl: "fork on a plate" | audio: "audio/es/tenedor_phrase_3.mp3"
+  // phrase_4: "tenedor para ensalada" | transl: "salad fork" | audio: "audio/es/tenedor_phrase_4.mp3"
+  // phrase_5: "tenedor para la cena" | transl: "dinner fork" | audio: "audio/es/tenedor_phrase_5.mp3"
+  {
+    id: "es_ajo", lang: "es", niveau: "Nouveau",
+    word: "ajo",
+    genre: "masculin",
+    translation: "garlic", category: "nom",
+    phrase: "El sabor y el olor del ajo son sus marcas al cocinar.",
+    phrase_fr: "The taste and odor of garlic are its cooking trademarks.",
+    audio_word: "audio/es/ajo.mp3", audio_phrase: "audio/es/ajo_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'ajo':
+  // phrase_2: "Al ajo se le atribuye prevenir todo, desde la gripe hasta los vampiros." | transl: "Garlic is credited with preventing everything from the flu to vampires." | audio: "audio/es/ajo_phrase_2.mp3"
+  // phrase_3: "El pan de ajo es indispensable cuando se está comiendo espagueti o lasaña." | transl: "Garlic bread is a must when eating spaghetti or lasagna." | audio: "audio/es/ajo_phrase_3.mp3"
+  // phrase_4: "cabeza y dientes de ajo" | transl: "garlic bulb and cloves" | audio: "audio/es/ajo_phrase_4.mp3"
+  // phrase_5: "pan de ajo" | transl: "garlic bread" | audio: "audio/es/ajo_phrase_5.mp3"
+  {
+    id: "es_vaqueros", lang: "es", niveau: "Nouveau",
+    word: "vaqueros",
+    genre: "masculin",
+    translation: "jeans", category: "nom",
+    phrase: "Los vaqueros son fabricados con tela vaquera.",
+    phrase_fr: "Jeans are made from denim.",
+    audio_word: "audio/es/vaqueros.mp3", audio_phrase: "audio/es/vaqueros_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'vaqueros':
+  // phrase_2: "vaqueros desteñidos" | transl: "faded jeans" | audio: "audio/es/vaqueros_phrase_2.mp3"
+  // phrase_3: "pantalones vaqueros azules" | transl: "blue jeans" | audio: "audio/es/vaqueros_phrase_3.mp3"
+  {
+    id: "es_bombilla", lang: "es", niveau: "Nouveau",
+    word: "bombilla",
+    genre: "féminin",
+    translation: "light bulb", category: "nom",
+    phrase: "Cambia la bombilla cuando se funda y se quede a obscuras.",
+    phrase_fr: "Change the lightbulb when it burns out and goes dark.",
+    audio_word: "audio/es/bombilla.mp3", audio_phrase: "audio/es/bombilla_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'bombilla':
+  // phrase_2: "bombilla incandescente" | transl: "incandescent light bulb" | audio: "audio/es/bombilla_phrase_2.mp3"
+  {
+    id: "es_mala_hierba", lang: "es", niveau: "Nouveau",
+    word: "mala hierba",
+    genre: "féminin",
+    translation: "weed", category: "expression",
+    phrase: "El jardinero está sosteniendo una mala hierba.",
+    phrase_fr: "The gardener is holding a weed.",
+    audio_word: "audio/es/mala_hierba.mp3", audio_phrase: "audio/es/mala_hierba_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'mala hierba':
+  // phrase_2: "Es díficil sacar toda la mala hierba de mi jardín." | transl: "It is difficult to get every weed out of my garden." | audio: "audio/es/mala_hierba_phrase_2.mp3"
+  // phrase_3: "arrancar una mala hierba" | transl: "pull a weed" | audio: "audio/es/mala_hierba_phrase_3.mp3"
+  // phrase_4: "quitar la mala hierba del jardín" | transl: "weed the garden" | audio: "audio/es/mala_hierba_phrase_4.mp3"
+  {
+    id: "es_cabra", lang: "es", niveau: "Nouveau",
+    word: "cabra",
+    genre: "féminin",
+    translation: "goat", category: "nom",
+    phrase: "La cabra está en la pradera.",
+    phrase_fr: "The goat is in the meadow.",
+    audio_word: "audio/es/cabra.mp3", audio_phrase: "audio/es/cabra_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'cabra':
+  // phrase_2: "Las cabras juegan en la granja." | transl: "The goats are playing on the farm." | audio: "audio/es/cabra_phrase_2.mp3"
+  // phrase_3: "cabra blanca" | transl: "white goat" | audio: "audio/es/cabra_phrase_3.mp3"
+  {
+    id: "es_bigote", lang: "es", niveau: "Nouveau",
+    word: "bigote",
+    genre: "masculin",
+    translation: "mustache", category: "nom",
+    phrase: "El hombre tiene un bigote grueso.",
+    phrase_fr: "The man has a thick mustache.",
+    audio_word: "audio/es/bigote.mp3", audio_phrase: "audio/es/bigote_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'bigote':
+  // phrase_2: "el hombre tiene comida en su bigote." | transl: "The man has food on his moustache." | audio: "audio/es/bigote_phrase_2.mp3"
+  // phrase_3: "bigote y barba" | transl: "mustache and beard" | audio: "audio/es/bigote_phrase_3.mp3"
+  // phrase_4: "bigote aseado" | transl: "neat moustache" | audio: "audio/es/bigote_phrase_4.mp3"
+  {
+    id: "es_cebolla", lang: "es", niveau: "Nouveau",
+    word: "cebolla",
+    genre: "féminin",
+    translation: "onion", category: "nom",
+    phrase: "Las cebollas son bulbos vegetales subterráneos que vienen en muchos colores y tamaños.",
+    phrase_fr: "Onions are underground bulb vegetables that come in many colors and sizes.",
+    audio_word: "audio/es/cebolla.mp3", audio_phrase: "audio/es/cebolla_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'cebolla':
+  // phrase_2: "Hay cuatro tipos básicos de cebolla: amarilla y marrón, blanca, roja y dulce." | transl: "There are four basic types of onions: yellow and brown, white, red, and sweet." | audio: "audio/es/cebolla_phrase_2.mp3"
+  // phrase_3: "Usé cebolla dulce cortada para dar sabor a mis patatas fritas." | transl: "I use chopped sweet onion to flavor my fried potatoes." | audio: "audio/es/cebolla_phrase_3.mp3"
+  // phrase_4: "cebolla roja rebanada" | transl: "sliced red onion" | audio: "audio/es/cebolla_phrase_4.mp3"
+  // phrase_5: "aliento a cebolla" | transl: "onion breath" | audio: "audio/es/cebolla_phrase_5.mp3"
+  // phrase_6: "cebolla dulce cortada" | transl: "chopped sweet onion" | audio: "audio/es/cebolla_phrase_6.mp3"
+  {
+    id: "es_oreja", lang: "es", niveau: "Nouveau",
+    word: "oreja",
+    genre: "féminin",
+    translation: "ear", category: "nom",
+    phrase: "Tiene unas orejas bien preciosas.",
+    phrase_fr: "He has very beautiful ears.",
+    audio_word: "audio/es/oreja.mp3", audio_phrase: "audio/es/oreja_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'oreja':
+  // phrase_2: "La niña se perforó las orejas cuando se compró los pendientes." | transl: "The girl pierced her ears when she bought the earrings." | audio: "audio/es/oreja_phrase_2.mp3"
+  // phrase_3: "oreja derecha" | transl: "right ear" | audio: "audio/es/oreja_phrase_3.mp3"
+  // phrase_4: "oreja perforada" | transl: "pierced ear" | audio: "audio/es/oreja_phrase_4.mp3"
+  {
+    id: "es_gallina", lang: "es", niveau: "Nouveau",
+    word: "gallina",
+    genre: "féminin",
+    translation: "chicken", category: "nom",
+    phrase: "Las gallinas y los pollitos picotean su comida.",
+    phrase_fr: "The chicken and chicks are pecking at their food.",
+    audio_word: "audio/es/gallina.mp3", audio_phrase: "audio/es/gallina_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'gallina':
+  // phrase_2: "gallina blanca" | transl: "white chicken" | audio: "audio/es/gallina_phrase_2.mp3"
+  // phrase_3: "gallina marrón" | transl: "brown chicken" | audio: "audio/es/gallina_phrase_3.mp3"
+  {
+    id: "es_empujar", lang: "es", niveau: "Nouveau",
+    word: "empujar",
+    translation: "push", category: "verbe",
+    phrase: "El hombre está empujando el coche.",
+    phrase_fr: "The man is pushing the car.",
+    audio_word: "audio/es/empujar.mp3", audio_phrase: "audio/es/empujar_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'empujar':
+  // phrase_2: "empujar un coche" | transl: "push a car" | audio: "audio/es/empujar_phrase_2.mp3"
+  {
+    id: "es_sarten", lang: "es", niveau: "Nouveau",
+    word: "sartén",
+    genre: "féminin",
+    translation: "frying pan", category: "nom",
+    phrase: "Las cebollas están siendo salteadas en la sartén.",
+    phrase_fr: "The onions are being sautéed in the frying pan.",
+    audio_word: "audio/es/sarten.mp3", audio_phrase: "audio/es/sarten_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'sartén':
+  // phrase_2: "Esta sartén es muy barata." | transl: "This frying pan is very cheap." | audio: "audio/es/sarten_phrase_2.mp3"
+  // phrase_3: "sartén de acero" | transl: "steel frying pan" | audio: "audio/es/sarten_phrase_3.mp3"
+  {
+    id: "es_secador_de_pelo", lang: "es", niveau: "Nouveau",
+    word: "secador de pelo",
+    genre: "masculin",
+    translation: "hair dryer", category: "expression",
+    phrase: "Puedo prepararme para ir a trabajar más rápido usando mi secador de pelo.",
+    phrase_fr: "I can get ready for work faster using my hair dryer.",
+    audio_word: "audio/es/secador_de_pelo.mp3", audio_phrase: "audio/es/secador_de_pelo_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'secador de pelo':
+  // phrase_2: "secador de pelo eléctrico" | transl: "electric hair dryer" | audio: "audio/es/secador_de_pelo_phrase_2.mp3"
+  {
+    id: "es_semilla", lang: "es", niveau: "Nouveau",
+    word: "semilla",
+    genre: "féminin",
+    translation: "seed", category: "nom",
+    phrase: "Dejar la semilla en el chile lo hará mucho más picante.",
+    phrase_fr: "Leaving the seeds in a chili pepper will make it much hotter.",
+    audio_word: "audio/es/semilla.mp3", audio_phrase: "audio/es/semilla_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'semilla':
+  // phrase_2: "semilla de sésamo" | transl: "sesame seed" | audio: "audio/es/semilla_phrase_2.mp3"
+  // phrase_3: "semilla de girasol" | transl: "sunflower seed" | audio: "audio/es/semilla_phrase_3.mp3"
+  // phrase_4: "vaina de semillas" | transl: "seed pod" | audio: "audio/es/semilla_phrase_4.mp3"
+  {
+    id: "es_vater", lang: "es", niveau: "Nouveau",
+    word: "váter",
+    genre: "masculin",
+    translation: "toilet", category: "nom",
+    phrase: "Nuestra casa del lago no tiene un váter interior.",
+    phrase_fr: "Our lake house does not have an indoor toilet.",
+    audio_word: "audio/es/vater.mp3", audio_phrase: "audio/es/vater_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'váter':
+  // phrase_2: "taza del váter" | transl: "toilet bowl" | audio: "audio/es/vater_phrase_2.mp3"
+  // phrase_3: "váter interior" | transl: "indoor toilet" | audio: "audio/es/vater_phrase_3.mp3"
+  {
+    id: "es_corbata", lang: "es", niveau: "Nouveau",
+    word: "corbata",
+    genre: "féminin",
+    translation: "necktie", category: "nom",
+    phrase: "El hombre se está anudando una corbata a rayas.",
+    phrase_fr: "The man is tying a striped necktie.",
+    audio_word: "audio/es/corbata.mp3", audio_phrase: "audio/es/corbata_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'corbata':
+  // phrase_2: "En muchas compañías de tecnología, un traje y  corbata no son requisito." | transl: "At many technology companies, a suit and necktie are not required." | audio: "audio/es/corbata_phrase_2.mp3"
+  // phrase_3: "corbata roja a rayas" | transl: "red, striped necktie" | audio: "audio/es/corbata_phrase_3.mp3"
+  // phrase_4: "traje negro, camisa azul y corbata rosa" | transl: "black suit, blue shirt, and pink necktie" | audio: "audio/es/corbata_phrase_4.mp3"
+  // phrase_5: "corbata a rayas" | transl: "striped necktie" | audio: "audio/es/corbata_phrase_5.mp3"
+  {
+    id: "es_catarata", lang: "es", niveau: "Nouveau",
+    word: "catarata",
+    genre: "féminin",
+    translation: "waterfall", category: "nom",
+    phrase: "La catarata es preciosa.",
+    phrase_fr: "The waterfall is beautiful.",
+    audio_word: "audio/es/catarata.mp3", audio_phrase: "audio/es/catarata_phrase_1.mp3",
+    notes: ""
+  },
+  // ── Autres phrases pour 'catarata':
+  // phrase_2: "catarata en un bosque tropical" | transl: "waterfall in a rainforest" | audio: "audio/es/catarata_phrase_2.mp3"
+  // phrase_3: "catarata fluída" | transl: "flowing waterfall" | audio: "audio/es/catarata_phrase_3.mp3"
+  
 ];
 
 // ─── CATEGORIES PAR LANGUE ────────────────────────────────────────────────────
@@ -2972,6 +4691,7 @@ const CATEGORIES = {
   pl: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
   pt: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
   de: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
+  es: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
 };
 
 function updateCategorySelect(lang) {
@@ -2999,7 +4719,7 @@ let filterNiv = 'all';
 let searchQuery = '';
 
 // ─── RENDER ───────────────────────────────────────────────────────────────────
-const LANG_NAMES = { ja: '日本語', zh: '中文', ru: 'Русский', pl: 'Polski', pt: 'Português BR', de: 'Deutsch' };
+const LANG_NAMES = { ja: '日本語', zh: '中文', ru: 'Русский', pl: 'Polski', pt: 'Português BR', de: 'Deutsch', es: 'Español' };
 
 function catClass(cat) {
   const c = (cat||'').toLowerCase();
@@ -3038,7 +4758,7 @@ function renderCard(w) {
   if (w.lang === 'ja' && w.subcat) {
     extraBadge = `<span class="ton-badge">${w.subcat}</span>`;
   }
-  if ((w.lang === 'pl' || w.lang === 'ru' || w.lang === 'pt' || w.lang === 'de') && w.genre) {
+  if ((w.lang === 'pl' || w.lang === 'ru' || w.lang === 'pt' || w.lang === 'de' || w.lang === 'es') && w.genre) {
     extraBadge = `<span class="ton-badge">${w.genre}</span>`;
   }
 
@@ -3116,7 +4836,7 @@ function render() {
   const groups = {};
   list.forEach(w => { if (!groups[w.lang]) groups[w.lang] = []; groups[w.lang].push(w); });
 
-  const langOrder = filterLang === 'all' ? ['ja','zh','ru','pl','pt','de'] : [filterLang];
+  const langOrder = filterLang === 'all' ? ['ja','zh','ru','pl','pt','de','es'] : [filterLang];
   container.innerHTML = langOrder
     .filter(l => groups[l])
     .map(l => groups[l].map(renderCard).join(''))
@@ -3262,6 +4982,9 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   }
   if (lang === 'de') {
     entry.genre = document.getElementById('f_de_genre').value;
+  }
+  if (lang === 'es') {
+    entry.genre = document.getElementById('f_es_genre').value;
   }
 
   words.unshift(entry);

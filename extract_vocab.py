@@ -8,7 +8,7 @@ Usage:
   python extract_vocab.py --lang ja --files *.html
   python extract_vocab.py --lang zh --files *.html
 
-Langues supportées : ru, ja, zh, pl, pt
+Langues supportées : ru, ja, zh, pl, pt, de, es
 
 Prérequis : pip install requests beautifulsoup4
 """
@@ -34,6 +34,7 @@ LANG_CONFIG = {
     "pl": {"audio_dir": BASE_DIR / "audio" / "pl", "json_file": BASE_DIR / "pl_import.json"},
     "pt": {"audio_dir": BASE_DIR / "audio" / "pt", "json_file": BASE_DIR / "pt_import.json"},
     "de": {"audio_dir": BASE_DIR / "audio" / "de", "json_file": BASE_DIR / "de_import.json"},
+    "es": {"audio_dir": BASE_DIR / "audio" / "es", "json_file": BASE_DIR / "es_import.json"},
 }
 
 # Mapping accents → numéro de ton chinois
@@ -185,7 +186,7 @@ def build_entry(data, lang, audio_dir):
         entry["ton"] = ton_label
         entry["ton_symbol"] = ton_symbol
 
-    elif lang in ("pl", "pt", "de"):
+    elif lang in ("pl", "pt", "de", "es"):
         genre_raw = data.get("gender", "")
         if genre_raw:
             entry["genre"] = GENRE_MAP.get(genre_raw.lower(), genre_raw)
@@ -223,7 +224,7 @@ def build_entry(data, lang, audio_dir):
 
 def main():
     parser = argparse.ArgumentParser(description="Extraction vocabulaire *Pod101")
-    parser.add_argument("--lang", required=True, choices=["ru","ja","zh","pl","pt","de"])
+    parser.add_argument("--lang", required=True, choices=["ru","ja","zh","pl","pt","de","es"])
     parser.add_argument("--files", nargs="+", required=True,
                         help="Fichiers HTML à traiter")
     args = parser.parse_args()
