@@ -2634,7 +2634,7 @@ const INITIAL_DATA = [
     roman: "odinnadtsat'",
     translation: "eleven", category: "nombre",
     phrase: "Мне одиннадцать  лет.",
-    phrase_roman: "Mne odinnadtsat'  let.",
+    phrase_roman: "Mne odinnadtsat' let.",
     phrase_fr: "I'm eleven years old.",
     audio_word: "audio/ru/odinnadtsat.mp3", audio_phrase: "audio/ru/odinnadtsat_phrase_1.mp3",
     notes: ""
@@ -2671,20 +2671,6 @@ const INITIAL_DATA = [
   },
   // ── Autres phrases pour 'цунами':
   // phrase_2: "накрытый цунами" | roman: "nakrytyy tsunami" | transl: "hit by tsunami" | audio: "audio/ru/tsunami_phrase_2.mp3"
-  {
-    id: "ru_koza", lang: "ru", word: "коза",
-    roman: "koza",
-    genre: "féminin",
-    translation: "goat", category: "nom",
-    phrase: "Коза на лугу.",
-    phrase_roman: "Koza na lugu.",
-    phrase_fr: "The goat is in the meadow.",
-    audio_word: "audio/ru/koza.mp3", audio_phrase: "audio/ru/koza_phrase_1.mp3",
-    notes: ""
-  },
-  // ── Autres phrases pour 'коза':
-  // phrase_2: "Козы играют на ферме." | roman: "Kozy igrayut na ferme." | transl: "The goats are playing on the farm." | audio: "audio/ru/koza_phrase_2.mp3"
-  // phrase_3: "белая коза" | roman: "belaya koza" | transl: "white goat" | audio: "audio/ru/koza_phrase_3.mp3"
   {
     id: "ru_predplechye", lang: "ru", word: "предплечье",
     roman: "predplech'ye",
@@ -2772,7 +2758,7 @@ const INITIAL_DATA = [
   // phrase_3: "ниспадающий водопад" | roman: "nispadayushchiy vodopad" | transl: "flowing waterfall" | audio: "audio/ru/vodopad_phrase_3.mp3"
   
   {
-    id: "ru_001", lang: "ru", word: "говорить", roman: "govorit'",
+    id: "ru_govorit", lang: "ru", word: "говорить", roman: "govorit'",
     translation: "Parler", category: "Verbe",
     phrase: "Я говорю по-французски.",
     phrase_roman: "Ya govoryu po-frantsuzski.",
@@ -2780,7 +2766,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_002", lang: "ru", word: "привет", roman: "privet",
+    id: "ru_privet", lang: "ru", word: "привет", roman: "privet",
     translation: "Salut / Bonjour", category: "Salutation",
     phrase: "Привет, как дела?",
     phrase_roman: "Privet, kak dela?",
@@ -2788,7 +2774,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_003", lang: "ru", word: "работа", roman: "rabota",
+    id: "ru_rabota", lang: "ru", word: "работа", roman: "rabota",
     translation: "Travail", category: "Nom",
     phrase: "Моя работа очень интересная.",
     phrase_roman: "Moya rabota ochen' interesnaya.",
@@ -2796,7 +2782,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_004", lang: "ru", word: "есть", roman: "yest'",
+    id: "ru_yest", lang: "ru", word: "есть", roman: "yest'",
     translation: "Manger / Il y a", category: "Verbe",
     phrase: "Я хочу есть пиццу.",
     phrase_roman: "Ya khochu yest' pitstsu.",
@@ -2804,7 +2790,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_005", lang: "ru", word: "красивый", roman: "krasivyy",
+    id: "ru_krasivyy", lang: "ru", word: "красивый", roman: "krasivyy",
     translation: "Beau / Belle", category: "Adjectif",
     phrase: "Это очень красивый город.",
     phrase_roman: "Eto ochen' krasivyy gorod.",
@@ -2812,7 +2798,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_006", lang: "ru", word: "понимать", roman: "ponimat'",
+    id: "ru_ponimat", lang: "ru", word: "понимать", roman: "ponimat'",
     translation: "Comprendre", category: "Verbe",
     phrase: "Я не понимаю по-русски.",
     phrase_roman: "Ya ne ponimayu po-russki.",
@@ -2820,7 +2806,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
     {
-    id: "ru_007", lang: "ru", word: "песчаная буря", roman: "peschanaya burya",
+    id: "ru_peschanaya_burya", lang: "ru", word: "песчаная буря", roman: "peschanaya burya",
     translation: "Tempête de sable", category: "Nom", genre: "féminin",
     phrase: "Опустилась песчаная буря.",
     phrase_roman: "Opustilas' peschanaya burya.",
@@ -4489,7 +4475,8 @@ function filteredWords() {
 function render() {
   const list = filteredWords();
   const container = document.getElementById('wordList');
-  document.getElementById('entryCount').textContent = `${words.length} entrée${words.length > 1 ? 's' : ''}`;
+  const total = filterLang === 'all' ? words.length : words.filter(w => w.lang === filterLang).length;
+  document.getElementById('entryCount').textContent = `${total} entrée${total > 1 ? 's' : ''}`;
 
   if (list.length === 0) {
     container.innerHTML = '<div class="empty">Aucune entrée trouvée.</div>';

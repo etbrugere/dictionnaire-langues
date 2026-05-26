@@ -150,7 +150,7 @@ Ouvre `index.html` dans VS Code (ou ton éditeur).
 Chaque entrée injectée ressemble à ça :
 ```js
 {
-    id: "ru_funt", lang: "ru", niveau: "Nouveau",
+    id: "ru_funt", lang: "ru",
     word: "фунт", roman: "funt",
     translation: "pound", category: "nom",
     phrase: "Краткое написание фунтов-lb.",
@@ -168,7 +168,6 @@ Pour chaque entrée :
 1. **Choisis la meilleure phrase** parmi les commentaires si la première ne te convient pas
 2. **Traduis** `phrase_fr` en français (actuellement en anglais)
 3. **Supprime** les commentaires une fois ton choix fait
-4. **Ajuste** `niveau` si besoin (`Nouveau` / `En cours` / `Maîtrisé`)
 
 ---
 

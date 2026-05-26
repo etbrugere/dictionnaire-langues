@@ -160,7 +160,6 @@ def build_entry(data, lang, audio_dir):
     entry = {
         "id": f"{lang}_{slug}",
         "lang": lang,
-        "niveau": "Nouveau",
         "word": word,
         "translation": translation,
         "category": category,

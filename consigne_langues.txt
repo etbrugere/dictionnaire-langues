@@ -36,7 +36,7 @@ id: "ja_taikutsu_shita" → phrase_1
 id: "ja_iku" → phrase_1
 id: "ja_banana" → phrase_1
 
-// MANDARIN —
+// MANDARIN 
 id: "zh_shisi" → phrase_2
 id: "zh_jiejie" phrase_1
 id: "zh_gongji" phrase_2
@@ -72,3 +72,37 @@ id: "zh_qiang" phrase_1
 id: "zh_kafei_ting" phrase_1
 
 // RUSSE
+id: "ru_selderey" phrase_1
+id: "ru_zharkiy" phrase_1
+id: "ru_medsestra" phrase_2
+id: "ru_sosyed" phrase_1
+id: "ru_tualetnaya_bumaga" phrase_1
+id: "ru_tsena" phrase_1
+id: "ru_kreditnaya_kartachka" phrase_2
+id: "ru_utro" phrase_3
+id: "ru_slovar" phrase_1
+id: "ru_grudnaya_kletka" phrase_1
+id: "ru_pisatel" phrase_1
+id: "ru_kofeinya" phrase_1
+id: "ru_marker" phrase_1
+id: "ru_zmeya" phrase_3
+id: "ru_scheka phrase_1
+id: "ru_zarplata" phrase_1
+id: "ru_pochtalon" phrase_1
+id: "ru_biblioteka" phrase_1
+id: "ru_nizhneye_belyo" phrase_1
+id: "ru_medved" phrase_1
+id: "ru_koza" phrase_1
+id: "ru_tumbochka" phrase_1
+id: "ru_odinnadtsat" phrase_1
+id: "ru_sotovyy_telefon phrase_1
+id: "ru_tsunami" phrase_1
+id: "ru_predplechye" phrase_1
+id: "ru_konvert" phrase_1
+id: "ru_lebed" phrase_1
+id: "ru_ispuganniy" phrase_1
+id: "ru_metropoliten" phrase_1
+id: "ru_vodopad" phrase_1
+
+
+

@@ -117,7 +117,7 @@ def entry_to_js(entry):
     extra = phrases[1:] if len(phrases) > 1 else []
 
     lines = ["{"]
-    lines.append(f'    id: "{esc(entry.get("id",""))}", lang: "{lang}", niveau: "{esc(entry.get("niveau","Nouveau"))}",')
+    lines.append(f'    id: "{esc(entry.get("id",""))}", lang: "{lang}",')
     lines.append(f'    word: "{esc(entry.get("word",""))}",')
 
     if lang == "ja":
