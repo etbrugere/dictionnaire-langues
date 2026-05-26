@@ -22,9 +22,6 @@
     --accent-pt: #e8a045;
     --accent-de: #9988cc;
     --accent-es: #c8a820;
-    --niveau-new: #4a8fc1;
-    --niveau-progress: #c9883a;
-    --niveau-done: #5aad7a;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -152,30 +149,6 @@
   .filter-btn[data-lang="es"].active { background: var(--accent-es); }
   .filter-btn[data-lang="all"].active { background: var(--muted); }
 
-  /* NIVEAU FILTERS */
-  .niveau-filters {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-  }
-
-  .niv-btn {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    padding: 0.35rem 0.6rem;
-    border-radius: 3px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-
-  .niv-btn.active[data-niv="Nouveau"] { background: var(--niveau-new); color: #fff; border-color: transparent; }
-  .niv-btn.active[data-niv="En cours"] { background: var(--niveau-progress); color: #fff; border-color: transparent; }
-  .niv-btn.active[data-niv="Maîtrisé"] { background: var(--niveau-done); color: #fff; border-color: transparent; }
-  .niv-btn.active[data-niv="all"] { background: var(--muted); color: var(--bg); border-color: transparent; }
-
   /* MAIN */
   main {
     padding: 1.5rem 2rem;
@@ -279,19 +252,6 @@
   .cat-preposition { color: #d4a0c0; border-color: #d4a0c044; background: #d4a0c010; }
   .cat-compteur { color: #f0d080; border-color: #f0d08044; background: #f0d08010; }
   .cat-mesure { color: #f0d080; border-color: #f0d08044; background: #f0d08010; }
-
-  .niveau-badge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-    padding: 0.15rem 0.45rem;
-    border-radius: 20px;
-    text-transform: uppercase;
-  }
-
-  .niv-Nouveau { background: var(--niveau-new)22; color: var(--niveau-new); border: 1px solid var(--niveau-new)55; }
-  .niv-En.cours { background: var(--niveau-progress)22; color: var(--niveau-progress); border: 1px solid var(--niveau-progress)55; }
-  .niv-Maîtrisé { background: var(--niveau-done)22; color: var(--niveau-done); border: 1px solid var(--niveau-done)55; }
 
   /* TON BADGE (mandarin) */
   .ton-badge {
@@ -685,12 +645,6 @@
       <button class="filter-btn" data-lang="de">DE</button>
       <button class="filter-btn" data-lang="es">ES</button>
     </div>
-    <div class="niveau-filters">
-      <button class="niv-btn active" data-niv="all">Tous</button>
-      <button class="niv-btn" data-niv="Nouveau">Nouveau</button>
-      <button class="niv-btn" data-niv="En cours">En cours</button>
-      <button class="niv-btn" data-niv="Maîtrisé">Maîtrisé</button>
-    </div>
   </div>
 </header>
 
@@ -972,27 +926,17 @@
   <div class="modal">
     <h2>Ajouter une entrée</h2>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label>Langue</label>
-        <select id="f_lang">
-          <option value="ja">Japonais</option>
-          <option value="zh">Mandarin</option>
-          <option value="ru">Russe</option>
-          <option value="pl">Polonais</option>
-          <option value="pt">Portugais (BR)</option>
-          <option value="de">Allemand</option>
-          <option value="es">Espagnol</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Niveau</label>
-        <select id="f_niveau">
-          <option value="Nouveau">Nouveau</option>
-          <option value="En cours">En cours</option>
-          <option value="Maîtrisé">Maîtrisé</option>
-        </select>
-      </div>
+    <div class="form-group">
+      <label>Langue</label>
+      <select id="f_lang">
+        <option value="ja">Japonais</option>
+        <option value="zh">Mandarin</option>
+        <option value="ru">Russe</option>
+        <option value="pl">Polonais</option>
+        <option value="pt">Portugais (BR)</option>
+        <option value="de">Allemand</option>
+        <option value="es">Espagnol</option>
+      </select>
     </div>
 
     <div class="form-row">
@@ -1160,8 +1104,7 @@
 const INITIAL_DATA = [
   // JAPONAIS
   {
-    id: "ja_kami", lang: "ja", niveau: "Nouveau",
-    word: "紙",
+    id: "ja_kami", lang: "ja", word: "紙",
     reading: "かみ",
     roman: "kami",
     translation: "paper", category: "nom",
@@ -1178,8 +1121,7 @@ const INITIAL_DATA = [
   // phrase_4: "紙と鉛筆" | reading: "かみとえんぴつ" | roman: "kami to enpitsu" | transl: "paper and pencil" | audio: "audio/ja/kami_phrase_4.mp3"
   // phrase_5: "ノートの紙" | reading: "ノートのかみ" | roman: "nōto no kami" | transl: "notebook paper" | audio: "audio/ja/kami_phrase_5.mp3"
   {
-    id: "ja_haku", lang: "ja", niveau: "Nouveau",
-    word: "掃く",
+    id: "ja_haku", lang: "ja", word: "掃く",
     reading: "はく",
     roman: "haku",
     translation: "sweep", category: "verbe",
@@ -1197,8 +1139,7 @@ const INITIAL_DATA = [
   // phrase_5: "外を掃く" | reading: "そとをはく" | roman: "soto o haku" | transl: "sweep outside" | audio: "audio/ja/haku_phrase_5.mp3"
   // phrase_6: "床を掃く" | reading: "ゆかをはく" | roman: "yuka o haku" | transl: "sweep the floor" | audio: "audio/ja/haku_phrase_6.mp3"
   {
-    id: "ja_jisho", lang: "ja", niveau: "Nouveau",
-    word: "辞書",
+    id: "ja_jisho", lang: "ja", word: "辞書",
     reading: "じしょ",
     roman: "jisho",
     translation: "dictionary", category: "nom",
@@ -1214,8 +1155,7 @@ const INITIAL_DATA = [
   // phrase_3: "英語の辞書" | reading: "えいごのじしょ" | roman: "eigo no jisho" | transl: "English dictionary" | audio: "audio/ja/jisho_phrase_3.mp3"
   // phrase_4: "独英の電子辞書" | reading: "どくえいのでんしじしょ" | roman: "dokuei no denshi jisho" | transl: "German-English electronic dictionary" | audio: "audio/ja/jisho_phrase_4.mp3"
   {
-    id: "ja_usetsu", lang: "ja", niveau: "Nouveau",
-    word: "右折",
+    id: "ja_usetsu", lang: "ja", word: "右折",
     reading: "うせつ",
     roman: "usetsu",
     translation: "right turn", category: "nom",
@@ -1230,8 +1170,7 @@ const INITIAL_DATA = [
   // phrase_2: "急な右折" | reading: "きゅうなうせつ" | roman: "kyū na usetsu" | transl: "sharp right turn" | audio: "audio/ja/usetsu_phrase_2.mp3"
   // phrase_3: "右折" | reading: "うせつ" | roman: "usetsu" | transl: "right turn" | audio: "audio/ja/usetsu_phrase_3.mp3"
   {
-    id: "ja_otoko_no_ko", lang: "ja", niveau: "Nouveau",
-    word: "男の子",
+    id: "ja_otoko_no_ko", lang: "ja", word: "男の子",
     reading: "おとこのこ",
     roman: "otoko no ko",
     translation: "boy", category: "nom",
@@ -1246,8 +1185,7 @@ const INITIAL_DATA = [
   // phrase_2: "男の子は女の子より背が高い。" | reading: "おとこのこはおんなのこよりせがたかい。" | roman: "Otoko no ko wa onna no ko yori se ga takai." | transl: "The boy is taller than the girl." | audio: "audio/ja/otoko_no_ko_phrase_2.mp3"
   // phrase_3: "悲しそうな男の子" | reading: "かなしそうなおとこのこ" | roman: "kanashi sō na otoko no ko" | transl: "sad boy" | audio: "audio/ja/otoko_no_ko_phrase_3.mp3"
   {
-    id: "ja_kirin", lang: "ja", niveau: "Nouveau",
-    word: "キリン",
+    id: "ja_kirin", lang: "ja", word: "キリン",
     reading: "キリン",
     roman: "kirin",
     translation: "giraffe", category: "nom",
@@ -1262,8 +1200,7 @@ const INITIAL_DATA = [
   // phrase_2: "キリンが、動物園で木の葉っぱを食べている。" | reading: "キリンが、どうぶつえんできのはっぱをたべている。" | roman: "Kirin ga, dōbutsuen de ki no happa o tabete iru." | transl: "The giraffes are eating leaves from a tree in a zoo." | audio: "audio/ja/kirin_phrase_2.mp3"
   // phrase_3: "動物園で、来園者がキリンを見ている。" | reading: "どうぶつえんで、らいえんしゃがキリンをみている。" | roman: "Dōbutsuen de, raiensha ga kirin o mite iru." | transl: "The zoo visitors are watching the giraffe." | audio: "audio/ja/kirin_phrase_3.mp3"
   {
-    id: "ja_gaido", lang: "ja", niveau: "Nouveau",
-    word: "ガイド",
+    id: "ja_gaido", lang: "ja", word: "ガイド",
     reading: "ガイド",
     roman: "gaido",
     translation: "guide", category: "nom",
@@ -1278,8 +1215,7 @@ const INITIAL_DATA = [
   // phrase_2: "ツアーガイド" | reading: "ツアーガイド" | roman: "tsuā gaido" | transl: "tour guide" | audio: "audio/ja/gaido_phrase_2.mp3"
   // phrase_3: "ガイドに付いて行く" | reading: "ガイドについていく" | roman: "gaido ni tsuite iku" | transl: "follow your guide" | audio: "audio/ja/gaido_phrase_3.mp3"
   {
-    id: "ja_uma", lang: "ja", niveau: "Nouveau",
-    word: "馬",
+    id: "ja_uma", lang: "ja", word: "馬",
     reading: "うま",
     roman: "uma",
     translation: "horse", category: "nom",
@@ -1296,8 +1232,7 @@ const INITIAL_DATA = [
   // phrase_4: "草原にいる馬" | reading: "そうげんにいるうま" | roman: "sōgen ni iru uma" | transl: "horse in a field" | audio: "audio/ja/uma_phrase_4.mp3"
   // phrase_5: "馬に乗る" | reading: "うまにのる" | roman: "uma ni noru" | transl: "ride a horse" | audio: "audio/ja/uma_phrase_5.mp3"
   {
-    id: "ja_kohi", lang: "ja", niveau: "Nouveau",
-    word: "コーヒー",
+    id: "ja_kohi", lang: "ja", word: "コーヒー",
     reading: "コーヒー",
     roman: "kōhī",
     translation: "coffee", category: "nom",
@@ -1316,8 +1251,7 @@ const INITIAL_DATA = [
   // phrase_6: "コーヒー豆" | reading: "コーヒーまめ" | roman: "kōhī mame" | transl: "coffee bean" | audio: "audio/ja/kohi_phrase_6.mp3"
   // phrase_7: "いれたてのコーヒー" | reading: "いれたてのコーヒー" | roman: "ire tate no kōhī" | transl: "freshly brewed coffee" | audio: "audio/ja/kohi_phrase_7.mp3"
   {
-    id: "ja_raion", lang: "ja", niveau: "Nouveau",
-    word: "ライオン",
+    id: "ja_raion", lang: "ja", word: "ライオン",
     reading: "ライオン",
     roman: "raion",
     translation: "lion", category: "nom",
@@ -1332,8 +1266,7 @@ const INITIAL_DATA = [
   // phrase_2: "ライオンが寝ている。" | reading: "ライオンがねている。" | roman: "Raion ga nete iru." | transl: "The lion is sleeping." | audio: "audio/ja/raion_phrase_2.mp3"
   // phrase_3: "大きなライオン" | reading: "おおきなライオン" | roman: "ōki na raion" | transl: "big lion" | audio: "audio/ja/raion_phrase_3.mp3"
   {
-    id: "ja_ie", lang: "ja", niveau: "Nouveau",
-    word: "家",
+    id: "ja_ie", lang: "ja", word: "家",
     reading: "いえ",
     roman: "ie",
     translation: "house", category: "nom",
@@ -1349,8 +1282,7 @@ const INITIAL_DATA = [
   // phrase_3: "二階建ての家" | reading: "にかいだてのいえ" | roman: "ni-kai date no ie" | transl: "two-story house" | audio: "audio/ja/ie_phrase_3.mp3"
   // phrase_4: "暖かい家" | reading: "あたたかいいえ" | roman: "atatakai ie" | transl: "a warm house" | audio: "audio/ja/ie_phrase_4.mp3"
   {
-    id: "ja_same", lang: "ja", niveau: "Nouveau",
-    word: "サメ",
+    id: "ja_same", lang: "ja", word: "サメ",
     reading: "サメ",
     roman: "same",
     translation: "shark", category: "nom",
@@ -1365,8 +1297,7 @@ const INITIAL_DATA = [
   // phrase_2: "サメが、海を泳いでいる。" | reading: "サメが、うみをおよいでいる。" | roman: "Same ga, umi o oyoide iru." | transl: "The shark is swimming in the ocean." | audio: "audio/ja/same_phrase_2.mp3"
   // phrase_3: "ホオジロザメ" | reading: "ホオジロザメ" | roman: "hōjirozame" | transl: "great white shark" | audio: "audio/ja/same_phrase_3.mp3"
   {
-    id: "ja_taki", lang: "ja", niveau: "Nouveau",
-    word: "滝",
+    id: "ja_taki", lang: "ja", word: "滝",
     reading: "たき",
     roman: "taki",
     translation: "waterfall", category: "nom",
@@ -1382,8 +1313,7 @@ const INITIAL_DATA = [
   // phrase_3: "流れ落ちる滝" | reading: "ながれおちるたき" | roman: "nagare ochiru taki" | transl: "flowing waterfall" | audio: "audio/ja/taki_phrase_3.mp3"
   
   {
-    id: "ja_joshi", lang: "ja", niveau: "Nouveau",
-    word: "上司",
+    id: "ja_joshi", lang: "ja", word: "上司",
     reading: "じょうし",
     roman: "jōshi",
     translation: "boss", category: "nom",
@@ -1398,8 +1328,7 @@ const INITIAL_DATA = [
   // phrase_2: "仕事を休むときは、上司に電話しなければならない。" | reading: "しごとをやすむときは、じょうしにでんわしなければならない。" | roman: "Shigoto o yasumu toki wa, jōshi ni denwa shinakereba naranai." | transl: "I have to call my boss when I'm going to miss work." | audio: "audio/ja/joshi_phrase_2.mp3"
   // phrase_3: "上司に電話する" | reading: "じょうしにでんわする" | roman: "jōshi ni denwa suru" | transl: "call the boss" | audio: "audio/ja/joshi_phrase_3.mp3"
   {
-    id: "ja_dainingu_teburu", lang: "ja", niveau: "Nouveau",
-    word: "ダイニングテーブル",
+    id: "ja_dainingu_teburu", lang: "ja", word: "ダイニングテーブル",
     reading: "ダイニングテーブル",
     roman: "dainingu tēburu",
     translation: "dinner table", category: "nom",
@@ -1414,8 +1343,7 @@ const INITIAL_DATA = [
   // phrase_2: "ダイニングテーブルの準備ができています。" | reading: "ダイニングテーブルのじゅんびができています。" | roman: "Daining tēburu no junbi ga dekite imasu." | transl: "The dining-room table is set." | audio: "audio/ja/dainingu_teburu_phrase_2.mp3"
   // phrase_3: "ダイニングルームにあるダイニングテーブル" | reading: "ダイニングルームにあるダイニングテーブル" | roman: "dainingu rūmu ni aru dainingu tēburu" | transl: "dinner table in the dining room" | audio: "audio/ja/dainingu_teburu_phrase_3.mp3"
   {
-    id: "ja_jugyo", lang: "ja", niveau: "Nouveau",
-    word: "授業",
+    id: "ja_jugyo", lang: "ja", word: "授業",
     reading: "じゅぎょう",
     roman: "jugyō",
     translation: "class", category: "nom",
@@ -1431,8 +1359,7 @@ const INITIAL_DATA = [
   // phrase_3: "科学の授業" | reading: "かがくのじゅぎょう" | roman: "kagaku no jugyō" | transl: "science class" | audio: "audio/ja/jugyo_phrase_3.mp3"
   
   {
-    id: "ja_arau", lang: "ja", niveau: "Nouveau",
-    word: "洗う",
+    id: "ja_arau", lang: "ja", word: "洗う",
     reading: "あらう",
     roman: "arau",
     translation: "wash", category: "verbe",
@@ -1457,8 +1384,7 @@ const INITIAL_DATA = [
   // phrase_12: "顔を洗う" | reading: "かおをあらう" | roman: "kao o arau" | transl: "wash one's face" | audio: "audio/ja/arau_phrase_12.mp3"
   // phrase_13: "手を洗う" | reading: "てをあらう" | roman: "te o arau" | transl: "wash one's hands" | audio: "audio/ja/arau_phrase_13.mp3"
   {
-    id: "ja_hitsuji", lang: "ja", niveau: "Nouveau",
-    word: "羊",
+    id: "ja_hitsuji", lang: "ja", word: "羊",
     reading: "ひつじ",
     roman: "hitsuji",
     translation: "sheep", category: "nom",
@@ -1480,8 +1406,7 @@ const INITIAL_DATA = [
   // phrase_9: "羊飼い" | reading: "ひつじかい" | roman: "hitsujikai" | transl: "sheep herder" | audio: "audio/ja/hitsuji_phrase_9.mp3"
   // phrase_10: "羊の毛刈り" | reading: "ひつじのけがり" | roman: "hitsuji no kegari" | transl: "sheep shearing" | audio: "audio/ja/hitsuji_phrase_10.mp3"
   {
-    id: "ja_kamo", lang: "ja", niveau: "Nouveau",
-    word: "鴨",
+    id: "ja_kamo", lang: "ja", word: "鴨",
     reading: "かも",
     roman: "kamo",
     translation: "duck", category: "nom",
@@ -1499,8 +1424,7 @@ const INITIAL_DATA = [
   // phrase_5: "茶色のカモ" | reading: "ちゃいろのカモ" | roman: "cha iro no kamo" | transl: "brown duck" | audio: "audio/ja/kamo_phrase_5.mp3"
   // phrase_6: "カモ狩り" | reading: "カモがり" | roman: "kamo gari" | transl: "duck hunting" | audio: "audio/ja/kamo_phrase_6.mp3"
   {
-    id: "ja_kori", lang: "ja", niveau: "Nouveau",
-    word: "氷",
+    id: "ja_kori", lang: "ja", word: "氷",
     reading: "こおり",
     roman: "kōri",
     translation: "ice", category: "nom",
@@ -1515,8 +1439,7 @@ const INITIAL_DATA = [
   // phrase_2: "氷に覆われた" | reading: "こおりにおおわれた" | roman: "kōri ni ōwareta" | transl: "covered in ice" | audio: "audio/ja/kori_phrase_2.mp3"
   // phrase_3: "道に氷が張っている。" | reading: "みちにこおりがはっている。" | roman: "Michi ni kōri ga hatte iru." | transl: "There is ice on the road." | audio: "audio/ja/kori_phrase_3.mp3"
   {
-    id: "ja_tenki", lang: "ja", niveau: "Nouveau",
-    word: "天気",
+    id: "ja_tenki", lang: "ja", word: "天気",
     reading: "てんき",
     roman: "tenki",
     translation: "weather", category: "nom",
@@ -1534,8 +1457,7 @@ const INITIAL_DATA = [
   // phrase_5: "気象情報" | reading: "きしょうじょうほう" | roman: "kishō jōhō" | transl: "weather bulletin" | audio: "audio/ja/tenki_phrase_5.mp3"
   // phrase_6: "天気予報を調べる" | reading: "てんきよほうをしらべる" | roman: "tenkiyohō o shiraberu" | transl: "check the weather report" | audio: "audio/ja/tenki_phrase_6.mp3"
   {
-    id: "ja_koshi", lang: "ja", niveau: "Nouveau",
-    word: "腰",
+    id: "ja_koshi", lang: "ja", word: "腰",
     reading: "こし",
     roman: "koshi",
     translation: "waist", category: "nom",
@@ -1550,8 +1472,7 @@ const INITIAL_DATA = [
   // phrase_2: "ある人の腰回りを計る" | reading: "あるひとのこしまわりをはかる" | roman: "aru hito no koshimawari o hakaru" | transl: "measure one's waist" | audio: "audio/ja/koshi_phrase_2.mp3"
   
   {
-    id: "ja_ju_ni", lang: "ja", niveau: "Nouveau",
-    word: "十二",
+    id: "ja_ju_ni", lang: "ja", word: "十二",
     reading: "じゅうに",
     roman: "jū ni",
     translation: "twelve", category: "nom",
@@ -1567,8 +1488,7 @@ const INITIAL_DATA = [
   // phrase_3: "数字の十二" | reading: "すうじのじゅうに" | roman: "sūji no jū ni" | transl: "number twelve" | audio: "audio/ja/ju_ni_phrase_3.mp3"
   // phrase_4: "十二時" | reading: "じゅうにじ" | roman: "jū ni-ji" | transl: "twelve o'clock" | audio: "audio/ja/ju_ni_phrase_4.mp3"
   {
-    id: "ja_niju_ni", lang: "ja", niveau: "Nouveau",
-    word: "二十二",
+    id: "ja_niju_ni", lang: "ja", word: "二十二",
     reading: "にじゅうに",
     roman: "ni-jū ni",
     translation: "twenty-two", category: "nom",
@@ -1582,8 +1502,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour '二十二':
   // phrase_2: "数字の二十二" | reading: "すうじのにじゅうに" | roman: "sūji no ni-jū ni" | transl: "number twenty-two" | audio: "audio/ja/niju_ni_phrase_2.mp3"
   {
-    id: "ja_taikutsu_shita", lang: "ja", niveau: "Nouveau",
-    word: "退屈した",
+    id: "ja_taikutsu_shita", lang: "ja", word: "退屈した",
     reading: "たいくつした",
     roman: "taikutsu shita",
     translation: "bored", category: "expression",
@@ -1597,8 +1516,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour '退屈した':
   // phrase_2: "ひどく退屈した" | reading: "ひどくたいくつした" | roman: "hidoku taikutsu shita" | transl: "extremely bored" | audio: "audio/ja/taikutsu_shita_phrase_2.mp3"
   {
-    id: "ja_iku", lang: "ja", niveau: "Nouveau",
-    word: "行く",
+    id: "ja_iku", lang: "ja", word: "行く",
     reading: "いく",
     roman: "iku",
     translation: "go", category: "verbe",
@@ -1617,25 +1535,7 @@ const INITIAL_DATA = [
   // phrase_6: "公園に行く" | reading: "こうえんにいく" | roman: "kōen ni iku" | transl: "go to the park" | audio: "audio/ja/iku_phrase_6.mp3"
   // phrase_7: "行くところが無い" | reading: "いくところがない" | roman: "iku tokoro ga nai" | transl: "nowhere to go" | audio: "audio/ja/iku_phrase_7.mp3"
   {
-    id: "ja_ju_ni", lang: "ja", niveau: "Nouveau",
-    word: "十二",
-    reading: "じゅうに",
-    roman: "jū ni",
-    translation: "twelve", category: "nom",
-    phrase: "時計は十二時八分前を指しています。",
-    phrase_reading: "とけいはじゅうにじはっぷんまえをさしています。",
-    phrase_roman: "Tokei wa jū ni-ji ha-ppun mae o sashite imasu.",
-    phrase_fr: "The clock reads eight minutes to twelve.",
-    audio_word: "audio/ja/ju_ni.mp3", audio_phrase: "audio/ja/ju_ni_phrase_1.mp3",
-    notes: ""
-  },
-  // ── Autres phrases pour '十二':
-  // phrase_2: "一年は十二ヶ月あります。" | reading: "いちねんはじゅうにかげつあります。" | roman: "Ichi-nen wa jū ni-kagetsu arimasu." | transl: "There are twelve months in a year." | audio: "audio/ja/ju_ni_phrase_2.mp3"
-  // phrase_3: "数字の十二" | reading: "すうじのじゅうに" | roman: "sūji no jū ni" | transl: "number twelve" | audio: "audio/ja/ju_ni_phrase_3.mp3"
-  // phrase_4: "十二時" | reading: "じゅうにじ" | roman: "jū ni-ji" | transl: "twelve o'clock" | audio: "audio/ja/ju_ni_phrase_4.mp3"
-  {
-    id: "ja_banana", lang: "ja", niveau: "Nouveau",
-    word: "バナナ",
+    id: "ja_banana", lang: "ja", word: "バナナ",
     reading: "バナナ",
     roman: "banana",
     translation: "banana", category: "nom",
@@ -1655,8 +1555,7 @@ const INITIAL_DATA = [
   // phrase_7: "バナナの皮" | reading: "バナナのかわ" | roman: "banana no kawa" | transl: "banana peel" | audio: "audio/ja/banana_phrase_7.mp3"
   
   {
-    id: "ja_001", lang: "ja", niveau: "Maîtrisé",
-    word: "ギター", reading: "ギター", roman: "gitā",
+    id: "ja_gitā", lang: "ja", word: "ギター", reading: "ギター", roman: "gitā",
     translation: "Guitare", category: "Nom",
     phrase: "彼は、ロックバンドでエレキギターを弾いていた。",
     phrase_reading: "かれは、ロックバンドでエレキギターをひいていた。",
@@ -1665,8 +1564,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/gita.mp3", audio_phrase: "audio/ja/gita_phrase.mp3", notes: ""
   },
   {
-    id: "ja_002", lang: "ja", niveau: "Nouveau",
-    word: "地下鉄", reading: "がっこう", roman: "chikatetsu",
+    id: "ja_chikatetsu", lang: "ja", word: "地下鉄", reading: "がっこう", roman: "chikatetsu",
     translation: "Métro", category: "Nom",
     phrase: "ここから一番近い地下鉄の駅はどこですか？",
     phrase_reading: "ここからいちばんちかいちかてつのえきはどこですか？",
@@ -1675,8 +1573,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/chikatetsu.mp3", audio_phrase: "audio/ja/chikatetsu_phrase.mp3", notes: ""
   },
   {
-    id: "ja_003", lang: "ja", niveau: "En cours",
-    word: "水着", reading: "わかる", roman: "mizugi",
+    id: "ja_mizugi", lang: "ja", word: "水着", reading: "わかる", roman: "mizugi",
     translation: "Maillot de bain", category: "Nom",
     phrase: "ビーチで水着を着るつもりだ。",
     phrase_reading: "にほんごがわかりますか？",
@@ -1685,8 +1582,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/mizugi.mp3", audio_phrase: "audio/ja/mizugi_phrase.mp3", notes: ""
   },
   {
-    id: "ja_004", lang: "ja", niveau: "Nouveau",
-    word: "にわとり", reading: "にわとり", roman: "niwatori",
+    id: "ja_niwatori", lang: "ja", word: "にわとり", reading: "にわとり", roman: "niwatori",
     translation: "Poule", category: "Nom",
     phrase: "ニワトリとヒヨコが食べ物をついばんでいる。",
     phrase_reading: "ニワトリとヒヨコがたべものをついばんでいる。",
@@ -1695,8 +1591,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/niwatori.mp3", audio_phrase: "audio/ja/niwatori_phrase.mp3", notes: ""
   },
   {
-    id: "ja_005", lang: "ja", niveau: "Nouveau",
-    word: "美術", reading: "びじゅつ    ", roman: "bijutsu",
+    id: "ja_bijustsu", lang: "ja", word: "美術", reading: "びじゅつ    ", roman: "bijutsu",
     translation: "Art, Beaux-Arts", category: "Nom",
     phrase: "私は美術専攻です。",
     phrase_reading: "わたしはびじゅつせんこうです。",
@@ -1705,8 +1600,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/bijutsu.mp3", audio_phrase: "audio/ja/bijutsu_phrase.mp3", notes: ""
   },
   {
-    id: "ja_006", lang: "ja", niveau: "Nouveau",
-    word: "庭", reading: "にわ", roman: "niwa",
+    id: "ja_niwa", lang: "ja", word: "庭", reading: "にわ", roman: "niwa",
     translation: "Jardin", category: "Nom",
     phrase: "私は庭付きの家が買いたいです。",
     phrase_reading: "わたしはにわつきのいえがかいたいです。",
@@ -1715,8 +1609,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/niwa.mp3", audio_phrase: "audio/ja/niwa_phrase.mp3", notes: ""
   },
     {
-    id: "ja_006", lang: "ja", niveau: "Nouveau",
-    word: "山脈", reading: "さんみゃく", roman: "sanmyaku",
+    id: "ja_sanmyaku", lang: "ja", word: "山脈", reading: "さんみゃく", roman: "sanmyaku",
     translation: "Chaîne de montagnes", category: "Nom", 
     phrase: "世界最大の山脈は、実は大西洋のど真ん中にある。",
     phrase_reading: "せかいさいだいのさんみゃくは、じつはたいせいようのどまんなかにある。",
@@ -1725,8 +1618,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/sanmyaku.mp3", audio_phrase: "audio/ja/sanmyaku_phrase.mp3", notes: ""
   },
    {
-    id: "ja_007", lang: "ja", niveau: "Nouveau",
-    word: "夜", reading: "よる", roman: "yoru",
+    id: "ja_yoru", lang: "ja", word: "夜", reading: "よる", roman: "yoru",
     translation: "Nuit", category: "Nom", 
     phrase: "もう夜です。",
     phrase_reading: "もうよるです。",
@@ -1735,8 +1627,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/yoru.mp3", audio_phrase: "audio/ja/yoru_phrase.mp3", notes: ""
   },
    {
-    id: "ja_008", lang: "ja", niveau: "Nouveau",
-    word: "雷雨", reading: "らいう", roman: "raiu",
+    id: "ja_raiu", lang: "ja", word: "雷雨", reading: "らいう", roman: "raiu",
     translation: "Forêt", category: "Nom", 
     phrase: "雷雨が暗い森を照らしている。",
     phrase_reading: "らいうがくらいもりをてらしている。",
@@ -1745,8 +1636,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/raiu.mp3", audio_phrase: "audio/ja/raiu_phrase.mp3", notes: ""
   },
     {
-    id: "ja_009", lang: "ja", niveau: "Nouveau",
-    word: "ねずみ", reading: "ねずみ", roman: "nezumi",
+    id: "ja_nezumi", lang: "ja", word: "ねずみ", reading: "ねずみ", roman: "nezumi",
     translation: "Souris", category: "Nom", 
     phrase: "ねずみがぶどうを食べている。",
     phrase_reading: "ねずみがぶどうをたべている。",
@@ -1755,8 +1645,7 @@ const INITIAL_DATA = [
     audio_word: "audio/ja/nezumi.mp3", audio_phrase: "audio/ja/nezumi_phrase.mp3", notes: ""
   },
      {
-    id: "ja_010", lang: "ja", niveau: "Nouveau",
-    word: "パン", reading: "ねずみ", roman: "pan",
+    id: "ja_pan", lang: "ja", word: "パン", reading: "ねずみ", roman: "pan",
     translation: "Pain", category: "Nom", 
     phrase: "私は、湖でアヒルに古くなったパンをやる。",
     phrase_reading: "わたしは、みずうみでアヒルにふるくなったパンをやる。",
@@ -1766,12 +1655,11 @@ const INITIAL_DATA = [
   },
   // MANDARIN
   {
-    id: "zh_shisi", lang: "zh", niveau: "Nouveau",
-    word: "十四",
+    id: "zh_shisi", lang: "zh", word: "十四",
     trad: "十四",
     roman: "shísì",
-    ton: "Ton 2", ton_symbol: "/",
-    translation: "fourteen", category: "numeral",
+    ton: "Ton 2+4", ton_symbol: "/\\",
+    translation: "fourteen", category: "nombre",
     phrase: "十四封信",
     phrase_roman: "shísì fēng xìn",
     phrase_fr: "fourteen letters",
@@ -1783,8 +1671,7 @@ const INITIAL_DATA = [
   // phrase_3: "十四" | roman: "shísì" | transl: "14" | audio: "audio/zh/shisi_phrase_3.mp3"
   // phrase_4: "十四号" | roman: "shísì hào" | trad: "十四號" | transl: "number fourteen" | audio: "audio/zh/shisi_phrase_4.mp3"
   {
-    id: "zh_jiejie", lang: "zh", niveau: "Nouveau",
-    word: "姐姐",
+    id: "zh_jiejie", lang: "zh", word: "姐姐",
     trad: "姐姐",
     roman: "jiějie",
     ton: "Ton 3", ton_symbol: "v",
@@ -1800,11 +1687,10 @@ const INITIAL_DATA = [
   // phrase_2: "爸妈都出去的时候，姐姐照看我们。" | roman: "Bàmā dōu chūqù de shíhou, jiějie zhàokàn wǒmen." | trad: "爸媽都出去的時候，姐姐照看我們。" | transl: "Our older sister babysits when our parents are out." | audio: "audio/zh/jiejie_phrase_2.mp3"
   // phrase_3: "有一个姐姐" | roman: "yǒu yí gè jiějie" | trad: "有一個姐姐" | transl: "have an older sister" | audio: "audio/zh/jiejie_phrase_3.mp3"
   {
-    id: "zh_gongji", lang: "zh", niveau: "Nouveau",
-    word: "公鸡",
+    id: "zh_gongji", lang: "zh", word: "公鸡",
     trad: "公雞",
     roman: "gōngjī",
-    ton: "Ton 1", ton_symbol: "—",
+    ton: "Ton 1+1", ton_symbol: "——",
     translation: "rooster", category: "nom",
     phrase: "公鸡在叫。",
     phrase_roman: "Gōngjī zài jiào.",
@@ -1820,8 +1706,7 @@ const INITIAL_DATA = [
   // phrase_5: "打鸣的公鸡" | roman: "dǎ míng de gōngjī" | trad: "打鳴的公雞" | transl: "crowing rooster" | audio: "audio/zh/gongji_phrase_5.mp3"
   // phrase_6: "公鸡报晓" | roman: "gōngjī bàoxiǎo" | trad: "公雞報曉" | transl: "good morning rooster" | audio: "audio/zh/gongji_phrase_6.mp3"
   {
-    id: "zh_shaozi", lang: "zh", niveau: "Nouveau",
-    word: "勺子",
+    id: "zh_shaozi", lang: "zh", word: "勺子",
     trad: "勺子",
     roman: "sháozi",
     ton: "Ton 2", ton_symbol: "/",
@@ -1840,11 +1725,10 @@ const INITIAL_DATA = [
   // phrase_5: "银匙" | roman: "yínchí" | trad: "銀匙" | transl: "silver spoon" | audio: "audio/zh/shaozi_phrase_5.mp3"
   // phrase_6: "汤匙" | roman: "tāngchí" | trad: "湯匙" | transl: "soup spoon" | audio: "audio/zh/shaozi_phrase_6.mp3"
   {
-    id: "zh_xuexi", lang: "zh", niveau: "Nouveau",
-    word: "学习",
+    id: "zh_xuexi", lang: "zh", word: "学习",
     trad: "學習",
     roman: "xuéxí",
-    ton: "Ton 2", ton_symbol: "/",
+    ton: "Ton 2+2", ton_symbol: "//",
     translation: "study", category: "verbe",
     phrase: "高中生在图书馆学习。",
     phrase_roman: "Gāozhōngshēng zài túshūguǎn xuéxí.",
@@ -1861,11 +1745,10 @@ const INITIAL_DATA = [
   // phrase_6: "学习法律" | roman: "xuéxí fǎlǜ" | trad: "學習法律" | transl: "study law" | audio: "audio/zh/xuexi_phrase_6.mp3"
   // phrase_7: "一起学习" | roman: "yìqǐ xuéxí" | trad: "一起學習" | transl: "study together" | audio: "audio/zh/xuexi_phrase_7.mp3"
   {
-    id: "zh_laoshi", lang: "zh", niveau: "Nouveau",
-    word: "老师",
+    id: "zh_laoshi", lang: "zh", word: "老师",
     trad: "老師",
     roman: "lǎoshī",
-    ton: "Ton 3", ton_symbol: "v",
+    ton: "Ton 3+1", ton_symbol: "v—",
     translation: "teacher", category: "nom",
     phrase: "我们的法语老师在家说法语。",
     phrase_roman: "Wǒmen de Fǎyǔ lǎoshī zài jiā shuō Fǎyǔ.",
@@ -1881,8 +1764,7 @@ const INITIAL_DATA = [
   // phrase_5: "最喜欢的老师" | roman: "zuì xǐhuān de lǎoshī" | trad: "最喜歡的老師" | transl: "favorite teacher" | audio: "audio/zh/laoshi_phrase_5.mp3"
   
   {
-    id: "zh_piao", lang: "zh", niveau: "Nouveau",
-    word: "票",
+    id: "zh_piao", lang: "zh", word: "票",
     trad: "票",
     roman: "piào",
     ton: "Ton 4", ton_symbol: "\\",
@@ -1900,11 +1782,10 @@ const INITIAL_DATA = [
   // phrase_4: "预留车票" | roman: "yùliú chēpiào" | trad: "預留車票" | transl: "reserved ticket" | audio: "audio/zh/piao_phrase_4.mp3"
   // phrase_5: "票务室" | roman: "piàowùshì" | trad: "票務室" | transl: "ticket office" | audio: "audio/zh/piao_phrase_5.mp3"
   {
-    id: "zh_dangao", lang: "zh", niveau: "Nouveau",
-    word: "蛋糕",
+    id: "zh_dangao", lang: "zh", word: "蛋糕",
     trad: "蛋糕",
     roman: "dàngāo",
-    ton: "Ton 4", ton_symbol: "\\",
+    ton: "Ton 4+1", ton_symbol: "\\—",
     translation: "cake", category: "nom",
     phrase: "我们每周日晚上都在我家吃蛋糕当做甜点。",
     phrase_roman: "Wǒmen měizhōu rì wǎnshàng dōu zài wǒ jiā chī dàngāo dāngzuò tiándiǎn.",
@@ -1918,11 +1799,10 @@ const INITIAL_DATA = [
   // phrase_3: "插着蜡烛的生日蛋糕" | roman: "chāzhe làzhú de shēngrì dàngāo" | trad: "插著蠟燭的生日蛋糕" | transl: "birthday cake with candles" | audio: "audio/zh/dangao_phrase_3.mp3"
   // phrase_4: "生日蛋糕" | roman: "shēngrì dàngāo" | transl: "birthday cake" | audio: "audio/zh/dangao_phrase_4.mp3"
   {
-    id: "zh_zhijin", lang: "zh", niveau: "Nouveau",
-    word: "纸巾",
+    id: "zh_zhijin", lang: "zh", word: "纸巾",
     trad: "紙巾",
     roman: "zhǐjīn",
-    ton: "Ton 3", ton_symbol: "v",
+    ton: "Ton 3+1", ton_symbol: "v—",
     translation: "tissue", category: "nom",
     phrase: "不好意思，你有纸巾吗？",
     phrase_roman: "Bùhǎoyìsi, nǐ yǒu zhǐjīn ma?",
@@ -1934,11 +1814,10 @@ const INITIAL_DATA = [
   // ── Autres phrases pour '纸巾':
   // phrase_2: "一盒纸巾" | roman: "yì hé zhǐjīn" | trad: "一盒紙巾" | transl: "box of tissues" | audio: "audio/zh/zhijin_phrase_2.mp3"
   {
-    id: "zh_bashi", lang: "zh", niveau: "Nouveau",
-    word: "巴士",
+    id: "zh_bashi", lang: "zh", word: "巴士",
     trad: "巴士",
     roman: "bāshì",
-    ton: "Ton 1", ton_symbol: "—",
+    ton: "Ton 1+4", ton_symbol: "—\\",
     translation: "bus", category: "nom",
     phrase: "客车停在了街上。",
     phrase_roman: "Kèchē tíngzàile jiē shàng.",
@@ -1952,11 +1831,10 @@ const INITIAL_DATA = [
   // phrase_3: "我们团乘坐客车游览了这个国家。" | roman: "Wǒmen tuán chéngzuò kèchē yóulǎnle zhègè guójiā." | trad: "我們團乘坐客車游覽了這個國家。" | transl: "Our group toured the country on a bus." | audio: "audio/zh/bashi_phrase_3.mp3"
   // phrase_4: "走常规观光路线的客车" | roman: "zǒu chángguī guānguāng lùxiàn de kèchē" | trad: "走常規觀光路線的客車" | transl: "bus on a regular route" | audio: "audio/zh/bashi_phrase_4.mp3"
   {
-    id: "zh_yuangong", lang: "zh", niveau: "Nouveau",
-    word: "员工",
+    id: "zh_yuangong", lang: "zh", word: "员工",
     trad: "員工",
     roman: "yuángōng",
-    ton: "Ton 2", ton_symbol: "/",
+    ton: "Ton 2+1", ton_symbol: "/—",
     translation: "employee", category: "nom",
     phrase: "员工正在大会议室参加会议。",
     phrase_roman: "Yuángōng zhèngzài dà huìyìshì cānjiā huìyì.",
@@ -1969,8 +1847,7 @@ const INITIAL_DATA = [
   // phrase_2: "女性员工" | roman: "nǚxìng yuángōng" | trad: "女性員工" | transl: "female employee" | audio: "audio/zh/yuangong_phrase_2.mp3"
   // phrase_3: "员工福利" | roman: "yuángōng fúlì" | trad: "員工福利" | transl: "employee benefits" | audio: "audio/zh/yuangong_phrase_3.mp3"
   {
-    id: "zh_kan", lang: "zh", niveau: "Nouveau",
-    word: "看",
+    id: "zh_kan", lang: "zh", word: "看",
     trad: "看",
     roman: "kàn",
     ton: "Ton 4", ton_symbol: "\\",
@@ -1988,11 +1865,10 @@ const INITIAL_DATA = [
   // phrase_5: "看见一些东西" | roman: "kànjiàn yìxiē dōngxi" | trad: "看見一些東西" | transl: "see something" | audio: "audio/zh/kan_phrase_5.mp3"
   // phrase_6: "看电影" | roman: "kàn diànyǐng" | trad: "看電影" | transl: "watch a movie" | audio: "audio/zh/kan_phrase_6.mp3"
   {
-    id: "zh_yanli", lang: "zh", niveau: "Nouveau",
-    word: "严厉",
+    id: "zh_yanli", lang: "zh", word: "严厉",
     trad: "嚴厲",
     roman: "yánlì",
-    ton: "Ton 2", ton_symbol: "/",
+    ton: "Ton 2+4", ton_symbol: "/\\",
     translation: "strict", category: "adjectif",
     phrase: "这个老师很严厉。",
     phrase_roman: "Zhège lǎoshī hěn yánlì.",
@@ -2010,11 +1886,10 @@ const INITIAL_DATA = [
   // phrase_7: "严厉的老师" | roman: "yánlì de lǎoshī" | trad: "嚴厲的老師" | transl: "strict teacher" | audio: "audio/zh/yanli_phrase_7.mp3"
   
   {
-    id: "zh_yishujia", lang: "zh", niveau: "Nouveau",
-    word: "艺术家",
+    id: "zh_yishujia", lang: "zh", word: "艺术家",
     trad: "藝術家",
     roman: "yìshùjiā",
-    ton: "Ton 4", ton_symbol: "\\",
+    ton: "Ton 4+4+1", ton_symbol: "\\\\—",
     translation: "artist", category: "nom",
     phrase: "艺术家在画画。",
     phrase_roman: "Yìshùjiā zài huà huà.",
@@ -2028,11 +1903,10 @@ const INITIAL_DATA = [
   // phrase_3: "那个艺术家在用毛笔写汉字。" | roman: "Nàgè yìshùjiā zài yòng máobǐ xiě hànzì." | trad: "那個藝術家在用毛筆寫漢字。" | transl: "The artist is drawing Chinese characters with a writing brush." | audio: "audio/zh/yishujia_phrase_3.mp3"
   // phrase_4: "有天赋的艺术家" | roman: "yǒu tiānfù de yìshùjiā" | trad: "有天賦的藝術家" | transl: "talented artist" | audio: "audio/zh/yishujia_phrase_4.mp3"
   {
-    id: "zh_fangjian", lang: "zh", niveau: "Nouveau",
-    word: "房间",
+    id: "zh_fangjian", lang: "zh", word: "房间",
     trad: "房間",
     roman: "fángjiān",
-    ton: "Ton 2", ton_symbol: "/",
+    ton: "Ton 2+1", ton_symbol: "/—",
     translation: "room", category: "nom",
     phrase: "一个门童把我们的包拿到我们房间。",
     phrase_roman: "Yí gè méntóng bǎ wǒmen de bāo nádào wǒmen fángjiān.",
@@ -2045,11 +1919,10 @@ const INITIAL_DATA = [
   // phrase_2: "宾馆房间" | roman: "bīnguǎn fángjiān" | trad: "賓館房間" | transl: "hotel room" | audio: "audio/zh/fangjian_phrase_2.mp3"
   // phrase_3: "宿舍房间" | roman: "sùshè fángjiān" | trad: "宿舍房間" | transl: "dormitory room" | audio: "audio/zh/fangjian_phrase_3.mp3"
   {
-    id: "zh_hushi", lang: "zh", niveau: "Nouveau",
-    word: "护士",
+    id: "zh_hushi", lang: "zh", word: "护士",
     trad: "護士",
     roman: "hùshì",
-    ton: "Ton 4", ton_symbol: "\\",
+    ton: "Ton 4+4", ton_symbol: "\\\\",
     translation: "nurse", category: "nom",
     phrase: "这个女人是一名护士。",
     phrase_roman: "Zhègè nǚrén shì yì míng hùshì.",
@@ -2066,11 +1939,10 @@ const INITIAL_DATA = [
   // phrase_6: "女护士" | roman: "nǚ hùshi" | trad: "女護士" | transl: "female nurse" | audio: "audio/zh/hushi_phrase_6.mp3"
   // phrase_7: "护士长" | roman: "hùshìzhǎng" | trad: "護士長" | transl: "head nurse" | audio: "audio/zh/hushi_phrase_7.mp3"
   {
-    id: "zh_zuichun", lang: "zh", niveau: "Nouveau",
-    word: "嘴唇",
+    id: "zh_zuichun", lang: "zh", word: "嘴唇",
     trad: "嘴唇",
     roman: "zuǐchún",
-    ton: "Ton 3", ton_symbol: "v",
+    ton: "Ton 3+2", ton_symbol: "v/",
     translation: "lip", category: "nom",
     phrase: "下嘴唇比上嘴唇大。",
     phrase_roman: "Xiàzuǐchún bǐ shàngzuǐchún dà.",
@@ -2082,11 +1954,10 @@ const INITIAL_DATA = [
   // phrase_2: "漂亮的嘴唇" | roman: "piàoliang de zuǐchún" | transl: "beautiful lips" | audio: "audio/zh/zuichun_phrase_2.mp3"
   
   {
-    id: "zh_shehuixue", lang: "zh", niveau: "Nouveau",
-    word: "社会学",
+    id: "zh_shehuixue", lang: "zh", word: "社会学",
     trad: "社會學",
     roman: "shèhuìxué",
-    ton: "Ton 4", ton_symbol: "\\",
+    ton: "Ton 4+4+2", ton_symbol: "\\\\/",
     translation: "sociology", category: "nom",
     phrase: "社会学是关于人类社会结构和行为的研究。",
     phrase_roman: "Shèhuìxué shì guānyú rénlèi shèhuì jiégòu hé xíngwéi de yánjiū.",
@@ -2098,11 +1969,10 @@ const INITIAL_DATA = [
   // ── Autres phrases pour '社会学':
   // phrase_2: "社会学研究" | roman: "shèhuìxué yánjiū" | trad: "社會學研究" | transl: "study of sociology" | audio: "audio/zh/shehuixue_phrase_2.mp3"
   {
-    id: "zh_t_xu_shan", lang: "zh", niveau: "Nouveau",
-    word: "T恤衫",
+    id: "zh_t_xu_shan", lang: "zh", word: "T恤衫",
     trad: "T恤衫",
     roman: "T xù shān",
-    ton: "Ton 0+4+1", ton_symbol: "·\\—",
+    ton: "Ton 0+4+1", ton_symbol: "·\\",
     translation: "T-shirt", category: "nom",
     phrase: "那个蓝色衬衫是棉的。",
     phrase_roman: "Nà ge lánsè chènshān shì mián de.",
@@ -2115,11 +1985,10 @@ const INITIAL_DATA = [
   // phrase_2: "蓝色T恤" | roman: "lánsè Txù " | trad: "藍色T恤" | transl: "blue T-shirt" | audio: "audio/zh/t_xu_shan_phrase_2.mp3"
   // phrase_3: "棉T-恤衫" | roman: "mián T-xùshān" | trad: "mián T-xùshān" | transl: "cotton T-shirt" | audio: "audio/zh/t_xu_shan_phrase_3.mp3"
   {
-    id: "zh_xiangshou", lang: "zh", niveau: "Nouveau",
-    word: "享受",
+    id: "zh_xiangshou", lang: "zh", word: "享受",
     trad: "享受",
     roman: "xiǎngshòu",
-    ton: "Ton 3", ton_symbol: "v",
+    ton: "Ton 3+4", ton_symbol: "v\\",
     translation: "enjoy", category: "verbe",
     phrase: "家人正在享受假日聚餐。",
     phrase_roman: "Jiārén zhèngzài xiǎngshòu jiàrì jùcān.",
@@ -2131,11 +2000,10 @@ const INITIAL_DATA = [
   // phrase_2: "享受好天气" | roman: "xiǎngshòu hǎo tiānqì" | trad: "享受好天氣" | transl: "enjoy the fine weather" | audio: "audio/zh/xiangshou_phrase_2.mp3"
   // phrase_3: "享用晚餐" | roman: "xiǎngyòng wǎncān" | transl: "enjoy dinner" | audio: "audio/zh/xiangshou_phrase_3.mp3"
   {
-    id: "zh_xiaoshuo", lang: "zh", niveau: "Nouveau",
-    word: "小说",
+    id: "zh_xiaoshuo", lang: "zh", word: "小说",
     trad: "小說",
     roman: "xiǎoshuō",
-    ton: "Ton 3", ton_symbol: "v",
+    ton: "Ton 3+1", ton_symbol: "v—",
     translation: "novel", category: "nom",
     phrase: "我喜欢悬疑小说。",
     phrase_roman: "Wǒ xǐhuān xuányí xiǎoshuō.",
@@ -2148,26 +2016,10 @@ const INITIAL_DATA = [
   // phrase_2: "她的最新小说是来自18世纪的浪漫神话。" | roman: "Tā de zuì xīn xiǎoshuō shì láizì shíbā shìjì de làngmàn shénhuà." | trad: "她的最新小說是來自18世紀的浪漫神話。" | transl: "Her new novel is a romance mystery from the 18th century." | audio: "audio/zh/xiaoshuo_phrase_2.mp3"
   // phrase_3: "经典小说" | roman: "jīngdiǎn xiǎoshuō" | trad: "經典小說" | transl: "classic novel" | audio: "audio/zh/xiaoshuo_phrase_3.mp3"
   {
-    id: "zh_xiaotiqin", lang: "zh", niveau: "Nouveau",
-    word: "小提琴",
-    trad: "小提琴",
-    roman: "xiǎotíqín",
-    ton: "Ton 3", ton_symbol: "v",
-    translation: "violin", category: "nom",
-    phrase: "小提琴和琴弓",
-    phrase_roman: "xiǎotíqín hé qíngōng",
-    phrase_fr: "violin and bow",
-    audio_word: "audio/zh/xiaotiqin.mp3", audio_phrase: "audio/zh/xiaotiqin_phrase_1.mp3",
-    notes: ""
-  },
-  // ── Autres phrases pour '小提琴':
-  // phrase_2: "小提琴琴弓" | roman: "xiǎotíqín qíngōng" | transl: "violin bow" | audio: "audio/zh/xiaotiqin_phrase_2.mp3"
-  {
-    id: "zh_toudengcang", lang: "zh", niveau: "Nouveau",
-    word: "头等舱",
+    id: "zh_toudengcang", lang: "zh", word: "头等舱",
     trad: "頭等艙",
     roman: "tóuděngcāng",
-    ton: "Ton 2", ton_symbol: "/",
+    ton: "Ton 2+3+1", ton_symbol: "/v—",
     translation: "first class", category: "nom",
     phrase: "飞机的头等舱是最贵的。",
     phrase_roman: "Fēijī de tóuděngcāng shì zuì guì de.",
@@ -2183,8 +2035,7 @@ const INITIAL_DATA = [
   // phrase_5: "头等舱机票" | roman: "tóuděngcāng jīpiào" | trad: "頭等艙機票" | transl: "first class ticket" | audio: "audio/zh/toudengcang_phrase_5.mp3"
   // phrase_6: "坐头等舱" | roman: "zuò tóuděngcāng" | trad: "坐頭等艙" | transl: "first class travel" | audio: "audio/zh/toudengcang_phrase_6.mp3"
   {
-    id: "zh_zhai", lang: "zh", niveau: "Nouveau",
-    word: "窄",
+    id: "zh_zhai", lang: "zh", word: "窄",
     trad: "窄",
     roman: "zhǎi",
     ton: "Ton 3", ton_symbol: "v",
@@ -2201,11 +2052,10 @@ const INITIAL_DATA = [
   // phrase_3: "狭窄的通道" | roman: "xiázhǎi de tōngdào " | trad: "狹窄的通道" | transl: "narrow pass" | audio: "audio/zh/zhai_phrase_3.mp3"
   // phrase_4: "狭窄的海峡" | roman: "xiázhǎi de hǎixiá" | trad: "狹窄的海峽" | transl: "narrow straits" | audio: "audio/zh/zhai_phrase_4.mp3"
   {
-    id: "zh_ruanyin", lang: "zh", niveau: "Nouveau",
-    word: "软饮",
+    id: "zh_ruanyin", lang: "zh", word: "软饮",
     trad: "軟飲",
     roman: "ruǎnyǐn",
-    ton: "Ton 3", ton_symbol: "v",
+    ton: "Ton 3+3", ton_symbol: "vv",
     translation: "soft drink", category: "nom",
     phrase: "常见的软饮有可乐、苏打水、冰茶和汽水。",
     phrase_roman: "Chángjiàn de ruǎnyǐn yǒu kělè, sūdǎshuǐ, bīngchá hé qìshuǐ.",
@@ -2219,11 +2069,10 @@ const INITIAL_DATA = [
   // phrase_3: "加冰的软饮料" | roman: "jiā bīng de ruǎnyǐn" | trad: "加冰的軟飲料" | transl: "soft drink with ice" | audio: "audio/zh/ruanyin_phrase_3.mp3"
   // phrase_4: "碳酸软饮" | roman: "tànsuān ruǎnyǐn" | trad: "碳酸軟飲" | transl: "carbonated soft drink" | audio: "audio/zh/ruanyin_phrase_4.mp3"
   {
-    id: "zh_daoyou", lang: "zh", niveau: "Nouveau",
-    word: "导游",
+    id: "zh_daoyou", lang: "zh", word: "导游",
     trad: "導游",
     roman: "dǎoyóu",
-    ton: "Ton 3", ton_symbol: "v",
+    ton: "Ton 3+2", ton_symbol: "v/",
     translation: "guide", category: "nom",
     phrase: "导游正在引导大家旅行。",
     phrase_roman: "Dǎoyóu zhèngzài yǐndǎo dàjiā lǚxíng.",
@@ -2237,11 +2086,10 @@ const INITIAL_DATA = [
   // phrase_3: "雇一个导游" | roman: "gù yí gè dǎoyóu" | trad: "雇一個導游" | transl: "hire a tour guide" | audio: "audio/zh/daoyou_phrase_3.mp3"
   // phrase_4: "知识渊博的导游" | roman: "zhīshí yuānbó de dǎoyóu" | trad: "知識淵博的導游" | transl: "knowledgeable tour guide" | audio: "audio/zh/daoyou_phrase_4.mp3"
   {
-    id: "zh_kezhuo", lang: "zh", niveau: "Nouveau",
-    word: "课桌",
+    id: "zh_kezhuo", lang: "zh", word: "课桌",
     trad: "課桌",
     roman: "kèzhuō",
-    ton: "Ton 4", ton_symbol: "\\",
+    ton: "Ton 4+1", ton_symbol: "\\—",
     translation: "school desk", category: "nom",
     phrase: "椅子和课桌是连在一起的。",
     phrase_roman: "Yǐzi hé kèzhuō shì liánzài yīqǐ de .",
@@ -2253,11 +2101,10 @@ const INITIAL_DATA = [
   // ── Autres phrases pour '课桌':
   // phrase_2: "附带有椅子的课桌" | roman: "fùdài yǒu yǐzi de kèzhuō" | trad: "附帶有椅子的課桌" | transl: "school desk with attached chair" | audio: "audio/zh/kezhuo_phrase_2.mp3"
   {
-    id: "zh_motian_dalou", lang: "zh", niveau: "Nouveau",
-    word: "摩天大楼",
+    id: "zh_motian_dalou", lang: "zh", word: "摩天大楼",
     trad: "摩天大樓",
     roman: "mótiān dàlóu",
-    ton: "Ton 2+4", ton_symbol: "/\\",
+    ton: "Ton 2+1+4+2", ton_symbol: "/—\\/",
     translation: "skyscraper", category: "nom",
     phrase: "并排而立的摩天大楼",
     phrase_roman: "bìngpái érlì de mótiān dàlóu",
@@ -2270,11 +2117,10 @@ const INITIAL_DATA = [
   // phrase_2: "西尔斯大厦是美国最高的摩天大楼。" | roman: "Xī'ěrsī dàshà shì Měiguó zuìgāo de mótiān dàlóu." | trad: "西爾斯大廈是美國最高的摩天大樓。" | transl: "The Sears Tower is the tallest skyscraper in the United States." | audio: "audio/zh/motian_dalou_phrase_2.mp3"
   // phrase_3: "高耸的摩天大楼" | roman: "gāosǒng de mótiān dàlóu" | trad: "高聳的摩天大樓" | transl: "tall skyscraper" | audio: "audio/zh/motian_dalou_phrase_3.mp3"
   {
-    id: "zh_shamo", lang: "zh", niveau: "Nouveau",
-    word: "沙漠",
+    id: "zh_shamo", lang: "zh", word: "沙漠",
     trad: "沙漠",
     roman: "shāmò",
-    ton: "Ton 1", ton_symbol: "—",
+    ton: "Ton 1+4", ton_symbol: "—\\",
     translation: "desert", category: "nom",
     phrase: "骆驼在沙漠里走。",
     phrase_roman: "Luòtuo zài shāmò lǐ zǒu.",
@@ -2287,11 +2133,10 @@ const INITIAL_DATA = [
   // phrase_2: "沙漠的沙" | roman: "shāmò de shā" | transl: "desert sand" | audio: "audio/zh/shamo_phrase_2.mp3"
   // phrase_3: "热带沙漠" | roman: "rèdài shāmò" | trad: "熱帶沙漠" | transl: "hot desert" | audio: "audio/zh/shamo_phrase_3.mp3"
   {
-    id: "zh_shuzhuangtai", lang: "zh", niveau: "Nouveau",
-    word: "梳妆台",
+    id: "zh_shuzhuangtai", lang: "zh", word: "梳妆台",
     trad: "梳妝台",
     roman: "shūzhuāngtái",
-    ton: "Ton 1", ton_symbol: "—",
+    ton: "Ton 1+1+2", ton_symbol: "——/",
     translation: "dresser", category: "nom",
     phrase: "那个木质的梳妆台是个古董。",
     phrase_roman: "Nà ge mùzhì de shūzhuāngtái shì ge gǔdǒng.",
@@ -2305,8 +2150,7 @@ const INITIAL_DATA = [
   // phrase_3: "梳妆台抽屉" | roman: "shūzhuāngtái chōutì" | trad: "梳妝台抽屜" | transl: "dresser drawers" | audio: "audio/zh/shuzhuangtai_phrase_3.mp3"
   // phrase_4: "古老的梳妆台" | roman: "gǔlǎo de shūzhuāngtái" | trad: "古老的梳妝台" | transl: "antique dresser" | audio: "audio/zh/shuzhuangtai_phrase_4.mp3"
   {
-    id: "zh_jianzi", lang: "zh", niveau: "Nouveau",
-    word: "剪子",
+    id: "zh_jianzi", lang: "zh", word: "剪子",
     trad: "剪子",
     roman: "jiǎnzi",
     ton: "Ton 3", ton_symbol: "v",
@@ -2323,11 +2167,10 @@ const INITIAL_DATA = [
   // phrase_3: "一把剪刀" | roman: "yì bǎ jiǎndāo" | transl: "pair of scissors" | audio: "audio/zh/jianzi_phrase_3.mp3"
   // phrase_4: "锋利的剪刀" | roman: "fēnglì de jiǎndāo" | trad: "鋒利的剪刀" | transl: "sharp scissors" | audio: "audio/zh/jianzi_phrase_4.mp3"
   {
-    id: "zh_weibolu", lang: "zh", niveau: "Nouveau",
-    word: "微波炉",
+    id: "zh_weibolu", lang: "zh", word: "微波炉",
     trad: "微波爐",
     roman: "wēibōlú",
-    ton: "Ton 1", ton_symbol: "—",
+    ton: "Ton 1+1+2", ton_symbol: "——/",
     translation: "microwave oven", category: "nom",
     phrase: "厨房最方便的设备是微波炉。",
     phrase_roman: "Chúfáng zuì fāngbiàn de shèbèi shì wēibōlú.",
@@ -2339,8 +2182,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour '微波炉':
   // phrase_2: "不锈钢微波炉" | roman: "bùxiùgāng wēibōlú" | trad: "不鏽鋼微波爐" | transl: "stainless steel microwave oven" | audio: "audio/zh/weibolu_phrase_2.mp3"
   {
-    id: "zh_qiang", lang: "zh", niveau: "Nouveau",
-    word: "墙",
+    id: "zh_qiang", lang: "zh", word: "墙",
     trad: "牆",
     roman: "qiáng",
     ton: "Ton 2", ton_symbol: "/",
@@ -2356,11 +2198,10 @@ const INITIAL_DATA = [
   // phrase_2: "砖墙" | roman: "zhuānqiáng" | trad: "磚牆" | transl: "brick wall" | audio: "audio/zh/qiang_phrase_2.mp3"
   // phrase_3: "橘色的墙" | roman: "júsè de qiáng " | trad: "橘色的牆" | transl: "orange wall" | audio: "audio/zh/qiang_phrase_3.mp3"
   {
-    id: "zh_kafei_ting", lang: "zh", niveau: "Nouveau",
-    word: "咖啡厅",
+    id: "zh_kafei_ting", lang: "zh", word: "咖啡厅",
     trad: "咖啡廳",
     roman: "kāfēi tīng",
-    ton: "Ton 1+1", ton_symbol: "——",
+    ton: "Ton 1+1+1", ton_symbol: "———",
     translation: "café", category: "nom",
     phrase: "女人们正在室外咖啡厅聊天。",
     phrase_roman: "Nǚrénmen zhèngzài shìwài kāfēitīng liáotiān.",
@@ -2373,8 +2214,7 @@ const INITIAL_DATA = [
   // phrase_2: "室外咖啡厅" | roman: "shìwài kāfēitīng" | trad: "室外咖啡廳" | transl: "outdoor cafe" | audio: "audio/zh/kafei_ting_phrase_2.mp3"
   
   {
-    id: "zh_001", lang: "zh", niveau: "Nouveau",
-    word: "吃", roman: "chī",
+    id: "zh_chī", lang: "zh", word: "吃", roman: "chī",
     ton: "Ton 1", ton_symbol: "—",
     translation: "Manger", category: "Verbe",
     phrase: "我每天吃早饭。",
@@ -2383,8 +2223,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "zh_002", lang: "zh", niveau: "Maîtrisé",
-    word: "你好", roman: "nǐ hǎo",
+    id: "zh_nǐ_hǎo", lang: "zh", word: "你好", roman: "nǐ hǎo",
     ton: "Ton 3+3", ton_symbol: "vv",
     translation: "Bonjour", category: "Salutation",
     phrase: "你好，我叫小明。",
@@ -2393,8 +2232,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "zh_003", lang: "zh", niveau: "En cours",
-    word: "学习", roman: "xuéxí",
+    id: "zh_xuéxí", lang: "zh", word: "学习", roman: "xuéxí",
     ton: "Ton 2+2", ton_symbol: "//",
     translation: "Étudier", category: "Verbe",
     phrase: "我每天学习中文。",
@@ -2403,8 +2241,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "zh_004", lang: "zh", niveau: "Nouveau",
-    word: "工作", roman: "gōngzuò",
+    id: "zh_gōngzuò", lang: "zh", word: "工作", roman: "gōngzuò",
     ton: "Ton 1+4", ton_symbol: "—\\",
     translation: "Travailler", category: "Verbe",
     phrase: "我在公司工作。",
@@ -2413,8 +2250,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "zh_005", lang: "zh", niveau: "Nouveau",
-    word: "朋友", roman: "péngyou",
+    id: "zh_péngyou", lang: "zh", word: "朋友", roman: "péngyou",
     ton: "Ton 2", ton_symbol: "/",
     translation: "Ami(e)", category: "Nom",
     phrase: "她是我最好的朋友。",
@@ -2423,8 +2259,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "zh_006", lang: "zh", niveau: "Nouveau",
-    word: "去", roman: "qù",
+    id: "zh_qù", lang: "zh", word: "去", roman: "qù",
     ton: "Ton 4", ton_symbol: "\\",
     translation: "Aller", category: "Verbe",
     phrase: "我去超市买东西。",
@@ -2433,8 +2268,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
    {
-    id: "zh_007", lang: "zh", niveau: "Nouveau",
-    word: "数学", roman: "shùxué",
+    id: "zh_shùxué", lang: "zh", word: "数学", roman: "shùxué",
     ton: "Ton 2+4", ton_symbol: "/\\",
     translation: "Mathématiques", category: "Nom",
     phrase: "我上学时最喜欢的科目是数学。",
@@ -2444,8 +2278,7 @@ const INITIAL_DATA = [
   },
   // RUSSE
   {
-    id: "ru_selderey", lang: "ru", niveau: "Nouveau",
-    word: "сельдерей",
+    id: "ru_selderey", lang: "ru", word: "сельдерей",
     roman: "sel'derey",
     genre: "masculin",
     translation: "celery", category: "nom",
@@ -2459,8 +2292,7 @@ const INITIAL_DATA = [
   // phrase_2: "пучок сельдерея" | roman: "puchok sel'dereya" | transl: "celery bunch" | audio: "audio/ru/selderey_phrase_2.mp3"
   // phrase_3: "стебли сельдерея" | roman: "stebli sel'dereya" | transl: "celery stalks" | audio: "audio/ru/selderey_phrase_3.mp3"
   {
-    id: "ru_zharkiy", lang: "ru", niveau: "Nouveau",
-    word: "жаркий",
+    id: "ru_zharkiy", lang: "ru", word: "жаркий",
     roman: "zharkiy",
     translation: "hot", category: "adjectif",
     phrase: "Сегодня жаркий день.",
@@ -2474,8 +2306,7 @@ const INITIAL_DATA = [
   // phrase_3: "жаркая пустыня" | roman: "zharkaya pustynya" | transl: "hot desert" | audio: "audio/ru/zharkiy_phrase_3.mp3"
   // phrase_4: "жаркий летний день" | roman: "zharkiy letniy den'" | transl: "hot summer day" | audio: "audio/ru/zharkiy_phrase_4.mp3"
   {
-    id: "ru_medsestra", lang: "ru", niveau: "Nouveau",
-    word: "медсестра",
+    id: "ru_medsestra", lang: "ru", word: "медсестра",
     roman: "medsestra",
     genre: "féminin",
     translation: "nurse", category: "nom",
@@ -2492,8 +2323,7 @@ const INITIAL_DATA = [
   // phrase_5: "медсестра" | roman: "medsestra" | transl: "female nurse" | audio: "audio/ru/medsestra_phrase_5.mp3"
   // phrase_6: "старшая медсестра" | roman: "starshaya medsestra" | transl: "head nurse" | audio: "audio/ru/medsestra_phrase_6.mp3"
   {
-    id: "ru_pogoda", lang: "ru", niveau: "Nouveau",
-    word: "погода",
+    id: "ru_pogoda", lang: "ru", word: "погода",
     roman: "pogoda",
     genre: "féminin",
     translation: "weather", category: "nom",
@@ -2510,8 +2340,7 @@ const INITIAL_DATA = [
   // phrase_5: "еженедельный прогноз погоды" | roman: "yezhenedel'nyy prognoz pogody" | transl: "weekly weather report" | audio: "audio/ru/pogoda_phrase_5.mp3"
   // phrase_6: "погодная сводка" | roman: "pogodnaya svodka" | transl: "weather bulletin" | audio: "audio/ru/pogoda_phrase_6.mp3"
   {
-    id: "ru_sosyed", lang: "ru", niveau: "Nouveau",
-    word: "сосед",
+    id: "ru_sosyed", lang: "ru", word: "сосед",
     roman: "sosyed",
     genre: "masculin",
     translation: "neighbor", category: "nom",
@@ -2525,8 +2354,7 @@ const INITIAL_DATA = [
   // phrase_2: "сосед по лестничной клетке" | roman: "sosed po lestnichnoy kletke" | transl: "next-door neighbor" | audio: "audio/ru/sosyed_phrase_2.mp3"
   
   {
-    id: "ru_tualetnaya_bumaga", lang: "ru", niveau: "Nouveau",
-    word: "туалетная бумага",
+    id: "ru_tualetnaya_bumaga", lang: "ru", word: "туалетная бумага",
     roman: "tualetnaya bumaga",
     genre: "féminin",
     translation: "toilet paper", category: "expression",
@@ -2540,8 +2368,7 @@ const INITIAL_DATA = [
   // phrase_2: "Всегда имей запасной рулон туалетной бумаги в туалете." | roman: "Vsegda imey zapasnoy rulon tualetnoy bumagi v tualete." | transl: "Make sure you keep extra toilet paper in the bathroom." | audio: "audio/ru/tualetnaya_bumaga_phrase_2.mp3"
   // phrase_3: "рулон туалетной бумаги" | roman: "rulon tualetnoy bumagi" | transl: "roll of toilet paper" | audio: "audio/ru/tualetnaya_bumaga_phrase_3.mp3"
   {
-    id: "ru_tsena", lang: "ru", niveau: "Nouveau",
-    word: "цена",
+    id: "ru_tsena", lang: "ru", word: "цена",
     roman: "tsena",
     genre: "féminin",
     translation: "price", category: "nom",
@@ -2555,8 +2382,7 @@ const INITIAL_DATA = [
   // phrase_2: "Цена в этом магазине в два раза выше, чем в предыдущем." | roman: "Tsena v etom magazine v dva raza vyshe, chem v predydushchem." | transl: "The price at this store is two times more than the last store." | audio: "audio/ru/tsena_phrase_2.mp3"
   // phrase_3: "розничная цена" | roman: "roznichnaya tsena" | transl: "retail price" | audio: "audio/ru/tsena_phrase_3.mp3"
   {
-    id: "ru_kreditnaya_kartachka", lang: "ru", niveau: "Nouveau",
-    word: "кредитная карточка",
+    id: "ru_kreditnaya_kartachka", lang: "ru", word: "кредитная карточка",
     roman: "kreditnaya kartachka",
     genre: "féminin",
     translation: "credit card", category: "expression",
@@ -2571,8 +2397,7 @@ const INITIAL_DATA = [
   // phrase_3: "покупать с помощью кредитной карты" | roman: "pokupat' s pomoshch'yu kreditnoy karty" | transl: "buy with a credit card" | audio: "audio/ru/kreditnaya_kartachka_phrase_3.mp3"
   // phrase_4: "номер кредитной карточки" | roman: "nomer kreditnoy kartochki" | transl: "credit card number" | audio: "audio/ru/kreditnaya_kartachka_phrase_4.mp3"
   {
-    id: "ru_utro", lang: "ru", niveau: "Nouveau",
-    word: "утро",
+    id: "ru_utro", lang: "ru", word: "утро",
     roman: "utro",
     genre: "neutre",
     translation: "morning", category: "nom",
@@ -2591,8 +2416,7 @@ const INITIAL_DATA = [
   // phrase_7: "принимать душ утром" | roman: "prinimat' dush utrom" | transl: "shower in the morning" | audio: "audio/ru/utro_phrase_7.mp3"
   // phrase_8: "утром" | roman: "utrom" | transl: "in the morning" | audio: "audio/ru/utro_phrase_8.mp3"
   {
-    id: "ru_slovar", lang: "ru", niveau: "Nouveau",
-    word: "словарь",
+    id: "ru_slovar", lang: "ru", word: "словарь",
     roman: "slovar'",
     genre: "masculin",
     translation: "dictionary", category: "nom",
@@ -2608,8 +2432,7 @@ const INITIAL_DATA = [
   // phrase_4: "немецко-английский электронный словарь" | roman: "nemetsko-angliyskiy elektronnyy slovar'" | transl: "German-English electronic dictionary" | audio: "audio/ru/slovar_phrase_4.mp3"
   
   {
-    id: "ru_grudnaya_kletka", lang: "ru", niveau: "Nouveau",
-    word: "грудная клетка",
+    id: "ru_grudnaya_kletka", lang: "ru", word: "грудная клетка",
     roman: "grudnaya kletka",
     genre: "féminin",
     translation: "chest", category: "nom",
@@ -2622,8 +2445,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'грудная клетка':
   // phrase_2: "рентгеновский снимок грудной клетки" | roman: "rentgenovskiy snimok grudnoy kletki" | transl: "X-ray of a chest" | audio: "audio/ru/grudnaya_kletka_phrase_2.mp3"
   {
-    id: "ru_pisatel", lang: "ru", niveau: "Nouveau",
-    word: "писатель",
+    id: "ru_pisatel", lang: "ru", word: "писатель",
     roman: "pisatel'",
     genre: "masculin",
     translation: "writer", category: "nom",
@@ -2637,8 +2459,7 @@ const INITIAL_DATA = [
   // phrase_2: "Я работаю стоматологом, но я очень хочу быть писателем." | roman: "Ya rabotayu stomatologom, no ya ochen' khochu byt' pisatelem." | transl: "I work as a dentist, but I really want to be a writer." | audio: "audio/ru/pisatel_phrase_2.mp3"
   // phrase_3: "известный писатель" | roman: "izvestnyy pisatel'" | transl: "famous writer" | audio: "audio/ru/pisatel_phrase_3.mp3"
   {
-    id: "ru_kofeinya", lang: "ru", niveau: "Nouveau",
-    word: "кофейня",
+    id: "ru_kofeinya", lang: "ru", word: "кофейня",
     roman: "kofeinya",
     genre: "féminin",
     translation: "coffee shop", category: "nom",
@@ -2651,8 +2472,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'кофейня':
   // phrase_2: "встретиться в кафе" | roman: "vstretit'sya v kafe" | transl: "meet at a coffee shop" | audio: "audio/ru/kofeinya_phrase_2.mp3"
   {
-    id: "ru_marker", lang: "ru", niveau: "Nouveau",
-    word: "маркер",
+    id: "ru_marker", lang: "ru", word: "маркер",
     roman: "marker",
     genre: "masculin",
     translation: "marker", category: "nom",
@@ -2667,8 +2487,7 @@ const INITIAL_DATA = [
   // phrase_3: "чёрный несмываемый маркер" | roman: "chornyy nesmyvayemyy marker" | transl: "black permanent marker" | audio: "audio/ru/marker_phrase_3.mp3"
   
   {
-    id: "ru_zmeya", lang: "ru", niveau: "Nouveau",
-    word: "змея",
+    id: "ru_zmeya", lang: "ru", word: "змея",
     roman: "zmeya",
     genre: "féminin",
     translation: "snake", category: "nom",
@@ -2686,8 +2505,7 @@ const INITIAL_DATA = [
   // phrase_6: "змея, свернувшаяся в кольцо" | roman: "zmeya, svernuvshayasya v kol'tso" | transl: "coiled snake" | audio: "audio/ru/zmeya_phrase_6.mp3"
   // phrase_7: "ядовитая змея" | roman: "yadovitaya zmeya" | transl: "poisonous snake" | audio: "audio/ru/zmeya_phrase_7.mp3"
   {
-    id: "ru_scheka", lang: "ru", niveau: "Nouveau",
-    word: "щека",
+    id: "ru_scheka", lang: "ru", word: "щека",
     roman: "scheka",
     genre: "féminin",
     translation: "cheek", category: "nom",
@@ -2701,8 +2519,7 @@ const INITIAL_DATA = [
   // phrase_2: "У женщины красивые щёки." | roman: "U zhenshchiny krasivyye shchoki." | transl: "The woman has beautiful cheeks." | audio: "audio/ru/scheka_phrase_2.mp3"
   // phrase_3: "веснушки на щеках" | roman: "vesnushki na shchekakh" | transl: "freckles on a cheek" | audio: "audio/ru/scheka_phrase_3.mp3"
   {
-    id: "ru_zarplata", lang: "ru", niveau: "Nouveau",
-    word: "зарплата",
+    id: "ru_zarplata", lang: "ru", word: "зарплата",
     roman: "zarplata",
     genre: "féminin",
     translation: "salary", category: "nom",
@@ -2717,8 +2534,7 @@ const INITIAL_DATA = [
   // phrase_3: "зарплата наличными" | roman: "zarplata nalichnymi" | transl: "cash salary" | audio: "audio/ru/zarplata_phrase_3.mp3"
   // phrase_4: "месячная зарплата" | roman: "mesyachnaya zarplata" | transl: "monthly salary" | audio: "audio/ru/zarplata_phrase_4.mp3"
   {
-    id: "ru_bolen", lang: "ru", niveau: "Nouveau",
-    word: "болен",
+    id: "ru_bolen", lang: "ru", word: "болен",
     roman: "bolen",
     translation: "sick", category: "adverbe",
     phrase: "заболеть гриппом",
@@ -2728,8 +2544,7 @@ const INITIAL_DATA = [
     notes: ""
   },
   {
-    id: "ru_pochtalon", lang: "ru", niveau: "Nouveau",
-    word: "почтальон",
+    id: "ru_pochtalon", lang: "ru", word: "почтальон",
     roman: "pochtal'on",
     genre: "masculin",
     translation: "mailman", category: "nom",
@@ -2742,8 +2557,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'почтальон':
   // phrase_2: "почтальон в униформе" | roman: "pochtal'on v uniforme" | transl: "mailman in uniform" | audio: "audio/ru/pochtalon_phrase_2.mp3"
   {
-    id: "ru_biblioteka", lang: "ru", niveau: "Nouveau",
-    word: "библиотека",
+    id: "ru_biblioteka", lang: "ru", word: "библиотека",
     roman: "biblioteka",
     genre: "féminin",
     translation: "library", category: "nom",
@@ -2758,8 +2572,7 @@ const INITIAL_DATA = [
   // phrase_3: "зал библиотеки со столами" | roman: "zal biblioteki so stolami" | transl: "library room with desks" | audio: "audio/ru/biblioteka_phrase_3.mp3"
   // phrase_4: "библиотечные ресурсы" | roman: "bibliotechnyye resursy" | transl: "library resources" | audio: "audio/ru/biblioteka_phrase_4.mp3"
   {
-    id: "ru_nizhneye_belyo", lang: "ru", niveau: "Nouveau",
-    word: "нижнее бельё",
+    id: "ru_nizhneye_belyo", lang: "ru", word: "нижнее бельё",
     roman: "nizhneye bel'yo",
     genre: "neutre",
     translation: "underwear", category: "expression",
@@ -2773,8 +2586,7 @@ const INITIAL_DATA = [
   // phrase_2: "Некоторые люди ходят по дому в нижнем белье." | roman: "Nekotoryye lyudi khodyat po domu v nizhnem bel'ye." | transl: "Some people walk around their homes in their underwear." | audio: "audio/ru/nizhneye_belyo_phrase_2.mp3"
   // phrase_3: "белое нижнее бельё" | roman: "beloye nizhneye bel'yo" | transl: "white underwear" | audio: "audio/ru/nizhneye_belyo_phrase_3.mp3"
   {
-    id: "ru_medved", lang: "ru", niveau: "Nouveau",
-    word: "медведь",
+    id: "ru_medved", lang: "ru", word: "медведь",
     roman: "medved'",
     genre: "masculin",
     translation: "bear", category: "nom",
@@ -2790,8 +2602,7 @@ const INITIAL_DATA = [
   // phrase_4: "большой бурый медведь" | roman: "bol'shoy buryy medved'" | transl: "big brown bear" | audio: "audio/ru/medved_phrase_4.mp3"
   // phrase_5: "белый полярный медведь" | roman: "belyy polyarnyy medved'" | transl: "white polar bear" | audio: "audio/ru/medved_phrase_5.mp3"
   {
-    id: "ru_koza", lang: "ru", niveau: "Nouveau",
-    word: "коза",
+    id: "ru_koza", lang: "ru", word: "коза",
     roman: "koza",
     genre: "féminin",
     translation: "goat", category: "nom",
@@ -2805,8 +2616,7 @@ const INITIAL_DATA = [
   // phrase_2: "Козы играют на ферме." | roman: "Kozy igrayut na ferme." | transl: "The goats are playing on the farm." | audio: "audio/ru/koza_phrase_2.mp3"
   // phrase_3: "белая коза" | roman: "belaya koza" | transl: "white goat" | audio: "audio/ru/koza_phrase_3.mp3"
   {
-    id: "ru_tumbochka", lang: "ru", niveau: "Nouveau",
-    word: "тумбочка",
+    id: "ru_tumbochka", lang: "ru", word: "тумбочка",
     roman: "tumbochka",
     genre: "féminin",
     translation: "nightstand", category: "nom",
@@ -2820,10 +2630,9 @@ const INITIAL_DATA = [
   // phrase_2: "деревянная тумбочка" | roman: "derevyannaya tumbochka" | transl: "wooden nightstand" | audio: "audio/ru/tumbochka_phrase_2.mp3"
   // phrase_3: "лампа на тумбочке" | roman: "lampa na tumbochke" | transl: "nightstand lamp" | audio: "audio/ru/tumbochka_phrase_3.mp3"
   {
-    id: "ru_odinnadtsat", lang: "ru", niveau: "Nouveau",
-    word: "одиннадцать",
+    id: "ru_odinnadtsat", lang: "ru", word: "одиннадцать",
     roman: "odinnadtsat'",
-    translation: "eleven", category: "numeral",
+    translation: "eleven", category: "nombre",
     phrase: "Мне одиннадцать  лет.",
     phrase_roman: "Mne odinnadtsat'  let.",
     phrase_fr: "I'm eleven years old.",
@@ -2835,8 +2644,7 @@ const INITIAL_DATA = [
   // phrase_3: "одиннадцать" | roman: "odinnadtsat'" | transl: "11" | audio: "audio/ru/odinnadtsat_phrase_3.mp3"
   // phrase_4: "одиннадцать свечей" | roman: "odinnadtsat' svechey" | transl: "eleven candles" | audio: "audio/ru/odinnadtsat_phrase_4.mp3"
   {
-    id: "ru_sotovyy_telefon", lang: "ru", niveau: "Nouveau",
-    word: "сотовый телефон",
+    id: "ru_sotovyy_telefon", lang: "ru", word: "сотовый телефон",
     roman: "sotovyy telefon",
     genre: "masculin",
     translation: "cellular phone", category: "expression",
@@ -2851,8 +2659,7 @@ const INITIAL_DATA = [
   // phrase_3: "сотовый телефон с внутренней антенной" | roman: "sotovyy telefon s vnutrenney antennoy" | transl: "cellular phone with an internal antenna" | audio: "audio/ru/sotovyy_telefon_phrase_3.mp3"
   // phrase_4: "сотовый телефон" | roman: "sotovyy telefon" | transl: "cell phone" | audio: "audio/ru/sotovyy_telefon_phrase_4.mp3"
   {
-    id: "ru_tsunami", lang: "ru", niveau: "Nouveau",
-    word: "цунами",
+    id: "ru_tsunami", lang: "ru", word: "цунами",
     roman: "tsunami",
     genre: "neutre",
     translation: "tsunami", category: "nom",
@@ -2865,8 +2672,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'цунами':
   // phrase_2: "накрытый цунами" | roman: "nakrytyy tsunami" | transl: "hit by tsunami" | audio: "audio/ru/tsunami_phrase_2.mp3"
   {
-    id: "ru_koza", lang: "ru", niveau: "Nouveau",
-    word: "коза",
+    id: "ru_koza", lang: "ru", word: "коза",
     roman: "koza",
     genre: "féminin",
     translation: "goat", category: "nom",
@@ -2880,8 +2686,7 @@ const INITIAL_DATA = [
   // phrase_2: "Козы играют на ферме." | roman: "Kozy igrayut na ferme." | transl: "The goats are playing on the farm." | audio: "audio/ru/koza_phrase_2.mp3"
   // phrase_3: "белая коза" | roman: "belaya koza" | transl: "white goat" | audio: "audio/ru/koza_phrase_3.mp3"
   {
-    id: "ru_predplechye", lang: "ru", niveau: "Nouveau",
-    word: "предплечье",
+    id: "ru_predplechye", lang: "ru", word: "предплечье",
     roman: "predplech'ye",
     genre: "neutre",
     translation: "forearm", category: "nom",
@@ -2895,8 +2700,7 @@ const INITIAL_DATA = [
   // phrase_2: "предплечье и кулак" | roman: "predplech'ye i kulak" | transl: "forearm and fist" | audio: "audio/ru/predplechye_phrase_2.mp3"
   
   {
-    id: "ru_konvert", lang: "ru", niveau: "Nouveau",
-    word: "конверт",
+    id: "ru_konvert", lang: "ru", word: "конверт",
     roman: "konvert",
     genre: "masculin",
     translation: "envelope", category: "nom",
@@ -2910,8 +2714,7 @@ const INITIAL_DATA = [
   // phrase_2: "красный конверт" | roman: "krasnyy konvert" | transl: "red envelope" | audio: "audio/ru/konvert_phrase_2.mp3"
   // phrase_3: "получить конверт" | roman: "poluchit' konvert" | transl: "to receive an envelope" | audio: "audio/ru/konvert_phrase_3.mp3"
   {
-    id: "ru_lebed", lang: "ru", niveau: "Nouveau",
-    word: "лебедь",
+    id: "ru_lebed", lang: "ru", word: "лебедь",
     roman: "lebed'",
     genre: "masculin",
     translation: "swan", category: "nom",
@@ -2926,8 +2729,7 @@ const INITIAL_DATA = [
   // phrase_3: "плывущий лебедь" | roman: "plyvushchiy lebed'" | transl: "swimming swan" | audio: "audio/ru/lebed_phrase_3.mp3"
   // phrase_4: "лебедь с длинной шеей" | roman: "lebed' s dlinnoy sheyey" | transl: "long neck swan" | audio: "audio/ru/lebed_phrase_4.mp3"
   {
-    id: "ru_ispuganniy", lang: "ru", niveau: "Nouveau",
-    word: "испуганный",
+    id: "ru_ispuganniy", lang: "ru", word: "испуганный",
     roman: "ispuganniy",
     translation: "scared", category: "adjectif",
     phrase: "Испуганная женщина защищает своего ребёнка.",
@@ -2940,8 +2742,7 @@ const INITIAL_DATA = [
   // phrase_2: "Девочка напугана." | roman: "Devochka napugana." | transl: "The young girl is scared." | audio: "audio/ru/ispuganniy_phrase_2.mp3"
   // phrase_3: "очень испугаться" | roman: "ochen' ispugat'sya" | transl: "very scared" | audio: "audio/ru/ispuganniy_phrase_3.mp3"
   {
-    id: "ru_metropoliten", lang: "ru", niveau: "Nouveau",
-    word: "метрополитен",
+    id: "ru_metropoliten", lang: "ru", word: "метрополитен",
     roman: "metropoliten",
     genre: "masculin",
     translation: "subway", category: "nom",
@@ -2956,8 +2757,7 @@ const INITIAL_DATA = [
   // phrase_3: "линия метро" | roman: "liniya metro" | transl: "subway line" | audio: "audio/ru/metropoliten_phrase_3.mp3"
   // phrase_4: "вагон метро" | roman: "vagon metro" | transl: "subway car" | audio: "audio/ru/metropoliten_phrase_4.mp3"
   {
-    id: "ru_vodopad", lang: "ru", niveau: "Nouveau",
-    word: "водопад",
+    id: "ru_vodopad", lang: "ru", word: "водопад",
     roman: "vodopad",
     genre: "masculin",
     translation: "waterfall", category: "nom",
@@ -2972,8 +2772,7 @@ const INITIAL_DATA = [
   // phrase_3: "ниспадающий водопад" | roman: "nispadayushchiy vodopad" | transl: "flowing waterfall" | audio: "audio/ru/vodopad_phrase_3.mp3"
   
   {
-    id: "ru_001", lang: "ru", niveau: "Nouveau",
-    word: "говорить", roman: "govorit'",
+    id: "ru_001", lang: "ru", word: "говорить", roman: "govorit'",
     translation: "Parler", category: "Verbe",
     phrase: "Я говорю по-французски.",
     phrase_roman: "Ya govoryu po-frantsuzski.",
@@ -2981,8 +2780,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_002", lang: "ru", niveau: "Maîtrisé",
-    word: "привет", roman: "privet",
+    id: "ru_002", lang: "ru", word: "привет", roman: "privet",
     translation: "Salut / Bonjour", category: "Salutation",
     phrase: "Привет, как дела?",
     phrase_roman: "Privet, kak dela?",
@@ -2990,8 +2788,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_003", lang: "ru", niveau: "En cours",
-    word: "работа", roman: "rabota",
+    id: "ru_003", lang: "ru", word: "работа", roman: "rabota",
     translation: "Travail", category: "Nom",
     phrase: "Моя работа очень интересная.",
     phrase_roman: "Moya rabota ochen' interesnaya.",
@@ -2999,8 +2796,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_004", lang: "ru", niveau: "Nouveau",
-    word: "есть", roman: "yest'",
+    id: "ru_004", lang: "ru", word: "есть", roman: "yest'",
     translation: "Manger / Il y a", category: "Verbe",
     phrase: "Я хочу есть пиццу.",
     phrase_roman: "Ya khochu yest' pitstsu.",
@@ -3008,8 +2804,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_005", lang: "ru", niveau: "Nouveau",
-    word: "красивый", roman: "krasivyy",
+    id: "ru_005", lang: "ru", word: "красивый", roman: "krasivyy",
     translation: "Beau / Belle", category: "Adjectif",
     phrase: "Это очень красивый город.",
     phrase_roman: "Eto ochen' krasivyy gorod.",
@@ -3017,8 +2812,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "ru_006", lang: "ru", niveau: "Nouveau",
-    word: "понимать", roman: "ponimat'",
+    id: "ru_006", lang: "ru", word: "понимать", roman: "ponimat'",
     translation: "Comprendre", category: "Verbe",
     phrase: "Я не понимаю по-русски.",
     phrase_roman: "Ya ne ponimayu po-russki.",
@@ -3026,8 +2820,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
     {
-    id: "ru_007", lang: "ru", niveau: "Nouveau",
-    word: "песчаная буря", roman: "peschanaya burya",
+    id: "ru_007", lang: "ru", word: "песчаная буря", roman: "peschanaya burya",
     translation: "Tempête de sable", category: "Nom", genre: "féminin",
     phrase: "Опустилась песчаная буря.",
     phrase_roman: "Opustilas' peschanaya burya.",
@@ -3036,9 +2829,8 @@ const INITIAL_DATA = [
   },
   // POLONAIS
   {
-    id: "pl_pietnascie", lang: "pl", niveau: "Nouveau",
-    word: "piętnaście",
-    translation: "fifteen", category: "numeral",
+    id: "pl_pietnascie", lang: "pl", word: "piętnaście",
+    translation: "fifteen", category: "nombre",
     phrase: "Dojazd do pracy zajmuje (mi) piętnaście minut.",
     phrase_fr: "It takes fifteen minutes to drive to work.",
     audio_word: "audio/pl/pietnascie.mp3", audio_phrase: "audio/pl/pietnascie_phrase_1.mp3",
@@ -3048,8 +2840,7 @@ const INITIAL_DATA = [
   // phrase_2: "liczba piętnaście" | transl: "number fifteen" | audio: "audio/pl/pietnascie_phrase_2.mp3"
   // phrase_3: "piętnaście" | transl: "15" | audio: "audio/pl/pietnascie_phrase_3.mp3"
   {
-    id: "pl_łazienka", lang: "pl", niveau: "Nouveau",
-    word: "łazienka",
+    id: "pl_łazienka", lang: "pl", word: "łazienka",
     genre: "féminin",
     translation: "bathroom", category: "nom",
     phrase: "Łazienka jest na końcu korytarza.",
@@ -3060,8 +2851,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'łazienka':
   // phrase_2: "łazienka z prysznicem i wanną" | transl: "bathroom with a shower and a bathtub" | audio: "audio/pl/łazienka_phrase_2.mp3"
   {
-    id: "pl_kura", lang: "pl", niveau: "Nouveau",
-    word: "kura",
+    id: "pl_kura", lang: "pl", word: "kura",
     genre: "féminin",
     translation: "chicken", category: "nom",
     phrase: "Kura i kurczaki dziobią swój pokarm.",
@@ -3073,8 +2863,7 @@ const INITIAL_DATA = [
   // phrase_2: "biała kura" | transl: "white chicken" | audio: "audio/pl/kura_phrase_2.mp3"
   // phrase_3: "brązowa kura" | transl: "brown chicken" | audio: "audio/pl/kura_phrase_3.mp3"
   {
-    id: "pl_słon", lang: "pl", niveau: "Nouveau",
-    word: "słoń",
+    id: "pl_słon", lang: "pl", word: "słoń",
     genre: "masculin",
     translation: "elephant", category: "nom",
     phrase: "Słoń jest szary.",
@@ -3086,8 +2875,7 @@ const INITIAL_DATA = [
   // phrase_2: "Widziałam słonia w zoo." | transl: "I saw an elephant at the zoo." | audio: "audio/pl/słon_phrase_2.mp3"
   // phrase_3: "szary słoń" | transl: "gray elephant" | audio: "audio/pl/słon_phrase_3.mp3"
   {
-    id: "pl_ryba", lang: "pl", niveau: "Nouveau",
-    word: "ryba",
+    id: "pl_ryba", lang: "pl", word: "ryba",
     genre: "féminin",
     translation: "fish", category: "nom",
     phrase: "Ryba pływa w wodzie.",
@@ -3100,8 +2888,7 @@ const INITIAL_DATA = [
   // phrase_3: "ryba morska" | transl: "saltwater fish" | audio: "audio/pl/ryba_phrase_3.mp3"
   // phrase_4: "ryba słodkowodna" | transl: "freshwater fish" | audio: "audio/pl/ryba_phrase_4.mp3"
   {
-    id: "pl_meble", lang: "pl", niveau: "Nouveau",
-    word: "meble",
+    id: "pl_meble", lang: "pl", word: "meble",
     translation: "furniture", category: "nom",
     phrase: "Po pożarze musieliśmy wymienić wszystkie meble.",
     phrase_fr: "We had to replace all of our furniture after the fire.",
@@ -3112,8 +2899,7 @@ const INITIAL_DATA = [
   // phrase_2: "umeblowany gabinet w domu" | transl: "home study with furniture" | audio: "audio/pl/meble_phrase_2.mp3"
   // phrase_3: "meble salonowe" | transl: "living room furniture" | audio: "audio/pl/meble_phrase_3.mp3"
   {
-    id: "pl_włosy", lang: "pl", niveau: "Nouveau",
-    word: "włosy",
+    id: "pl_włosy", lang: "pl", word: "włosy",
     translation: "hair", category: "nom",
     phrase: "Ta kobieta ma blond włosy.",
     phrase_fr: "The woman has blonde hair.",
@@ -3125,8 +2911,7 @@ const INITIAL_DATA = [
   // phrase_3: "Ta kobieta ma czarne włosy." | transl: "The woman has black hair." | audio: "audio/pl/włosy_phrase_3.mp3"
   // phrase_4: "krótkie włosy" | transl: "short hair" | audio: "audio/pl/włosy_phrase_4.mp3"
   {
-    id: "pl_list", lang: "pl", niveau: "Nouveau",
-    word: "list",
+    id: "pl_list", lang: "pl", word: "list",
     genre: "masculin",
     translation: "letter", category: "nom",
     phrase: "Ktoś wysyła list.",
@@ -3137,8 +2922,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'list':
   // phrase_2: "wysyłać list" | transl: "mail a letter" | audio: "audio/pl/list_phrase_2.mp3"
   {
-    id: "pl_listonosz", lang: "pl", niveau: "Nouveau",
-    word: "listonosz",
+    id: "pl_listonosz", lang: "pl", word: "listonosz",
     genre: "masculin",
     translation: "mailman", category: "nom",
     phrase: "Listonosz dostarcza pocztę.",
@@ -3149,8 +2933,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'listonosz':
   // phrase_2: "listonosz w mundurze" | transl: "mailman in uniform" | audio: "audio/pl/listonosz_phrase_2.mp3"
   {
-    id: "pl_kuchenka_mikrofalowa", lang: "pl", niveau: "Nouveau",
-    word: "kuchenka mikrofalowa",
+    id: "pl_kuchenka_mikrofalowa", lang: "pl", word: "kuchenka mikrofalowa",
     genre: "féminin",
     translation: "microwave", category: "expression",
     phrase: "Najwygodniejszym sprzętem kuchennym jest kuchenka mikrofalowa.",
@@ -3161,8 +2944,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'kuchenka mikrofalowa':
   // phrase_2: "kuchenka mikrofalowa ze stali nierdzewnej" | transl: "stainless steel microwave oven" | audio: "audio/pl/kuchenka_mikrofalowa_phrase_2.mp3"
   {
-    id: "pl_komar", lang: "pl", niveau: "Nouveau",
-    word: "komar",
+    id: "pl_komar", lang: "pl", word: "komar",
     genre: "masculin",
     translation: "mosquito", category: "nom",
     phrase: "Ważki zjadają komary.",
@@ -3175,8 +2957,7 @@ const INITIAL_DATA = [
   // phrase_3: "komar krwiopijca" | transl: "blood sucking mosquito" | audio: "audio/pl/komar_phrase_3.mp3"
   // phrase_4: "ugryzienie komara" | transl: "mosquito bite" | audio: "audio/pl/komar_phrase_4.mp3"
   {
-    id: "pl_czytac", lang: "pl", niveau: "Nouveau",
-    word: "czytać",
+    id: "pl_czytac", lang: "pl", word: "czytać",
     translation: "read", category: "verbe",
     phrase: "Matka czyta książkę swojej córce.",
     phrase_fr: "The mother is reading a book to her daughter.",
@@ -3195,8 +2976,7 @@ const INITIAL_DATA = [
   // phrase_10: "czytać magazyn" | transl: "read a magazine" | audio: "audio/pl/czytac_phrase_10.mp3"
   // phrase_11: "czytać gazetę" | transl: "read the newspaper" | audio: "audio/pl/czytac_phrase_11.mp3"
   {
-    id: "pl_komedia_romantyczna", lang: "pl", niveau: "Nouveau",
-    word: "komedia romantyczna",
+    id: "pl_komedia_romantyczna", lang: "pl", word: "komedia romantyczna",
     genre: "féminin",
     translation: "romantic comedy", category: "nom",
     phrase: "Kobieta dobrze się bawi oglądając komedię romantyczną, a mężczyzna śpi.",
@@ -3208,8 +2988,7 @@ const INITIAL_DATA = [
   // phrase_2: "dobra komedia romantyczna" | transl: "good romantic comedy" | audio: "audio/pl/komedia_romantyczna_phrase_2.mp3"
   
   {
-    id: "pl_budzik", lang: "pl", niveau: "Nouveau",
-    word: "budzik",
+    id: "pl_budzik", lang: "pl", word: "budzik",
     genre: "masculin",
     translation: "alarm clock", category: "nom",
     phrase: "Budzik jest nastawiony na piątą rano.",
@@ -3220,8 +2999,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'budzik':
   // phrase_2: "nastawić budzik" | transl: "set an alarm clock" | audio: "audio/pl/budzik_phrase_2.mp3"
   {
-    id: "pl_kelner", lang: "pl", niveau: "Nouveau",
-    word: "kelner",
+    id: "pl_kelner", lang: "pl", word: "kelner",
     genre: "masculin",
     translation: "waiter", category: "nom",
     phrase: "Kelner dostarcza room service.",
@@ -3232,8 +3010,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'kelner':
   // phrase_2: "kelner w hotelu" | transl: "hotel waiter" | audio: "audio/pl/kelner_phrase_2.mp3"
   {
-    id: "pl_cwiczyc", lang: "pl", niveau: "Nouveau",
-    word: "ćwiczyć",
+    id: "pl_cwiczyc", lang: "pl", word: "ćwiczyć",
     translation: "exercise", category: "verbe",
     phrase: "Chodzenie to rodzaj ćwiczenia.",
     phrase_fr: "Walking is a kind of exercise.",
@@ -3244,8 +3021,7 @@ const INITIAL_DATA = [
   // phrase_2: "Pływanie to najlepsze ćwiczenie." | transl: "Swimming is the best exercise." | audio: "audio/pl/cwiczyc_phrase_2.mp3"
   // phrase_3: "popołudniowe ćwiczenia" | transl: "afternoon exercise" | audio: "audio/pl/cwiczyc_phrase_3.mp3"
   {
-    id: "pl_kuchenka", lang: "pl", niveau: "Nouveau",
-    word: "kuchenka",
+    id: "pl_kuchenka", lang: "pl", word: "kuchenka",
     genre: "féminin",
     translation: "stove", category: "nom",
     phrase: "Czajnik stoi na kuchni.",
@@ -3254,8 +3030,7 @@ const INITIAL_DATA = [
     notes: ""
   },
   {
-    id: "pl_szyja", lang: "pl", niveau: "Nouveau",
-    word: "szyja",
+    id: "pl_szyja", lang: "pl", word: "szyja",
     genre: "féminin",
     translation: "neck", category: "nom",
     phrase: "Boli mnie szyja.",
@@ -3269,8 +3044,7 @@ const INITIAL_DATA = [
   // phrase_4: "szyja swędzi" | transl: "itchy neck" | audio: "audio/pl/szyja_phrase_4.mp3"
   // phrase_5: "głowa i szyja" | transl: "head and neck" | audio: "audio/pl/szyja_phrase_5.mp3"
   {
-    id: "pl_rozmawiac", lang: "pl", niveau: "Nouveau",
-    word: "rozmawiać",
+    id: "pl_rozmawiac", lang: "pl", word: "rozmawiać",
     translation: "talk", category: "verbe",
     phrase: "Operatorka rozmawiała z klientem.",
     phrase_fr: "The operator talked with a customer.",
@@ -3285,8 +3059,7 @@ const INITIAL_DATA = [
   // phrase_6: "rozmawiać o historii" | transl: "talk about history" | audio: "audio/pl/rozmawiac_phrase_6.mp3"
   
   {
-    id: "pl_silny", lang: "pl", niveau: "Nouveau",
-    word: "silny",
+    id: "pl_silny", lang: "pl", word: "silny",
     translation: "strong", category: "adjectif",
     phrase: "Dziecko jest silne.",
     phrase_fr: "The baby is strong.",
@@ -3297,8 +3070,7 @@ const INITIAL_DATA = [
   // phrase_2: "silny tajfun" | transl: "strong typhoon" | audio: "audio/pl/silny_phrase_2.mp3"
   // phrase_3: "silne dziecko" | transl: "strong baby" | audio: "audio/pl/silny_phrase_3.mp3"
   {
-    id: "pl_danie_głowne", lang: "pl", niveau: "Nouveau",
-    word: "danie główne",
+    id: "pl_danie_głowne", lang: "pl", word: "danie główne",
     genre: "neutre",
     translation: "main course", category: "expression",
     phrase: "Danie główne to wołowina z warzywami.",
@@ -3307,8 +3079,7 @@ const INITIAL_DATA = [
     notes: ""
   },
   {
-    id: "pl_komedia", lang: "pl", niveau: "Nouveau",
-    word: "komedia",
+    id: "pl_komedia", lang: "pl", word: "komedia",
     genre: "féminin",
     translation: "comedy", category: "nom",
     phrase: "Oglądają komedię i śmieją się.",
@@ -3319,8 +3090,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'komedia':
   // phrase_2: "oglądać komedię" | transl: "watch a comedy" | audio: "audio/pl/komedia_phrase_2.mp3"
   {
-    id: "pl_sekretarka", lang: "pl", niveau: "Nouveau",
-    word: "sekretarka",
+    id: "pl_sekretarka", lang: "pl", word: "sekretarka",
     genre: "féminin",
     translation: "secretary", category: "nom",
     phrase: "Sekretarka rozmawia przez telefon.",
@@ -3333,8 +3103,7 @@ const INITIAL_DATA = [
   // phrase_3: "zajęta sekretarka" | transl: "busy secretary" | audio: "audio/pl/sekretarka_phrase_3.mp3"
   
   {
-    id: "pl_klasowka", lang: "pl", niveau: "Nouveau",
-    word: "klasówka",
+    id: "pl_klasowka", lang: "pl", word: "klasówka",
     genre: "féminin",
     translation: "test", category: "nom",
     phrase: "Klasówka w środę będzie trudna.",
@@ -3346,8 +3115,7 @@ const INITIAL_DATA = [
   // phrase_2: "zaliczyć klasówkę" | transl: "pass a test" | audio: "audio/pl/klasowka_phrase_2.mp3"
   // phrase_3: "pisać klasówkę" | transl: "take a test" | audio: "audio/pl/klasowka_phrase_3.mp3"
   {
-    id: "pl_kanapa", lang: "pl", niveau: "Nouveau",
-    word: "kanapa",
+    id: "pl_kanapa", lang: "pl", word: "kanapa",
     genre: "féminin",
     translation: "sofa", category: "nom",
     phrase: "Ta kanapa jest bardzo wygodna.",
@@ -3359,8 +3127,7 @@ const INITIAL_DATA = [
   // phrase_2: "czerwona kanapa" | transl: "red sofa" | audio: "audio/pl/kanapa_phrase_2.mp3"
   // phrase_3: "kanapa do salonu" | transl: "living room sofa" | audio: "audio/pl/kanapa_phrase_3.mp3"
   {
-    id: "pl_pracownik", lang: "pl", niveau: "Nouveau",
-    word: "pracownik",
+    id: "pl_pracownik", lang: "pl", word: "pracownik",
     genre: "masculin",
     translation: "employee", category: "nom",
     phrase: "pracownica",
@@ -3369,8 +3136,7 @@ const INITIAL_DATA = [
     notes: ""
   },
   {
-    id: "pl_taksowka", lang: "pl", niveau: "Nouveau",
-    word: "taksówka",
+    id: "pl_taksowka", lang: "pl", word: "taksówka",
     genre: "féminin",
     translation: "taxi", category: "nom",
     phrase: "Kobieta wsiada do taksówki.",
@@ -3383,8 +3149,7 @@ const INITIAL_DATA = [
   // phrase_3: "wsiadać do taksówki" | transl: "get in a taxi" | audio: "audio/pl/taksowka_phrase_3.mp3"
   // phrase_4: "żółta taksówka" | transl: "yellow taxi" | audio: "audio/pl/taksowka_phrase_4.mp3"
   {
-    id: "pl_sobota", lang: "pl", niveau: "Nouveau",
-    word: "sobota",
+    id: "pl_sobota", lang: "pl", word: "sobota",
     genre: "féminin",
     translation: "Saturday", category: "nom",
     phrase: "Dziś jest sobota, dziesiąty września.",
@@ -3397,8 +3162,7 @@ const INITIAL_DATA = [
   // phrase_3: "żadnych planów na sobotę" | transl: "no plans for Saturday" | audio: "audio/pl/sobota_phrase_3.mp3"
   // phrase_4: "sobotnia noc" | transl: "Saturday night" | audio: "audio/pl/sobota_phrase_4.mp3"
   {
-    id: "pl_kalendarz", lang: "pl", niveau: "Nouveau",
-    word: "kalendarz",
+    id: "pl_kalendarz", lang: "pl", word: "kalendarz",
     genre: "masculin",
     translation: "calendar", category: "nom",
     phrase: "Zaznaczyłam naszą rocznicę w kalendarzu.",
@@ -3410,8 +3174,7 @@ const INITIAL_DATA = [
   // phrase_2: "Zapisz w kalendarzu plany na piątek." | transl: "Write the plans for Friday on the calendar." | audio: "audio/pl/kalendarz_phrase_2.mp3"
   // phrase_3: "kalendarz dzienny" | transl: "day calendar" | audio: "audio/pl/kalendarz_phrase_3.mp3"
   {
-    id: "pl_trudny", lang: "pl", niveau: "Nouveau",
-    word: "trudny",
+    id: "pl_trudny", lang: "pl", word: "trudny",
     translation: "difficult", category: "adjectif",
     phrase: "Angielski jest trudny.",
     phrase_fr: "English is difficult.",
@@ -3424,8 +3187,7 @@ const INITIAL_DATA = [
   // phrase_4: "trudna praca" | transl: "difficult job" | audio: "audio/pl/trudny_phrase_4.mp3"
   // phrase_5: "bardzo trudny" | transl: "very difficult" | audio: "audio/pl/trudny_phrase_5.mp3"
   {
-    id: "pl_okulary_przeciwsłoneczne", lang: "pl", niveau: "Nouveau",
-    word: "okulary przeciwsłoneczne",
+    id: "pl_okulary_przeciwsłoneczne", lang: "pl", word: "okulary przeciwsłoneczne",
     translation: "sunglasses", category: "expression",
     phrase: "Te okulary są nowe.",
     phrase_fr: "These sunglasses are new.",
@@ -3435,8 +3197,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'okulary przeciwsłoneczne':
   // phrase_2: "tanie okulary przeciwsłoneczne" | transl: "cheap sunglasses" | audio: "audio/pl/okulary_przeciwsłoneczne_phrase_2.mp3"
   {
-    id: "pl_ziemia", lang: "pl", niveau: "Nouveau",
-    word: "ziemia",
+    id: "pl_ziemia", lang: "pl", word: "ziemia",
     genre: "féminin",
     translation: "dirt", category: "nom",
     phrase: "Dżdżownice wiją się w ziemi.",
@@ -3448,8 +3209,7 @@ const INITIAL_DATA = [
   // phrase_2: "dżdżownice w ziemi" | transl: "worms in dirt" | audio: "audio/pl/ziemia_phrase_2.mp3"
   
   {
-    id: "pl_001", lang: "pl", niveau: "Nouveau",
-    word: "pracować", roman: "Pra-tsu-yé v byu-jé od lat.",
+    id: "pl_001", lang: "pl", word: "pracować", roman: "Pra-tsu-yé v byu-jé od lat.",
     translation: "Travailler", category: "Verbe",
     phrase: "Pracuję w biurze od lat.",
     phrase_roman: "Pra-tsu-yé v byu-jé od lat.",
@@ -3457,8 +3217,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "pl_002", lang: "pl", niveau: "Maîtrisé",
-    word: "dziękuję", roman: "djén-ku-yé",
+    id: "pl_002", lang: "pl", word: "dziękuję", roman: "djén-ku-yé",
     translation: "Merci", category: "Salutation",
     phrase: "Bardzo dziękuję za pomoc!",
     phrase_roman: "Bard-zo djén-ku-yé za po-mots!",
@@ -3466,8 +3225,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "pl_003", lang: "pl", niveau: "En cours",
-    word: "rozumieć", roman: "ro-zu-myétch",
+    id: "pl_003", lang: "pl", word: "rozumieć", roman: "ro-zu-myétch",
     translation: "Comprendre", category: "Verbe",
     phrase: "Nie rozumiem po polsku.",
     phrase_roman: "Nyé ro-zu-myem po pol-sku.",
@@ -3475,8 +3233,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "pl_004", lang: "pl", niveau: "Nouveau",
-    word: "przyjaciel", roman: "pshi-ya-tchel",
+    id: "pl_004", lang: "pl", word: "przyjaciel", roman: "pshi-ya-tchel",
     translation: "Ami", category: "Nom", genre: "masculin",
     phrase: "To jest mój najlepszy przyjaciel.",
     phrase_roman: "To yest mouy nay-lep-chi pshi-ya-tchel.",
@@ -3484,8 +3241,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "pl_005", lang: "pl", niveau: "Maîtrisé",
-    word: "jeść", roman: "yéchtch",
+    id: "pl_005", lang: "pl", word: "jeść", roman: "yéchtch",
     translation: "Manger", category: "Verbe",
     phrase: "Lubię jeść polskie jedzenie.",
     phrase_roman: "Lou-byé yéchtch pol-skiè yed-zé-nyé.",
@@ -3493,8 +3249,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "pl_006", lang: "pl", niveau: "Nouveau",
-    word: "piękny", roman: "pyenk-né",
+    id: "pl_006", lang: "pl", word: "piękny", roman: "pyenk-né",
     translation: "Beau / Belle", category: "Adjectif",
     phrase: "To jest bardzo piękne miasto.",
     phrase_roman: "To yest bard-zo pyenk-né myas-to.",
@@ -3503,8 +3258,7 @@ const INITIAL_DATA = [
   },
   // PORTUGAIS BR
   {
-    id: "pt_nojento", lang: "pt", niveau: "Nouveau",
-    word: "nojento",
+    id: "pt_nojento", lang: "pt", word: "nojento",
     translation: "disgusting", category: "adjectif",
     phrase: "O homem está comendo um lanche nojento.",
     phrase_fr: "The man is eating a disgusting snack.",
@@ -3516,8 +3270,7 @@ const INITIAL_DATA = [
   // phrase_3: "gosto nojento" | transl: "disgusting taste" | audio: "audio/pt/nojento_phrase_3.mp3"
   // phrase_4: "comida nojenta" | transl: "disgusting food" | audio: "audio/pt/nojento_phrase_4.mp3"
   {
-    id: "pt_assistir", lang: "pt", niveau: "Nouveau",
-    word: "assistir",
+    id: "pt_assistir", lang: "pt", word: "assistir",
     translation: "watch", category: "verbe",
     phrase: "A família assiste televisão.",
     phrase_fr: "The family watches television.",
@@ -3534,8 +3287,7 @@ const INITIAL_DATA = [
   // phrase_8: "assistir um filme" | transl: "watch a movie" | audio: "audio/pt/assistir_phrase_8.mp3"
   
   {
-    id: "pt_patinacao_no_gelo", lang: "pt", niveau: "Nouveau",
-    word: "patinação no gelo",
+    id: "pt_patinacao_no_gelo", lang: "pt", word: "patinação no gelo",
     genre: "féminin",
     translation: "ice skating", category: "expression",
     phrase: "As pessoas estão fazendo patinação no gelo ao ar livre.",
@@ -3547,8 +3299,7 @@ const INITIAL_DATA = [
   // phrase_2: "patinação no gelo ao ar livre" | transl: "ice skating outdoors" | audio: "audio/pt/patinacao_no_gelo_phrase_2.mp3"
   
   {
-    id: "pt_sobrancelha", lang: "pt", niveau: "Nouveau",
-    word: "sobrancelha",
+    id: "pt_sobrancelha", lang: "pt", word: "sobrancelha",
     genre: "féminin",
     translation: "eyebrow", category: "nom",
     phrase: "Mulheres normalmente tiram os pelos da sobrancelha.",
@@ -3560,8 +3311,7 @@ const INITIAL_DATA = [
   // phrase_2: "sobrancelha e cílio" | transl: "eyebrow and eyelash" | audio: "audio/pt/sobrancelha_phrase_2.mp3"
   // phrase_3: "sobrancelha grossa" | transl: "thick eyebrows" | audio: "audio/pt/sobrancelha_phrase_3.mp3"
   {
-    id: "pt_001", lang: "pt", niveau: "En cours",
-    word: "Embora", roman: "",
+    id: "pt_001", lang: "pt", word: "Embora", roman: "",
     translation: "Bien que / Malgré", category: "Conjonction",
     phrase: "Embora esteja cansada, vou treinar.",
     phrase_roman: "",
@@ -3569,8 +3319,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: "Suivi du subjonctif."
   },
   {
-    id: "pt_002", lang: "pt", niveau: "Nouveau",
-    word: "Conseguir", roman: "",
+    id: "pt_002", lang: "pt", word: "Conseguir", roman: "",
     translation: "Réussir / Arriver à", category: "Verbe",
     phrase: "Você consegue fazer isso!",
     phrase_roman: "",
@@ -3578,8 +3327,7 @@ const INITIAL_DATA = [
    audio_word: "audio/pt/conseguir.mp3", audio_phrase: "audio/pt/conseguir_phrase.mp3", notes: ""
   },
   {
-    id: "pt_003", lang: "pt", niveau: "Maîtrisé",
-    word: "Depender", roman: "",
+    id: "pt_003", lang: "pt", word: "Depender", roman: "",
     translation: "Dépendre", category: "Verbe",
     phrase: "Tudo depende da sua atitude.",
     phrase_roman: "",
@@ -3587,8 +3335,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: ""
   },
   {
-    id: "pt_004", lang: "pt", niveau: "Maîtrisé",
-    word: "Cedo", roman: "",
+    id: "pt_004", lang: "pt", word: "Cedo", roman: "",
     translation: "Tôt", category: "Expression",
     phrase: "Eu acordo cedo todos os dias.",
     phrase_roman: "",
@@ -3597,9 +3344,8 @@ const INITIAL_DATA = [
   },
   // ALLEMAND
   {
-    id: "de_acht", lang: "de", niveau: "Nouveau",
-    word: "acht",
-    translation: "eight", category: "numeral",
+    id: "de_acht", lang: "de", word: "acht",
+    translation: "eight", category: "nombre",
     phrase: "Ich habe eine achtjährige Tochter.",
     phrase_fr: "I have an eight-year-old daughter.",
     audio_word: "audio/de/acht.mp3", audio_phrase: "",
@@ -3616,8 +3362,7 @@ const INITIAL_DATA = [
   // phrase_9: "acht Dinge" | transl: "eight things" | audio: "audio/de/acht_phrase_9.mp3"
   // phrase_10: "acht Mal" | transl: "eight times" | audio: "audio/de/acht_phrase_10.mp3"
   {
-    id: "de_nehmen", lang: "de", niveau: "Nouveau",
-    word: "nehmen",
+    id: "de_nehmen", lang: "de", word: "nehmen",
     translation: "take", category: "verbe",
     phrase: "Die Leute nehmen sich die Erdbeeren.",
     phrase_fr: "The people take the strawberries.",
@@ -3629,8 +3374,7 @@ const INITIAL_DATA = [
   // phrase_3: "eine Erdbeere nehmen" | transl: "take a strawberry" | audio: "audio/de/nehmen_phrase_3.mp3"
   // phrase_4: "etwas aus einem Regal nehmen" | transl: "take something from a shelf" | audio: "audio/de/nehmen_phrase_4.mp3"
   {
-    id: "de_baum", lang: "de", niveau: "Nouveau",
-    word: "Baum",
+    id: "de_baum", lang: "de", word: "Baum",
     genre: "masculin",
     translation: "tree", category: "nom",
     phrase: "Wir essen jedes Jahr Obst vom Apfelbaum aus meinem Garten hinterm Haus.",
@@ -3645,8 +3389,7 @@ const INITIAL_DATA = [
   // phrase_5: "großer Baum" | transl: "big tree" | audio: "audio/de/baum_phrase_5.mp3"
   // phrase_6: "Apfelbaum" | transl: "apple tree" | audio: "audio/de/baum_phrase_6.mp3"
   {
-    id: "de_regenbogen", lang: "de", niveau: "Nouveau",
-    word: "Regenbogen",
+    id: "de_regenbogen", lang: "de", word: "Regenbogen",
     genre: "masculin",
     translation: "rainbow", category: "nom",
     phrase: "Nach dem Regen kannst du vielleicht einen Regenbogen sehen.",
@@ -3658,8 +3401,7 @@ const INITIAL_DATA = [
   // phrase_2: "malerischer Regenbogen" | transl: "scenic rainbow" | audio: "audio/de/regenbogen_phrase_2.mp3"
   // phrase_3: "bunter Regenbogen" | transl: "colorful rainbow" | audio: "audio/de/regenbogen_phrase_3.mp3"
   {
-    id: "de_bart", lang: "de", niveau: "Nouveau",
-    word: "Bart",
+    id: "de_bart", lang: "de", word: "Bart",
     genre: "masculin",
     translation: "beard", category: "nom",
     phrase: "Der Mann hat einen Vollbart, aber nur wenige Haare auf seinem Kopf.",
@@ -3672,8 +3414,7 @@ const INITIAL_DATA = [
   // phrase_3: "Schnurrbart und Bart" | transl: "mustache and beard" | audio: "audio/de/bart_phrase_3.mp3"
   // phrase_4: "sich den Bart mit einem Einmal-Rasierer rasieren" | transl: "shave a beard with a disposable razor" | audio: "audio/de/bart_phrase_4.mp3"
   {
-    id: "de_decke", lang: "de", niveau: "Nouveau",
-    word: "Decke",
+    id: "de_decke", lang: "de", word: "Decke",
     genre: "féminin",
     translation: "blanket", category: "nom",
     phrase: "Die Decke, die mir der Flugbegleiter gab, war sehr komfortabel.",
@@ -3685,8 +3426,7 @@ const INITIAL_DATA = [
   // phrase_2: "Flugzeugdecke" | transl: "airplane blanket" | audio: "audio/de/decke_phrase_2.mp3"
   // phrase_3: "warme Decke" | transl: "warm blanket" | audio: "audio/de/decke_phrase_3.mp3"
   {
-    id: "de_ohrring", lang: "de", niveau: "Nouveau",
-    word: "Ohrring",
+    id: "de_ohrring", lang: "de", word: "Ohrring",
     genre: "masculin",
     translation: "earring", category: "nom",
     phrase: "Meine Mutter trägt ihre Diamantohrringe.",
@@ -3699,8 +3439,7 @@ const INITIAL_DATA = [
   // phrase_3: "handgefertigte Ohrringe" | transl: "hand-made earrings" | audio: "audio/de/ohrring_phrase_3.mp3"
   // phrase_4: "Perlenohrringe" | transl: "pearl earrings" | audio: "audio/de/ohrring_phrase_4.mp3"
   {
-    id: "de_bargeld", lang: "de", niveau: "Nouveau",
-    word: "Bargeld",
+    id: "de_bargeld", lang: "de", word: "Bargeld",
     genre: "neutre",
     translation: "cash", category: "nom",
     phrase: "Da liegen ein paar hundert Dollar Bargeld.",
@@ -3714,8 +3453,7 @@ const INITIAL_DATA = [
   // phrase_4: "Amerikanisches Bargeld" | transl: "American cash" | audio: "audio/de/bargeld_phrase_4.mp3"
   // phrase_5: "Bargeld mit sich tragen" | transl: "carry cash" | audio: "audio/de/bargeld_phrase_5.mp3"
   {
-    id: "de_stuhl", lang: "de", niveau: "Nouveau",
-    word: "Stuhl",
+    id: "de_stuhl", lang: "de", word: "Stuhl",
     genre: "masculin",
     translation: "chair", category: "nom",
     phrase: "Es fällt leichter zu lernen, wenn man in einem bequemen Stuhl sitzt.",
@@ -3728,8 +3466,7 @@ const INITIAL_DATA = [
   // phrase_3: "brauner Lederstuhl" | transl: "brown leather chair" | audio: "audio/de/stuhl_phrase_3.mp3"
   // phrase_4: "bequemer Stuhl" | transl: "comfortable chair" | audio: "audio/de/stuhl_phrase_4.mp3"
   {
-    id: "de_hals", lang: "de", niveau: "Nouveau",
-    word: "Hals",
+    id: "de_hals", lang: "de", word: "Hals",
     genre: "masculin",
     translation: "neck", category: "nom",
     phrase: "Die silberne Kette um ihren Hals ist sehr teuer.",
@@ -3748,8 +3485,7 @@ const INITIAL_DATA = [
   // phrase_9: "langer Hals" | transl: "long neck" | audio: "audio/de/hals_phrase_9.mp3"
   // phrase_10: "Kopf und Hals" | transl: "head and neck" | audio: "audio/de/hals_phrase_10.mp3"
   {
-    id: "de_lecker", lang: "de", niveau: "Nouveau",
-    word: "lecker",
+    id: "de_lecker", lang: "de", word: "lecker",
     translation: "delicious", category: "adjectif",
     phrase: "Die Pizza sieht lecker aus.",
     phrase_fr: "The pizza looks delicious.",
@@ -3761,8 +3497,7 @@ const INITIAL_DATA = [
   // phrase_3: "Dieses Rindfleisch ist sehr lecker." | transl: "This beef is very delicious." | audio: "audio/de/lecker_phrase_3.mp3"
   // phrase_4: "leckere Pizza" | transl: "delicious pizza" | audio: "audio/de/lecker_phrase_4.mp3"
   {
-    id: "de_geschaftsleiter", lang: "de", niveau: "Nouveau",
-    word: "Geschäftsleiter",
+    id: "de_geschaftsleiter", lang: "de", word: "Geschäftsleiter",
     genre: "masculin",
     translation: "director", category: "nom",
     phrase: "Er ist der Geschäftsleiter meiner Firma.",
@@ -3775,8 +3510,7 @@ const INITIAL_DATA = [
   // phrase_3: "Geschäftsleiter einer Firma" | transl: "company director" | audio: "audio/de/geschaftsleiter_phrase_3.mp3"
   // phrase_4: "Filmregisseur" | transl: "movie director" | audio: "audio/de/geschaftsleiter_phrase_4.mp3"
   {
-    id: "de_arzt", lang: "de", niveau: "Nouveau",
-    word: "Arzt",
+    id: "de_arzt", lang: "de", word: "Arzt",
     genre: "masculin",
     translation: "medical doctor", category: "nom",
     phrase: "Der Arzt untersucht den Fuß.",
@@ -3789,8 +3523,7 @@ const INITIAL_DATA = [
   // phrase_3: "Wenn du krank wirst, gehe zum Arzt." | transl: "If you get sick go to the doctor." | audio: "audio/de/arzt_phrase_3.mp3"
   // phrase_4: "Arztbesuch" | transl: "doctor visit" | audio: "audio/de/arzt_phrase_4.mp3"
   {
-    id: "de_radieren", lang: "de", niveau: "Nouveau",
-    word: "radieren",
+    id: "de_radieren", lang: "de", word: "radieren",
     translation: "erase", category: "verbe",
     phrase: "Der Schüler radiert das Geschriebene.",
     phrase_fr: "The student is erasing the writing.",
@@ -3800,8 +3533,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'radieren':
   // phrase_2: "Bleistifte sind beliebte Schreibwerkzeuge, da man Bleistiftstriche einfach wegradieren kann." | transl: "Pencils are popular writing tools, as pencil marks erase easily." | audio: "audio/de/radieren_phrase_2.mp3"
   {
-    id: "de_osten", lang: "de", niveau: "Nouveau",
-    word: "Osten",
+    id: "de_osten", lang: "de", word: "Osten",
     genre: "masculin",
     translation: "east", category: "nom",
     phrase: "Die Sonne geht im Osten auf und geht im Westen unter.",
@@ -3813,8 +3545,7 @@ const INITIAL_DATA = [
   // phrase_2: "Die Sonne geht jeden Morgen im Osten auf." | transl: "The sun rises every morning in the East." | audio: "audio/de/osten_phrase_2.mp3"
   // phrase_3: "dem Osten zugewandt" | transl: "facing east" | audio: "audio/de/osten_phrase_3.mp3"
   {
-    id: "de_mehl", lang: "de", niveau: "Nouveau",
-    word: "Mehl",
+    id: "de_mehl", lang: "de", word: "Mehl",
     genre: "neutre",
     translation: "flour", category: "nom",
     phrase: "Du musst das Mehl mit Wasser mischen.",
@@ -3830,8 +3561,7 @@ const INITIAL_DATA = [
   // phrase_6: "gesiebtes Mehl" | transl: "sifted flour" | audio: "audio/de/mehl_phrase_6.mp3"
   // phrase_7: "Mehrzweckmehl" | transl: "general purpose flour" | audio: "audio/de/mehl_phrase_7.mp3"
   {
-    id: "de_stirn", lang: "de", niveau: "Nouveau",
-    word: "Stirn",
+    id: "de_stirn", lang: "de", word: "Stirn",
     genre: "féminin",
     translation: "forehead", category: "nom",
     phrase: "Die neuesten Fieberthermometer können die Temperatur im Ohr und an der Stirn messen.",
@@ -3845,8 +3575,7 @@ const INITIAL_DATA = [
   // phrase_4: "Falten auf der Stirn" | transl: "wrinkles on the forehead" | audio: "audio/de/stirn_phrase_4.mp3"
   // phrase_5: "Stirnfalten" | transl: "forehead wrinkles" | audio: "audio/de/stirn_phrase_5.mp3"
   {
-    id: "de_wald", lang: "de", niveau: "Nouveau",
-    word: "Wald",
+    id: "de_wald", lang: "de", word: "Wald",
     genre: "masculin",
     translation: "forest", category: "nom",
     phrase: "Dieser Hirsch ist tief in den Wald gerannt.",
@@ -3859,8 +3588,7 @@ const INITIAL_DATA = [
   // phrase_3: "Waldbäume" | transl: "forest trees" | audio: "audio/de/wald_phrase_3.mp3"
   // phrase_4: "Waldgebiet" | transl: "forest area" | audio: "audio/de/wald_phrase_4.mp3"
   {
-    id: "de_benzin", lang: "de", niveau: "Nouveau",
-    word: "Benzin",
+    id: "de_benzin", lang: "de", word: "Benzin",
     genre: "neutre",
     translation: "gasoline", category: "nom",
     phrase: "Der Preis für Benzin steigt.",
@@ -3873,8 +3601,7 @@ const INITIAL_DATA = [
   // phrase_3: "Benzin tanken" | transl: "pump gasoline" | audio: "audio/de/benzin_phrase_3.mp3"
   // phrase_4: "Tankstelle" | transl: "petrol station" | audio: "audio/de/benzin_phrase_4.mp3"
   {
-    id: "de_links", lang: "de", niveau: "Nouveau",
-    word: "links",
+    id: "de_links", lang: "de", word: "links",
     translation: "left", category: "adverbe",
     phrase: "An der Kreuzung bog der Mann links ab.",
     phrase_fr: "At the intersection, the man turned left.",
@@ -3887,8 +3614,7 @@ const INITIAL_DATA = [
   // phrase_4: "Linksabbiegeschild" | transl: "left turn sign" | audio: "audio/de/links_phrase_4.mp3"
   // phrase_5: "Linkskurve" | transl: "left turn" | audio: "audio/de/links_phrase_5.mp3"
   {
-    id: "de_gras", lang: "de", niveau: "Nouveau",
-    word: "Gras",
+    id: "de_gras", lang: "de", word: "Gras",
     genre: "neutre",
     translation: "grass", category: "nom",
     phrase: "Die Füchse spielen im Gras.",
@@ -3901,8 +3627,7 @@ const INITIAL_DATA = [
   // phrase_3: "grünes Gras" | transl: "green grass" | audio: "audio/de/gras_phrase_3.mp3"
   // phrase_4: "weißer Hase im grünen Gras" | transl: "white rabbit in the green grass" | audio: "audio/de/gras_phrase_4.mp3"
   {
-    id: "de_hugel", lang: "de", niveau: "Nouveau",
-    word: "Hügel",
+    id: "de_hugel", lang: "de", word: "Hügel",
     genre: "masculin",
     translation: "hill", category: "nom",
     phrase: "Auf der Spitze des Hügels steht eine Marmorstatue.",
@@ -3914,8 +3639,7 @@ const INITIAL_DATA = [
   // phrase_2: "Hügel in der Landschaft" | transl: "hill in the countryside" | audio: "audio/de/hugel_phrase_2.mp3"
   // phrase_3: "über den Hügel" | transl: "over the hill" | audio: "audio/de/hugel_phrase_3.mp3"
   {
-    id: "de_gelb", lang: "de", niveau: "Nouveau",
-    word: "gelb",
+    id: "de_gelb", lang: "de", word: "gelb",
     translation: "yellow", category: "adjectif",
     phrase: "Der Schreiner trägt einen gelben Helm.",
     phrase_fr: "The carpenter is wearing a yellow helmet.",
@@ -3928,8 +3652,7 @@ const INITIAL_DATA = [
   // phrase_4: "gelbe Farbe" | transl: "yellow paint" | audio: "audio/de/gelb_phrase_4.mp3"
   // phrase_5: "gelber Sand" | transl: "yellow sands" | audio: "audio/de/gelb_phrase_5.mp3"
   {
-    id: "de_saft", lang: "de", niveau: "Nouveau",
-    word: "Saft",
+    id: "de_saft", lang: "de", word: "Saft",
     genre: "masculin",
     translation: "juice", category: "nom",
     phrase: "Ich trinke Orangensaft zum Frühstück und Apfelsaft zum Mittagessen.",
@@ -3943,8 +3666,7 @@ const INITIAL_DATA = [
   // phrase_4: "Apfelsaft, Orangensaft und Traubensaft" | transl: "apple juice, orange juice, and grape juice" | audio: "audio/de/saft_phrase_4.mp3"
   // phrase_5: "frisch gepresster Saft" | transl: "fresh squeezed juice" | audio: "audio/de/saft_phrase_5.mp3"
   {
-    id: "de_springen", lang: "de", niveau: "Nouveau",
-    word: "springen",
+    id: "de_springen", lang: "de", word: "springen",
     translation: "jump", category: "verbe",
     phrase: "Die Frau springt gerade in die Luft.",
     phrase_fr: "The woman is jumping in the air.",
@@ -3958,8 +3680,7 @@ const INITIAL_DATA = [
   // phrase_5: "über eine Hürde springen" | transl: "jump a hurdle" | audio: "audio/de/springen_phrase_5.mp3"
   // phrase_6: "auf dem Gipfel eines Berges springen" | transl: "jump on top of a mountain" | audio: "audio/de/springen_phrase_6.mp3"
   {
-    id: "de_lamm", lang: "de", niveau: "Nouveau",
-    word: "Lamm",
+    id: "de_lamm", lang: "de", word: "Lamm",
     genre: "neutre",
     translation: "lamb", category: "nom",
     phrase: "Die Lämmer essen.",
@@ -3972,8 +3693,7 @@ const INITIAL_DATA = [
   // phrase_3: "kleines Lamm" | transl: "little lamb" | audio: "audio/de/lamm_phrase_3.mp3"
   // phrase_4: "Lammrücken" | transl: "rack of lamb" | audio: "audio/de/lamm_phrase_4.mp3"
   {
-    id: "de_sprache", lang: "de", niveau: "Nouveau",
-    word: "Sprache",
+    id: "de_sprache", lang: "de", word: "Sprache",
     genre: "féminin",
     translation: "language", category: "nom",
     phrase: "Die Amtssprache ist Koreanisch.",
@@ -3985,8 +3705,7 @@ const INITIAL_DATA = [
   // phrase_2: "Englische und Französische Sprache" | transl: "English and French language" | audio: "audio/de/sprache_phrase_2.mp3"
   // phrase_3: "die Sprache sprechen" | transl: "speak the language" | audio: "audio/de/sprache_phrase_3.mp3"
   {
-    id: "de_spat", lang: "de", niveau: "Nouveau",
-    word: "spät",
+    id: "de_spat", lang: "de", word: "spät",
     translation: "late", category: "adjectif",
     phrase: "Der Klient ist zu spät für das Treffen.",
     phrase_fr: "The client is late for the meeting.",
@@ -4000,8 +3719,7 @@ const INITIAL_DATA = [
   // phrase_5: "bis spät arbeiten" | transl: "work late" | audio: "audio/de/spat_phrase_5.mp3"
   // phrase_6: "eine Stunde zu spät" | transl: "an hour late" | audio: "audio/de/spat_phrase_6.mp3"
   {
-    id: "de_einkaufszentrum", lang: "de", niveau: "Nouveau",
-    word: "Einkaufszentrum",
+    id: "de_einkaufszentrum", lang: "de", word: "Einkaufszentrum",
     genre: "neutre",
     translation: "mall", category: "nom",
     phrase: "Das Einkaufszentrum ist voller Menschen.",
@@ -4014,8 +3732,7 @@ const INITIAL_DATA = [
   // phrase_3: "in ein Einkaufszentrum gehen" | transl: "visit the shopping mall" | audio: "audio/de/einkaufszentrum_phrase_3.mp3"
   // phrase_4: "Einkaufszentrum" | transl: "shopping mall" | audio: "audio/de/einkaufszentrum_phrase_4.mp3"
   {
-    id: "de_speisekarte", lang: "de", niveau: "Nouveau",
-    word: "Speisekarte",
+    id: "de_speisekarte", lang: "de", word: "Speisekarte",
     genre: "féminin",
     translation: "menu", category: "nom",
     phrase: "Der Gast liest die Speisekarte.",
@@ -4028,8 +3745,7 @@ const INITIAL_DATA = [
   // phrase_3: "von der Speisekarte auswählen" | transl: "select from the menu" | audio: "audio/de/speisekarte_phrase_3.mp3"
   // phrase_4: "Speisekarte für das Abendessen" | transl: "dinner menu" | audio: "audio/de/speisekarte_phrase_4.mp3"
   {
-    id: "de_mikrowelle", lang: "de", niveau: "Nouveau",
-    word: "Mikrowelle",
+    id: "de_mikrowelle", lang: "de", word: "Mikrowelle",
     genre: "féminin",
     translation: "microwave oven", category: "nom",
     phrase: "Das praktischste Küchengerät ist die Mikrowelle.",
@@ -4040,8 +3756,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'Mikrowelle':
   // phrase_2: "Mikrowellenofen aus rostfreiem Stahl" | transl: "stainless steel microwave oven" | audio: "audio/de/mikrowelle_phrase_2.mp3"
   {
-    id: "de_berg", lang: "de", niveau: "Nouveau",
-    word: "Berg",
+    id: "de_berg", lang: "de", word: "Berg",
     genre: "masculin",
     translation: "mountain", category: "nom",
     phrase: "Da ist Schnee auf der Spitze des Berges.",
@@ -4053,8 +3768,7 @@ const INITIAL_DATA = [
   // phrase_2: "Der Mann fährt mit seinem Fahrrad den Berg hinab." | transl: "The man is riding his bike down the mountain." | audio: "audio/de/berg_phrase_2.mp3"
   // phrase_3: "Bergkette" | transl: "mountain range" | audio: "audio/de/berg_phrase_3.mp3"
   {
-    id: "de_nasenloch", lang: "de", niveau: "Nouveau",
-    word: "Nasenloch",
+    id: "de_nasenloch", lang: "de", word: "Nasenloch",
     genre: "neutre",
     translation: "nostril", category: "nom",
     phrase: "Mit einer Erkältung kann man manchmal nicht durch seine Nasenlöcher atmen.",
@@ -4066,8 +3780,7 @@ const INITIAL_DATA = [
   // phrase_2: "linkes Nasenloch" | transl: "left nostril" | audio: "audio/de/nasenloch_phrase_2.mp3"
   // phrase_3: "erweiterte Nasenlöcher" | transl: "flaring nostrils" | audio: "audio/de/nasenloch_phrase_3.mp3"
   {
-    id: "de_schmal", lang: "de", niveau: "Nouveau",
-    word: "schmal",
+    id: "de_schmal", lang: "de", word: "schmal",
     translation: "narrow", category: "adjectif",
     phrase: "Der Mann wandert auf einem schmalen Pfad.",
     phrase_fr: "The man is hiking on a narrow path.",
@@ -4079,8 +3792,7 @@ const INITIAL_DATA = [
   // phrase_3: "schmaler Durchgang" | transl: "narrow pass" | audio: "audio/de/schmal_phrase_3.mp3"
   // phrase_4: "schmale Meerenge" | transl: "narrow straits" | audio: "audio/de/schmal_phrase_4.mp3"
   {
-    id: "de_wildschwein", lang: "de", niveau: "Nouveau",
-    word: "Wildschwein",
+    id: "de_wildschwein", lang: "de", word: "Wildschwein",
     genre: "neutre",
     translation: "wild boar", category: "nom",
     phrase: "Das Wildschwein läuft im Schnee.",
@@ -4092,8 +3804,7 @@ const INITIAL_DATA = [
   // phrase_2: "Die Wildschweine kauen das Gras." | transl: "The wild boars are chewing the grass." | audio: "audio/de/wildschwein_phrase_2.mp3"
   // phrase_3: "Wildschwein im Schnee" | transl: "wild boar in the snow" | audio: "audio/de/wildschwein_phrase_3.mp3"
   {
-    id: "de_buro", lang: "de", niveau: "Nouveau",
-    word: "Büro",
+    id: "de_buro", lang: "de", word: "Büro",
     genre: "neutre",
     translation: "office", category: "nom",
     phrase: "Ich bin der Chef in meinem Büro.",
@@ -4108,8 +3819,7 @@ const INITIAL_DATA = [
   // phrase_5: "im Büro arbeiten" | transl: "work at an office" | audio: "audio/de/buro_phrase_5.mp3"
   // phrase_6: "Firmenbüro" | transl: "company office" | audio: "audio/de/buro_phrase_6.mp3"
   {
-    id: "de_lesen", lang: "de", niveau: "Nouveau",
-    word: "lesen",
+    id: "de_lesen", lang: "de", word: "lesen",
     translation: "read", category: "verbe",
     phrase: "Die Frau liest eine Zeitschrift.",
     phrase_fr: "The woman is reading a magazine.",
@@ -4127,8 +3837,7 @@ const INITIAL_DATA = [
   // phrase_9: "eine Zeitschrift lesen" | transl: "read a magazine" | audio: "audio/de/lesen_phrase_9.mp3"
   // phrase_10: "ein Buch lesen" | transl: "read a book" | audio: "audio/de/lesen_phrase_10.mp3"
   {
-    id: "de_reservierung", lang: "de", niveau: "Nouveau",
-    word: "Reservierung",
+    id: "de_reservierung", lang: "de", word: "Reservierung",
     genre: "féminin",
     translation: "reservation", category: "nom",
     phrase: "Haben Sie eine Reservierung?",
@@ -4140,8 +3849,7 @@ const INITIAL_DATA = [
   // phrase_2: "Reservierung für 20 Uhr" | transl: "reservation for 8 PM" | audio: "audio/de/reservierung_phrase_2.mp3"
   // phrase_3: "Reservierung für drei" | transl: "reservation for three" | audio: "audio/de/reservierung_phrase_3.mp3"
   {
-    id: "de_straße", lang: "de", niveau: "Nouveau",
-    word: "Straße",
+    id: "de_straße", lang: "de", word: "Straße",
     genre: "féminin",
     translation: "street", category: "nom",
     phrase: "Die Autos fahren die Straße herunter.",
@@ -4155,8 +3863,7 @@ const INITIAL_DATA = [
   // phrase_4: "Einbahnstraße" | transl: "one way street" | audio: "audio/de/straße_phrase_4.mp3"
   // phrase_5: "Hauptstrasse" | transl: "main street" | audio: "audio/de/straße_phrase_5.mp3"
   {
-    id: "de_gehalt", lang: "de", niveau: "Nouveau",
-    word: "Gehalt",
+    id: "de_gehalt", lang: "de", word: "Gehalt",
     genre: "neutre",
     translation: "salary", category: "nom",
     phrase: "Wie hoch ist das Gehalt?",
@@ -4169,8 +3876,7 @@ const INITIAL_DATA = [
   // phrase_3: "Bargehalt" | transl: "cash salary" | audio: "audio/de/gehalt_phrase_3.mp3"
   // phrase_4: "monatliches Gehalt" | transl: "monthly salary" | audio: "audio/de/gehalt_phrase_4.mp3"
   {
-    id: "de_salzig", lang: "de", niveau: "Nouveau",
-    word: "salzig",
+    id: "de_salzig", lang: "de", word: "salzig",
     translation: "salty", category: "adjectif",
     phrase: "Diese Suppe ist zu salzig.",
     phrase_fr: "This soup is too salty.",
@@ -4181,8 +3887,7 @@ const INITIAL_DATA = [
   // phrase_2: "Diese Häppchen sind zu salzig." | transl: "These appetizers are too salty." | audio: "audio/de/salzig_phrase_2.mp3"
   // phrase_3: "salziger Snack" | transl: "salty snack" | audio: "audio/de/salzig_phrase_3.mp3"
   {
-    id: "de_meeresfruchte", lang: "de", niveau: "Nouveau",
-    word: "Meeresfrüchte",
+    id: "de_meeresfruchte", lang: "de", word: "Meeresfrüchte",
     genre: "féminin",
     translation: "seafood", category: "nom",
     phrase: "Muscheln, Lachs, Garnelen, Hummer und Tintenfisch sind alles Meeresfrüchte.",
@@ -4194,8 +3899,7 @@ const INITIAL_DATA = [
   // phrase_2: "Meeresfrüchteteller" | transl: "seafood platter" | audio: "audio/de/meeresfruchte_phrase_2.mp3"
   // phrase_3: "Meeresfrüchterestaurant" | transl: "seafood restaurant" | audio: "audio/de/meeresfruchte_phrase_3.mp3"
   {
-    id: "de_garnele", lang: "de", niveau: "Nouveau",
-    word: "Garnele",
+    id: "de_garnele", lang: "de", word: "Garnele",
     genre: "féminin",
     translation: "shrimp", category: "nom",
     phrase: "Garnelen kann man sowohl in Süßwasser, als auch in Salzwasser finden.",
@@ -4208,8 +3912,7 @@ const INITIAL_DATA = [
   // phrase_3: "Garnelencocktail" | transl: "shrimp cocktail" | audio: "audio/de/garnele_phrase_3.mp3"
   // phrase_4: "Riesengarnele" | transl: "jumbo shrimp" | audio: "audio/de/garnele_phrase_4.mp3"
   {
-    id: "de_rock", lang: "de", niveau: "Nouveau",
-    word: "Rock",
+    id: "de_rock", lang: "de", word: "Rock",
     genre: "masculin",
     translation: "skirt", category: "nom",
     phrase: "Sie trägt einen gelben Rock.",
@@ -4222,8 +3925,7 @@ const INITIAL_DATA = [
   // phrase_3: "dunkelpinker Rock" | transl: "dark pink skirt" | audio: "audio/de/rock_phrase_3.mp3"
   // phrase_4: "Minirock" | transl: "miniskirt" | audio: "audio/de/rock_phrase_4.mp3"
   {
-    id: "de_werkzeugkasten", lang: "de", niveau: "Nouveau",
-    word: "Werkzeugkasten",
+    id: "de_werkzeugkasten", lang: "de", word: "Werkzeugkasten",
     genre: "masculin",
     translation: "toolbox", category: "nom",
     phrase: "Ich bewahre Schraubenschlüssel und Schraubenzieher in meinem Werkzeugkasten auf.",
@@ -4235,8 +3937,7 @@ const INITIAL_DATA = [
   // phrase_2: "In meinem Werkzeugkasten habe ich bislang nur einen Hammer und ein paar Schraubenzieher." | transl: "In my toolbox I only have one hammer and a few screwdrivers." | audio: "audio/de/werkzeugkasten_phrase_2.mp3"
   // phrase_3: "Werkzeuge in einem Werkzeugkasten" | transl: "tools in a toolbox" | audio: "audio/de/werkzeugkasten_phrase_3.mp3"
   {
-    id: "de_taifun", lang: "de", niveau: "Nouveau",
-    word: "Taifun",
+    id: "de_taifun", lang: "de", word: "Taifun",
     genre: "masculin",
     translation: "typhoon", category: "nom",
     phrase: "Der Taifun ist angekommen.",
@@ -4252,8 +3953,7 @@ const INITIAL_DATA = [
   // phrase_6: "Draußen ist es windig." | transl: "It's windy outside." | audio: "audio/de/taifun_phrase_6.mp3"
   // phrase_7: "Taifun im Pazifik" | transl: "pacific typhoon" | audio: "audio/de/taifun_phrase_7.mp3"
   {
-    id: "de_kuh", lang: "de", niveau: "Nouveau",
-    word: "Kuh",
+    id: "de_kuh", lang: "de", word: "Kuh",
     genre: "féminin",
     translation: "cow", category: "nom",
     phrase: "Die Kuh ist auf dem Feld.",
@@ -4267,8 +3967,7 @@ const INITIAL_DATA = [
   // phrase_4: "schwarz-weiße Kuh" | transl: "black and white cow" | audio: "audio/de/kuh_phrase_4.mp3"
   // phrase_5: "Kuhmilch" | transl: "cow milk" | audio: "audio/de/kuh_phrase_5.mp3"
   {
-    id: "de_gemuse", lang: "de", niveau: "Nouveau",
-    word: "Gemüse",
+    id: "de_gemuse", lang: "de", word: "Gemüse",
     genre: "neutre",
     translation: "vegetable", category: "nom",
     phrase: "Gemüse ist eine reiche Quelle an Vitaminen und Mineralien.",
@@ -4287,8 +3986,7 @@ const INITIAL_DATA = [
   // phrase_9: "Gemüsesaft" | transl: "vegetable juice" | audio: "audio/de/gemuse_phrase_9.mp3"
   // phrase_10: "Gemüsegarten" | transl: "vegetable garden" | audio: "audio/de/gemuse_phrase_10.mp3"
   {
-    id: "de_grun", lang: "de", niveau: "Nouveau",
-    word: "grün",
+    id: "de_grun", lang: "de", word: "grün",
     translation: "green", category: "adjectif",
     phrase: "Das Glühwürmchen ist auf dem grünen Blatt.",
     phrase_fr: "The firefly is on the green leaf.",
@@ -4300,8 +3998,7 @@ const INITIAL_DATA = [
   // phrase_3: "waldgrün" | transl: "forest green" | audio: "audio/de/grun_phrase_3.mp3"
   // phrase_4: "hellgrün" | transl: "light green" | audio: "audio/de/grun_phrase_4.mp3"
   {
-    id: "de_flug", lang: "de", niveau: "Nouveau",
-    word: "Flug",
+    id: "de_flug", lang: "de", word: "Flug",
     genre: "masculin",
     translation: "flight", category: "nom",
     phrase: "Der Flug geht in einer Stunde.",
@@ -4314,8 +4011,7 @@ const INITIAL_DATA = [
   // phrase_3: "Bordkarte für den Flug" | transl: "boarding pass for the flight" | audio: "audio/de/flug_phrase_3.mp3"
   
   {
-    id: "de_001", lang: "de", niveau: "Nouveau",
-    word: "lernen",
+    id: "de_001", lang: "de", word: "lernen",
     roman: "lernen",
     translation: "apprendre", category: "Verbe",
     phrase: "Ich lerne jeden Tag Deutsch.",
@@ -4324,8 +4020,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: "lernen = apprendre (transitif) · ichiban lerne → ich lerne"
   },
   {
-    id: "de_002", lang: "de", niveau: "Nouveau",
-    word: "sprechen",
+    id: "de_002", lang: "de", word: "sprechen",
     roman: "sprechen",
     translation: "parler", category: "Verbe",
     phrase: "Sprechen Sie Deutsch?",
@@ -4334,8 +4029,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: "sprechen (irrégulier) : ich spreche, du sprichst, er spricht"
   },
   {
-    id: "de_003", lang: "de", niveau: "Nouveau",
-    word: "Wörterbuch",
+    id: "de_003", lang: "de", word: "Wörterbuch",
     roman: "Wörterbuch",
     translation: "dictionnaire", category: "Nom",
     genre: "neutre (das)",
@@ -4345,8 +4039,7 @@ const INITIAL_DATA = [
     audio_word: "", audio_phrase: "", notes: "das Wörterbuch · pluriel : die Wörterbücher"
   },
   {
-    id: "de_004", lang: "de", niveau: "Nouveau",
-    word: "schön",
+    id: "de_004", lang: "de", word: "schön",
     roman: "schön",
     translation: "beau / belle", category: "Adjectif",
     phrase: "Das Wetter ist heute schön.",
@@ -4356,8 +4049,7 @@ const INITIAL_DATA = [
   },
   // ESPAGNOL
   {
-    id: "es_tobillo", lang: "es", niveau: "Nouveau",
-    word: "tobillo",
+    id: "es_tobillo", lang: "es", word: "tobillo",
     genre: "masculin",
     translation: "ankle", category: "nom",
     phrase: "El atleta se esguinzó el tobillo.",
@@ -4371,8 +4063,7 @@ const INITIAL_DATA = [
   // phrase_4: "tobillo hinchado" | transl: "swollen ankle" | audio: "audio/es/tobillo_phrase_4.mp3"
   // phrase_5: "hueso del tobillo" | transl: "ankle bone" | audio: "audio/es/tobillo_phrase_5.mp3"
   {
-    id: "es_pajaro", lang: "es", niveau: "Nouveau",
-    word: "pájaro",
+    id: "es_pajaro", lang: "es", word: "pájaro",
     genre: "masculin",
     translation: "bird", category: "nom",
     phrase: "Hoy vimos quince pájaros en la observación de aves.",
@@ -4386,8 +4077,7 @@ const INITIAL_DATA = [
   // phrase_4: "pájaro marrón y naranja" | transl: "yellowish brown bird" | audio: "audio/es/pajaro_phrase_4.mp3"
   // phrase_5: "pájaro mascota" | transl: "pet bird" | audio: "audio/es/pajaro_phrase_5.mp3"
   {
-    id: "es_calido", lang: "es", niveau: "Nouveau",
-    word: "cálido",
+    id: "es_calido", lang: "es", word: "cálido",
     translation: "warm", category: "adjectif",
     phrase: "El verano es el tiempo de las vacaciones familiares y el clima cálido.",
     phrase_fr: "Summer is the time of family vacations and warm weather.",
@@ -4399,8 +4089,7 @@ const INITIAL_DATA = [
   // phrase_3: "clima cálido" | transl: "warm weather" | audio: "audio/es/calido_phrase_3.mp3"
   // phrase_4: "viento cálido" | transl: "warm wind" | audio: "audio/es/calido_phrase_4.mp3"
   {
-    id: "es_nube", lang: "es", niveau: "Nouveau",
-    word: "nube",
+    id: "es_nube", lang: "es", word: "nube",
     genre: "féminin",
     translation: "cloud", category: "nom",
     phrase: "No veo una nube en el cielo.",
@@ -4413,8 +4102,7 @@ const INITIAL_DATA = [
   // phrase_3: "una nube oscura" | transl: "a dark cloud" | audio: "audio/es/nube_phrase_3.mp3"
   // phrase_4: "cielo azul con nubes blancas" | transl: "blue sky with white clouds" | audio: "audio/es/nube_phrase_4.mp3"
   {
-    id: "es_llovizna", lang: "es", niveau: "Nouveau",
-    word: "llovizna",
+    id: "es_llovizna", lang: "es", word: "llovizna",
     genre: "féminin",
     translation: "drizzle", category: "nom",
     phrase: "Una llovizna es una lluvia muy ligera.",
@@ -4425,8 +4113,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'llovizna':
   // phrase_2: "llovizna ligera" | transl: "light drizzle" | audio: "audio/es/llovizna_phrase_2.mp3"
   {
-    id: "es_escarcha", lang: "es", niveau: "Nouveau",
-    word: "escarcha",
+    id: "es_escarcha", lang: "es", word: "escarcha",
     genre: "féminin",
     translation: "frost", category: "nom",
     phrase: "Si hace mucho frío,la escarcha matará mis plantas.",
@@ -4438,8 +4125,7 @@ const INITIAL_DATA = [
   // phrase_2: "escarcha matutina" | transl: "morning frost" | audio: "audio/es/escarcha_phrase_2.mp3"
   // phrase_3: "escarcha en el cristal de mi ventana" | transl: "frost on my window panes" | audio: "audio/es/escarcha_phrase_3.mp3"
   {
-    id: "es_rinon", lang: "es", niveau: "Nouveau",
-    word: "riñón",
+    id: "es_rinon", lang: "es", word: "riñón",
     genre: "masculin",
     translation: "kidney", category: "nom",
     phrase: "La mayoría de las personas nacen con dos riñones en su cuerpo.",
@@ -4451,8 +4137,7 @@ const INITIAL_DATA = [
   // phrase_2: "riñón izquierdo y riñón derecho" | transl: "left kidney and right kidney" | audio: "audio/es/rinon_phrase_2.mp3"
   // phrase_3: "piedras en el riñón" | transl: "kidney stones" | audio: "audio/es/rinon_phrase_3.mp3"
   {
-    id: "es_tenedor", lang: "es", niveau: "Nouveau",
-    word: "tenedor",
+    id: "es_tenedor", lang: "es", word: "tenedor",
     genre: "masculin",
     translation: "fork", category: "nom",
     phrase: "¿Puedes diferenciar entre el tenedor para ensalada y el tenedor para la cena?",
@@ -4466,8 +4151,7 @@ const INITIAL_DATA = [
   // phrase_4: "tenedor para ensalada" | transl: "salad fork" | audio: "audio/es/tenedor_phrase_4.mp3"
   // phrase_5: "tenedor para la cena" | transl: "dinner fork" | audio: "audio/es/tenedor_phrase_5.mp3"
   {
-    id: "es_ajo", lang: "es", niveau: "Nouveau",
-    word: "ajo",
+    id: "es_ajo", lang: "es", word: "ajo",
     genre: "masculin",
     translation: "garlic", category: "nom",
     phrase: "El sabor y el olor del ajo son sus marcas al cocinar.",
@@ -4481,8 +4165,7 @@ const INITIAL_DATA = [
   // phrase_4: "cabeza y dientes de ajo" | transl: "garlic bulb and cloves" | audio: "audio/es/ajo_phrase_4.mp3"
   // phrase_5: "pan de ajo" | transl: "garlic bread" | audio: "audio/es/ajo_phrase_5.mp3"
   {
-    id: "es_vaqueros", lang: "es", niveau: "Nouveau",
-    word: "vaqueros",
+    id: "es_vaqueros", lang: "es", word: "vaqueros",
     genre: "masculin",
     translation: "jeans", category: "nom",
     phrase: "Los vaqueros son fabricados con tela vaquera.",
@@ -4494,8 +4177,7 @@ const INITIAL_DATA = [
   // phrase_2: "vaqueros desteñidos" | transl: "faded jeans" | audio: "audio/es/vaqueros_phrase_2.mp3"
   // phrase_3: "pantalones vaqueros azules" | transl: "blue jeans" | audio: "audio/es/vaqueros_phrase_3.mp3"
   {
-    id: "es_bombilla", lang: "es", niveau: "Nouveau",
-    word: "bombilla",
+    id: "es_bombilla", lang: "es", word: "bombilla",
     genre: "féminin",
     translation: "light bulb", category: "nom",
     phrase: "Cambia la bombilla cuando se funda y se quede a obscuras.",
@@ -4506,8 +4188,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'bombilla':
   // phrase_2: "bombilla incandescente" | transl: "incandescent light bulb" | audio: "audio/es/bombilla_phrase_2.mp3"
   {
-    id: "es_mala_hierba", lang: "es", niveau: "Nouveau",
-    word: "mala hierba",
+    id: "es_mala_hierba", lang: "es", word: "mala hierba",
     genre: "féminin",
     translation: "weed", category: "expression",
     phrase: "El jardinero está sosteniendo una mala hierba.",
@@ -4520,8 +4201,7 @@ const INITIAL_DATA = [
   // phrase_3: "arrancar una mala hierba" | transl: "pull a weed" | audio: "audio/es/mala_hierba_phrase_3.mp3"
   // phrase_4: "quitar la mala hierba del jardín" | transl: "weed the garden" | audio: "audio/es/mala_hierba_phrase_4.mp3"
   {
-    id: "es_cabra", lang: "es", niveau: "Nouveau",
-    word: "cabra",
+    id: "es_cabra", lang: "es", word: "cabra",
     genre: "féminin",
     translation: "goat", category: "nom",
     phrase: "La cabra está en la pradera.",
@@ -4533,8 +4213,7 @@ const INITIAL_DATA = [
   // phrase_2: "Las cabras juegan en la granja." | transl: "The goats are playing on the farm." | audio: "audio/es/cabra_phrase_2.mp3"
   // phrase_3: "cabra blanca" | transl: "white goat" | audio: "audio/es/cabra_phrase_3.mp3"
   {
-    id: "es_bigote", lang: "es", niveau: "Nouveau",
-    word: "bigote",
+    id: "es_bigote", lang: "es", word: "bigote",
     genre: "masculin",
     translation: "mustache", category: "nom",
     phrase: "El hombre tiene un bigote grueso.",
@@ -4547,8 +4226,7 @@ const INITIAL_DATA = [
   // phrase_3: "bigote y barba" | transl: "mustache and beard" | audio: "audio/es/bigote_phrase_3.mp3"
   // phrase_4: "bigote aseado" | transl: "neat moustache" | audio: "audio/es/bigote_phrase_4.mp3"
   {
-    id: "es_cebolla", lang: "es", niveau: "Nouveau",
-    word: "cebolla",
+    id: "es_cebolla", lang: "es", word: "cebolla",
     genre: "féminin",
     translation: "onion", category: "nom",
     phrase: "Las cebollas son bulbos vegetales subterráneos que vienen en muchos colores y tamaños.",
@@ -4563,8 +4241,7 @@ const INITIAL_DATA = [
   // phrase_5: "aliento a cebolla" | transl: "onion breath" | audio: "audio/es/cebolla_phrase_5.mp3"
   // phrase_6: "cebolla dulce cortada" | transl: "chopped sweet onion" | audio: "audio/es/cebolla_phrase_6.mp3"
   {
-    id: "es_oreja", lang: "es", niveau: "Nouveau",
-    word: "oreja",
+    id: "es_oreja", lang: "es", word: "oreja",
     genre: "féminin",
     translation: "ear", category: "nom",
     phrase: "Tiene unas orejas bien preciosas.",
@@ -4577,8 +4254,7 @@ const INITIAL_DATA = [
   // phrase_3: "oreja derecha" | transl: "right ear" | audio: "audio/es/oreja_phrase_3.mp3"
   // phrase_4: "oreja perforada" | transl: "pierced ear" | audio: "audio/es/oreja_phrase_4.mp3"
   {
-    id: "es_gallina", lang: "es", niveau: "Nouveau",
-    word: "gallina",
+    id: "es_gallina", lang: "es", word: "gallina",
     genre: "féminin",
     translation: "chicken", category: "nom",
     phrase: "Las gallinas y los pollitos picotean su comida.",
@@ -4590,8 +4266,7 @@ const INITIAL_DATA = [
   // phrase_2: "gallina blanca" | transl: "white chicken" | audio: "audio/es/gallina_phrase_2.mp3"
   // phrase_3: "gallina marrón" | transl: "brown chicken" | audio: "audio/es/gallina_phrase_3.mp3"
   {
-    id: "es_empujar", lang: "es", niveau: "Nouveau",
-    word: "empujar",
+    id: "es_empujar", lang: "es", word: "empujar",
     translation: "push", category: "verbe",
     phrase: "El hombre está empujando el coche.",
     phrase_fr: "The man is pushing the car.",
@@ -4601,8 +4276,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'empujar':
   // phrase_2: "empujar un coche" | transl: "push a car" | audio: "audio/es/empujar_phrase_2.mp3"
   {
-    id: "es_sarten", lang: "es", niveau: "Nouveau",
-    word: "sartén",
+    id: "es_sarten", lang: "es", word: "sartén",
     genre: "féminin",
     translation: "frying pan", category: "nom",
     phrase: "Las cebollas están siendo salteadas en la sartén.",
@@ -4614,8 +4288,7 @@ const INITIAL_DATA = [
   // phrase_2: "Esta sartén es muy barata." | transl: "This frying pan is very cheap." | audio: "audio/es/sarten_phrase_2.mp3"
   // phrase_3: "sartén de acero" | transl: "steel frying pan" | audio: "audio/es/sarten_phrase_3.mp3"
   {
-    id: "es_secador_de_pelo", lang: "es", niveau: "Nouveau",
-    word: "secador de pelo",
+    id: "es_secador_de_pelo", lang: "es", word: "secador de pelo",
     genre: "masculin",
     translation: "hair dryer", category: "expression",
     phrase: "Puedo prepararme para ir a trabajar más rápido usando mi secador de pelo.",
@@ -4626,8 +4299,7 @@ const INITIAL_DATA = [
   // ── Autres phrases pour 'secador de pelo':
   // phrase_2: "secador de pelo eléctrico" | transl: "electric hair dryer" | audio: "audio/es/secador_de_pelo_phrase_2.mp3"
   {
-    id: "es_semilla", lang: "es", niveau: "Nouveau",
-    word: "semilla",
+    id: "es_semilla", lang: "es", word: "semilla",
     genre: "féminin",
     translation: "seed", category: "nom",
     phrase: "Dejar la semilla en el chile lo hará mucho más picante.",
@@ -4640,8 +4312,7 @@ const INITIAL_DATA = [
   // phrase_3: "semilla de girasol" | transl: "sunflower seed" | audio: "audio/es/semilla_phrase_3.mp3"
   // phrase_4: "vaina de semillas" | transl: "seed pod" | audio: "audio/es/semilla_phrase_4.mp3"
   {
-    id: "es_vater", lang: "es", niveau: "Nouveau",
-    word: "váter",
+    id: "es_vater", lang: "es", word: "váter",
     genre: "masculin",
     translation: "toilet", category: "nom",
     phrase: "Nuestra casa del lago no tiene un váter interior.",
@@ -4653,8 +4324,7 @@ const INITIAL_DATA = [
   // phrase_2: "taza del váter" | transl: "toilet bowl" | audio: "audio/es/vater_phrase_2.mp3"
   // phrase_3: "váter interior" | transl: "indoor toilet" | audio: "audio/es/vater_phrase_3.mp3"
   {
-    id: "es_corbata", lang: "es", niveau: "Nouveau",
-    word: "corbata",
+    id: "es_corbata", lang: "es", word: "corbata",
     genre: "féminin",
     translation: "necktie", category: "nom",
     phrase: "El hombre se está anudando una corbata a rayas.",
@@ -4668,8 +4338,7 @@ const INITIAL_DATA = [
   // phrase_4: "traje negro, camisa azul y corbata rosa" | transl: "black suit, blue shirt, and pink necktie" | audio: "audio/es/corbata_phrase_4.mp3"
   // phrase_5: "corbata a rayas" | transl: "striped necktie" | audio: "audio/es/corbata_phrase_5.mp3"
   {
-    id: "es_catarata", lang: "es", niveau: "Nouveau",
-    word: "catarata",
+    id: "es_catarata", lang: "es", word: "catarata",
     genre: "féminin",
     translation: "waterfall", category: "nom",
     phrase: "La catarata es preciosa.",
@@ -4685,13 +4354,13 @@ const INITIAL_DATA = [
 
 // ─── CATEGORIES PAR LANGUE ────────────────────────────────────────────────────
 const CATEGORIES = {
-  ja: ['Verbe (ichidan)', 'Verbe (godan)', 'Verbe (irrégulier)', 'Nom', 'Adjectif (い)', 'Adjectif (な)', 'Adverbe', 'Particule', 'Compteur', 'Conjonction', 'Salutation', 'Expression'],
-  zh: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Préposition', 'Particule', 'Mesure', 'Conjonction', 'Salutation', 'Expression'],
-  ru: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
-  pl: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
-  pt: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
-  de: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
-  es: ['Verbe', 'Nom', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
+  ja: ['Verbe (ichidan)', 'Verbe (godan)', 'Verbe (irrégulier)', 'Nom', 'Nombre', 'Adjectif (い)', 'Adjectif (な)', 'Adverbe', 'Particule', 'Compteur', 'Conjonction', 'Salutation', 'Expression'],
+  zh: ['Verbe', 'Nom', 'Nombre', 'Adjectif', 'Adverbe', 'Préposition', 'Particule', 'Mesure', 'Conjonction', 'Salutation', 'Expression'],
+  ru: ['Verbe', 'Nom', 'Nombre', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
+  pl: ['Verbe', 'Nom', 'Nombre', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
+  pt: ['Verbe', 'Nom', 'Nombre', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
+  de: ['Verbe', 'Nom', 'Nombre', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
+  es: ['Verbe', 'Nom', 'Nombre', 'Adjectif', 'Adverbe', 'Conjonction', 'Préposition', 'Expression', 'Salutation'],
 };
 
 function updateCategorySelect(lang) {
@@ -4703,19 +4372,18 @@ function updateCategorySelect(lang) {
 // ─── STORAGE ─────────────────────────────────────────────────────────────────
 function loadData() {
   try {
-    const saved = localStorage.getItem('langdict_v1');
+    const saved = localStorage.getItem('langdict_v2');
     return saved ? JSON.parse(saved) : [...INITIAL_DATA];
   } catch { return [...INITIAL_DATA]; }
 }
 
 function saveData(data) {
-  try { localStorage.setItem('langdict_v1', JSON.stringify(data)); } catch {}
+  try { localStorage.setItem('langdict_v2', JSON.stringify(data)); } catch {}
 }
 
 // ─── STATE ────────────────────────────────────────────────────────────────────
 let words = loadData();
 let filterLang = 'all';
-let filterNiv = 'all';
 let searchQuery = '';
 
 // ─── RENDER ───────────────────────────────────────────────────────────────────
@@ -4762,8 +4430,6 @@ function renderCard(w) {
     extraBadge = `<span class="ton-badge">${w.genre}</span>`;
   }
 
-  const nivClass = 'niv-' + (w.niveau||'Nouveau').replace(' ', '.');
-
   let phraseBlock = '';
   if (w.phrase) {
     phraseBlock = `
@@ -4795,7 +4461,6 @@ function renderCard(w) {
         <span class="translation">${w.translation}</span>
         <span class="category-tag ${catClass(w.category)}">${w.category}</span>
         ${extraBadge}
-        <span class="niveau-badge ${nivClass}">${w.niveau||'Nouveau'}</span>
       </div>
       <div class="card-expanded">
         ${audioRow}
@@ -4809,7 +4474,6 @@ function renderCard(w) {
 function filteredWords() {
   return words.filter(w => {
     if (filterLang !== 'all' && w.lang !== filterLang) return false;
-    if (filterNiv !== 'all' && w.niveau !== filterNiv) return false;
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       return (w.word||'').toLowerCase().includes(q)
@@ -4906,15 +4570,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-document.querySelectorAll('.niv-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.niv-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    filterNiv = btn.dataset.niv;
-    render();
-  });
-});
-
 document.getElementById('searchInput').addEventListener('input', e => {
   searchQuery = e.target.value.trim();
   render();
@@ -4950,7 +4605,6 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   const entry = {
     id: lang + '_' + Date.now(),
     lang,
-    niveau: document.getElementById('f_niveau').value,
     word,
     roman: document.getElementById('f_roman').value.trim(),
     translation: document.getElementById('f_translation').value.trim(),
