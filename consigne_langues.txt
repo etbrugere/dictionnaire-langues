@@ -104,5 +104,118 @@ id: "ru_ispuganniy" phrase_1
 id: "ru_metropoliten" phrase_1
 id: "ru_vodopad" phrase_1
 
+// POLONAIS
+id: "pl_łazienka" phrase_1
+id: "pl_kura" phrase_1
+id: "pl_słon" phrase_1
+id: "pl_ryba" phrase_1
+id: "pl_meble" phrase_1
+id: "pl_włosy" phrase_1
+id: "pl_list" phrase_1
+id: "pl_listonosz" phrase_1
+id: "pl_kuchenka_mikrofalowa" phrase_1
+id: "pl_komar" phrase_1
+id: "pl_czytac" phrase_1
+id: "pl_komedia_romantyczna" phrase_1
+id: "pl_budzik" phrase_1
+id: "pl_kelner" phrase_1
+id: "pl_cwiczyc" phrase_1
+id: "pl_szyja" phrase_1
+id: "pl_rozmawiac" phrase_1
+id: "pl_silny" phrase_1
+id: "pl_danie_głowne" phrase_1
+id: "pl_komedia" phrase_1
+id: "pl_sekretarka" phrase_1
+id: "pl_kanapa" phrase_1
+id: "pl_taksowka" phrase_1
+id: "pl_sobota" phrase_2
+id: "pl_kalendarz" phrase_1
+id: "pl_trudny" phrase_1
+id: "pl_okulary_przeciwsłoneczne" phrase_1
+id: "pl_ziemia" phrase_1
+
+
+// PORTUGAIS BR
+id: "pt_assistir" phrase_1
+id: "pt_patinacao_no_gelo" phrase_1
+id: "pt_sobrancelha" phrase_1
+
+// ALLEMAND
+id: "de_acht" phrase_1
+id: "de_nehmen" phrase_1
+id: "de_baum" phrase_1
+id: "de_regenbogen" phrase_1
+id: "de_bart" phrase_1
+id: "de_decke" phrase_1
+id: "de_ohrring" phrase_1
+id: "de_bargeld" phrase_1
+id: "de_stuhl" phrase_1
+id: "de_hals" phrase_1
+id: "de_lecker" phrase_1
+id: "de_geschaftsleiter" phrase_1
+id: "de_arzt" phrase_1
+id: "de_radieren" phrase_1
+id: "de_osten" phrase_1
+id: "de_mehl" phrase_1
+id: "de_stirn" phrase_1
+id: "de_wald" phrase_1
+id: "de_benzin" phrase_1
+id: "de_links" phrase_1
+id: "de_gras" phrase_1
+id: "de_hugel" phrase_1
+id: "de_gelb" phrase_1
+id: "de_saft" phrase_1
+id: "de_springen" phrase_1
+id: "de_lamm" phrase_1
+id: "de_sprache" phrase_1
+id: "de_spat" phrase_1
+id: "de_einkaufszentrum" phrase_1
+id: "de_speisekarte" phrase_1
+id: "de_mikrowelle" phrase_1
+id: "de_berg" phrase_1
+id: "de_nasenloch" phrase_1
+id: "de_schmal" phrase_1
+id: "de_wildschwein" phrase_1
+id: "de_buro" phrase_1
+id: "de_lesen" phrase_2
+id: "de_reservierung" phrase_1
+id: "de_straße" phrase_2
+id: "de_gehalt" phrase_1
+id: "de_salzig" phrase_1
+id: "de_meeresfruchte" phrase_1
+id: "de_garnele" phrase_1
+id: "de_rock" phrase_1
+id: "de_werkzeugkasten" phrase_1
+id: "de_kuh" phrase_1
+id: "de_gemuse" phrase_1
+id: "de_grun" phrase_1
+id: "de_flug" phrase_1
+
+// ESPAGNOL
+id: "es_tobillo" phrase_1
+id: "es_pajaro" phrase_2
+id: "es_calido" pharse_1
+id: "es_nube" phrase_1
+id: "es_llovizna" pharse_1
+id: "es_escarcha" phrase_1
+id: "es_rinon" pharse_1
+id: "es_tenedor" phrase_2
+id: "es_ajo" phrase_1
+id: "es_vaqueros" pharse_1
+id: "es_bombilla" phrase_1
+id: "es_mala_hierba" pharse_1
+id: "es_cabra" phrase_1
+id: "es_bigote" phrase_1
+id: "es_cebolla" phrase_1
+id: "es_gallina" phrase_1
+id: "es_oreja" phrase_1
+id: "es_empujar" phrase_1
+id: "es_sarten" phrase_1
+id: "es_secador_de_pelo" phrase_1
+id: "es_semilla" phrase_1
+id: "es_vater" pharse_1
+id: "es_corbata" phrase_1
+id: "es_catarata" phrase_1
+
 
 
