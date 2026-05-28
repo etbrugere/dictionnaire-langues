@@ -3,7 +3,7 @@
 ## Vue d'ensemble
 
 ```
-Brave (onglets) → Ctrl+S → vocab_temp/ → extract_vocab.py → JSON + MP3 → inject_vocab.py → index.html
+Brave (onglets) → Ctrl+S → vocab_temp/ → extract_vocab.py → JSON + MP3 → inject_vocab.py → index.html → apply_consigne.py (choix phrase + nettoyage)
 ```
 
 ---
@@ -15,6 +15,8 @@ C:\Users\brugere\Documents\Workspace\dictionnaire-langues\
 ├── index.html               ← ton dictionnaire
 ├── extract_vocab.py         ← script d'extraction
 ├── inject_vocab.py          ← script d'injection
+├── apply_consigne.py        ← script de sélection auto des phrases
+├── consigne_langues.txt     ← tes choix de phrases (id + numéro)
 ├── ru_import.json           ← données extraites russe
 ├── ja_import.json           ← données extraites japonais
 ├── zh_import.json           ← données extraites chinois
@@ -169,9 +171,51 @@ Pour chaque entrée :
 2. **Traduis** `phrase_fr` en français (actuellement en anglais)
 3. **Supprime** les commentaires une fois ton choix fait
 
+> 💡 Plutôt que de tout faire à la main, l'**ÉTAPE 7** ci-dessous automatise le choix de la phrase, le nettoyage des commentaires et la suppression des MP3 non retenus. Tu n'auras plus qu'à traduire `phrase_fr` ensuite.
+
 ---
 
-### ÉTAPE 7 — Vider vocab_temp
+### ÉTAPE 7 — Appliquer tes choix de phrases automatiquement (apply_consigne.py)
+
+Au lieu d'éditer chaque entrée à la main, tu notes tes choix dans un fichier et le script s'occupe du reste : il **garde la phrase voulue**, **supprime les commentaires**, et **efface du disque les MP3 des phrases non retenues**.
+
+#### 1. Créer / éditer `consigne_langues.txt`
+
+Dans le dossier du projet, crée un fichier `consigne_langues.txt`. **Une ligne par entrée** à finaliser, contenant l'`id` de l'entrée et le numéro de phrase à garder :
+
+```
+id: "ru_funt" phrase_2
+id: "ja_neko" phrase_1
+id: "zh_mao"  phrase_3
+```
+
+- `phrase_1` = garder la phrase déjà en place (celle insérée par défaut en ÉTAPE 5)
+- `phrase_2`, `phrase_3`, … = remplacer par la phrase correspondante trouvée dans les commentaires juste sous l'entrée
+
+> 💡 Astuce : copie-colle directement la ligne `id: "..."` depuis `index.html` et ajoute ` phrase_N` à la fin.
+> Le script est tolérant : peu importe l'ordre ou les espaces sur la ligne, il lui faut juste trouver `id: "..."` **et** `phrase_N` sur la **même ligne**. Il accepte même la faute de frappe `pharse_N`.
+
+#### 2. Lancer le script
+
+```cmd
+python C:\Users\brugere\Documents\Workspace\dictionnaire-langues\apply_consigne.py
+```
+
+**Ce que fait le script :**
+- Crée automatiquement un backup `index.backup.YYYYMMDD_HHMMSS.html` avant toute modification
+- Pour chaque entrée listée dans la consigne :
+  - si `phrase_1` → garde l'entrée telle quelle
+  - si `phrase_N` (N>1) → remplace `phrase` / `phrase_reading` / `phrase_roman` / `phrase_fr` / `audio_phrase` par les valeurs de la phrase choisie (trouvées dans les commentaires)
+  - **supprime les lignes de commentaires** `// phrase_…` sous l'entrée
+- **Supprime du disque** les fichiers MP3 des phrases **non** retenues (`audio/{langue}/…_phrase_N.mp3`)
+- Affiche à la fin le nombre d'entrées traitées et de fichiers audio supprimés
+
+> ⚠️ Les entrées **non listées** dans la consigne sont laissées **intactes** (entrée + commentaires conservés). Pense donc à **lister toutes les entrées** que tu veux finaliser, sinon leurs commentaires resteront en place.
+> ⚠️ Le script **ne traduit pas** : `phrase_fr` est repris tel quel depuis les commentaires (souvent en anglais). Il te reste à le traduire en français à la main une fois le script passé.
+
+---
+
+### ÉTAPE 8 — Vider vocab_temp
 
 Une fois tout injecté et vérifié, supprime le contenu de `vocab_temp\` pour repartir propre à la prochaine session.
 
