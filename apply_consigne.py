@@ -5,12 +5,16 @@ apply_consigne.py — Applique les consignes de sélection de phrase depuis cons
 - Supprime les fichiers audio des phrases non retenues
 """
 
+import os
 import re
 import shutil
 from datetime import datetime
 from pathlib import Path
 
-BASE_DIR = Path(r"C:\Users\brugere\Documents\Workspace\dictionnaire-langues")
+BASE_DIR = Path(os.environ.get(
+    "DICT_BASE_DIR",
+    r"C:\Users\brugere\Documents\Workspace\dictionnaire-langues",
+))
 HTML_FILE = BASE_DIR / "index.html"
 CONSIGNE_FILE = BASE_DIR / "consigne_langues.txt"
 

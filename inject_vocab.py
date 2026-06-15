@@ -8,14 +8,22 @@ inject_vocab.py — Injection des JSON *_import.json dans index.html
 - Ne réinjecte pas les entrées déjà présentes (vérification par id)
 - Crée un backup horodaté avant chaque modification
 
+Garde-fou ÉTAPE 5 :
+  Par défaut, l'injection est REFUSÉE pour une langue dont un mot a encore
+  plusieurs phrases (= select_phrase.py n'a pas été lancé). Utilise --force
+  pour injecter quand même (les phrases en trop deviennent des commentaires,
+  à traiter ensuite avec apply_consigne.py — ÉTAPE 8).
+
 Usage:
   python inject_vocab.py --lang ru
   python inject_vocab.py --lang zh
   python inject_vocab.py --all
+  python inject_vocab.py --lang ru --force
 """
 
 import argparse
 import json
+import os
 import re
 import shutil
 from datetime import datetime
@@ -23,7 +31,10 @@ from pathlib import Path
 
 # ─── CONFIG ───────────────────────────────────────────────────────────────────
 
-BASE_DIR = Path(r"C:\Users\brugere\Documents\Workspace\dictionnaire-langues")
+BASE_DIR = Path(os.environ.get(
+    "DICT_BASE_DIR",
+    r"C:\Users\brugere\Documents\Workspace\dictionnaire-langues",
+))
 HTML_FILE = BASE_DIR / "index.html"
 
 LANG_CONFIG = {
@@ -163,17 +174,27 @@ def entry_to_js(entry):
 
 # ─── INJECTION ────────────────────────────────────────────────────────────────
 
-def inject_entries(html_content, entries, lang):
+def inject_entries(html_content, entries, lang, force=False):
+    """
+    Retourne (html_content, n_injectees, blocked)
+      blocked : liste des entrées refusées car elles ont encore >1 phrase
+                (vide si tout est OK ou si --force)
+    """
     existing_ids = get_existing_ids(html_content)
     marker = LANG_COMMENTS[lang]
 
     new_entries = [e for e in entries if e.get("id") not in existing_ids]
     if not new_entries:
-        return html_content, 0
+        return html_content, 0, []
+
+    # Garde-fou ÉTAPE 5 : refuse les mots ayant encore plusieurs phrases
+    multi = [e for e in new_entries if len(e.get("phrases", [])) > 1]
+    if multi and not force:
+        return html_content, 0, multi
 
     # Construit le bloc à insérer :
     # },          <- virgule après l'objet JS (syntaxe valide)
-    # // phrase_2 <- commentaires après la virgule (inoffensifs)
+    # // phrase_2 <- commentaires après la virgule (inoffensifs, si --force)
     blocks = []
     for e in new_entries:
         obj, comments = entry_to_js(e)
@@ -186,21 +207,32 @@ def inject_entries(html_content, entries, lang):
     if not match:
         print(f"  ✗ Marqueur '{marker}' introuvable dans le HTML.")
         print(f"    Ajoute ce commentaire dans ton tableau words : {marker}")
-        return html_content, 0
+        return html_content, 0, []
 
     insert_pos = match.end()
     html_content = html_content[:insert_pos] + insertion + html_content[insert_pos:]
-    return html_content, len(new_entries)
+    return html_content, len(new_entries), []
 
 
 # ─── MAIN ─────────────────────────────────────────────────────────────────────
 
-def process_lang(lang, html_content):
+def process_lang(lang, html_content, force=False):
     json_path = LANG_CONFIG[lang]
     entries = load_json(json_path)
     if not entries:
         return html_content, 0
-    html_content, n = inject_entries(html_content, entries, lang)
+    html_content, n, blocked = inject_entries(html_content, entries, lang, force)
+    if blocked:
+        print(f"  ⛔ {lang.upper()} : injection refusée — "
+              f"{len(blocked)} mot(s) ont encore plusieurs phrases.")
+        print(f"     → Lance d'abord :  python select_phrase.py --lang {lang}")
+        print(f"     → ou force l'injection avec --force "
+              f"(les phrases en trop deviennent des commentaires, voir ÉTAPE 8)")
+        for e in blocked[:10]:
+            print(f"        - {e.get('id','?')} ({len(e.get('phrases', []))} phrases)")
+        if len(blocked) > 10:
+            print(f"        … et {len(blocked) - 10} autre(s)")
+        return html_content, 0
     print(f"  ✅ {lang.upper()} : {n} entrée(s) injectée(s)")
     return html_content, n
 
@@ -209,6 +241,9 @@ def main():
     parser = argparse.ArgumentParser(description="Injection vocabulaire dans index.html")
     parser.add_argument("--lang", choices=["ru","ja","zh","pl","pt","de","es"])
     parser.add_argument("--all", action="store_true")
+    parser.add_argument("--force", action="store_true",
+                        help="Injecte même si des mots ont plusieurs phrases "
+                             "(phrases en trop → commentaires)")
     args = parser.parse_args()
 
     if not args.lang and not args.all:
@@ -226,7 +261,7 @@ def main():
     total = 0
     for lang in langs:
         print(f"\n🌐 {lang.upper()}")
-        html_content, n = process_lang(lang, html_content)
+        html_content, n = process_lang(lang, html_content, args.force)
         total += n
 
     write_html(HTML_FILE, html_content)

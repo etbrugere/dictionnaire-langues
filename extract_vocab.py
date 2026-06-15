@@ -15,6 +15,7 @@ Prérequis : pip install requests beautifulsoup4
 
 import argparse
 import json
+import os
 import re
 import time
 import unicodedata
@@ -25,7 +26,10 @@ import requests
 
 # ─── CONFIG ───────────────────────────────────────────────────────────────────
 
-BASE_DIR = Path(r"C:\Users\brugere\Documents\Workspace\dictionnaire-langues")
+BASE_DIR = Path(os.environ.get(
+    "DICT_BASE_DIR",
+    r"C:\Users\brugere\Documents\Workspace\dictionnaire-langues",
+))
 
 LANG_CONFIG = {
     "ru": {"audio_dir": BASE_DIR / "audio" / "ru", "json_file": BASE_DIR / "ru_import.json"},
